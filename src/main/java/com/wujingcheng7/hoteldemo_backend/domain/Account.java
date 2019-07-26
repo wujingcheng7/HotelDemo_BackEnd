@@ -2,25 +2,22 @@ package com.wujingcheng7.hoteldemo_backend.domain;
 
 public class Account {
 
-    private long  user_tel;
+    private String user_tel;
     private String user_name;
-    private int    user_sex;//0:male  1:female
+    private String user_sex;//"男"或者"女"
     private String user_password;
     private String user_bankcard;
 
-    public Account(long user_tel, String user_name, int user_sex, String user_password, String user_bankcard) {
+    public Account(String user_tel, String user_password) {
         this.user_tel = user_tel;
-        this.user_name = user_name;
-        this.user_sex = user_sex;
         this.user_password = user_password;
-        this.user_bankcard = user_bankcard;
     }
 
-    public long getUser_tel() {
+    public String getUser_tel() {
         return user_tel;
     }
 
-    public void setUser_tel(long user_tel) {
+    public void setUser_tel(String user_tel) {
         this.user_tel = user_tel;
     }
 
@@ -32,11 +29,11 @@ public class Account {
         this.user_name = user_name;
     }
 
-    public int getUser_sex() {
+    public String getUser_sex() {
         return user_sex;
     }
 
-    public void setUser_sex(int user_sex) {
+    public void setUser_sex(String user_sex) {
         this.user_sex = user_sex;
     }
 

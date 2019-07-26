@@ -48,8 +48,8 @@ public class AccountService {
         result.setSuccess(false);
         result.setDetail(null);
         try{
-            long usertel = accountMapper.login(account);
-            if(usertel == 0){
+            String usertel = accountMapper.login(account);
+            if(usertel == null){
                 result.setMsg("用户名或密码错误");
             }else{
                 result.setMsg("登录成功");
