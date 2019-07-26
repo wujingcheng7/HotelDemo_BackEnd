@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
-public class account {
+public class Account {
     private long user_tel;
     private String user_name;
     private int    user_sex;//0:male  1:female

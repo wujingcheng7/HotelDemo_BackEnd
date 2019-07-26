@@ -1,0 +1,10 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://132.232.13.117:3306/hotel
+    username: root
+    password: SC_bro_2019
+  resources:
+    static-locations: classpath:/static  #访问静态页面

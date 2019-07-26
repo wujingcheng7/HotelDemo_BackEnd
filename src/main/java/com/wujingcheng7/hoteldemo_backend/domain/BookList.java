@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
-public class book_list {
+public class BookList {
     private int book_id;
     private int hotel_id;
     private long user_tel;
