@@ -28,4 +28,6 @@ public class AccountController {
     public Result login(Account account){
         return accountService.login(account);
     }
+    @RequestMapping("/test")
+    public void test(){;}
 }
