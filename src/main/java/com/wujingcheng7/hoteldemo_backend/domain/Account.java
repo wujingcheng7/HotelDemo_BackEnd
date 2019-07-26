@@ -1,51 +1,72 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
 public class Account {
-    private long user_tel;
-    private String user_name;
-    private int    user_sex;//0:male  1:female
-    private String user_password;
+    private String id;
+    private String name;//姓名
+    private String sex;//性别
+    private String telphone;//电话
+    private String bankcard;//银行卡
+    private String password;//密码
 
-    public String getUser_password() {
-        return user_password;
+    public Account(){
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public Account(String id, String name, String sex, String telphone, String bankcard, String password) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.telphone = telphone;
+        this.bankcard = bankcard;
+        this.password = password;
     }
 
-    private String user_bankcard;
-
-    public long getUser_tel() {
-        return user_tel;
+    //getter方法
+    public String getId() {
+        return id;
     }
 
-    public void setUser_tel(long user_tel) {
-        this.user_tel = user_tel;
+    public String getName() {
+        return name;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getSex() {
+        return sex;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public String getTelphone() {
+        return telphone;
     }
 
-    public int getUser_sex() {
-        return user_sex;
+    public String getBankcard() {
+        return bankcard;
     }
 
-    public void setUser_sex(int user_sex) {
-        this.user_sex = user_sex;
+    public String getPassword() {
+        return password;
+    }
+    //setter方法
+
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getUser_bankcard() {
-        return user_bankcard;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUser_bankcard(String user_bankcard) {
-        this.user_bankcard = user_bankcard;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
+    public void setTelphone(String telphone) {
+        this.telphone = telphone;
+    }
+
+    public void setBankcard(String bankcard) {
+        this.bankcard = bankcard;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
