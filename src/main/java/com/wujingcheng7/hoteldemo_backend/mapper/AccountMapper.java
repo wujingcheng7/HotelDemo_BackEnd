@@ -23,6 +23,6 @@ public interface AccountMapper {
     /*
     *根据手机和密码查找账户
     * */
-    @Select("select user_tel from account where user_tel=#{user_tel},user_password=#{user_password}")
-    String login(Account account);
+    @Select("select user_tel from account where user_tel=#{user_tel} and user_password=#{user_password}")
+    String login(String user_tel,String user_password);
 }

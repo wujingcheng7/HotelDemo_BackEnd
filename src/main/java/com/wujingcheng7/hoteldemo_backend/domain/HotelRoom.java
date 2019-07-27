@@ -9,6 +9,9 @@ public class HotelRoom {
     private String room_price;
     private String room_text;
 
+    public HotelRoom() {
+    }
+
     public String getHotel_room_id() {
         return hotel_room_id;
     }

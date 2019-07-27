@@ -9,6 +9,9 @@ public class hotel {
     private String hotel_address;
     private String hotel_text;
 
+    public hotel() {
+    }
+
     public String getHotel_id() {
         return hotel_id;
     }

@@ -43,18 +43,18 @@ public class AccountService {
     * @param Account 手机号和密码
     * @return Result
     * */
-    public Result login(Account account){
+    public Result login(String user_tel,String user_password){
         Result result = new Result();
         result.setSuccess(false);
         result.setDetail(null);
         try{
-            String usertel = accountMapper.login(account);
+            String usertel = accountMapper.login(user_tel,user_password);
             if(usertel == null){
                 result.setMsg("用户名或密码错误");
             }else{
                 result.setMsg("登录成功");
                 result.setSuccess(true);
-                result.setDetail(account);
+                result.setDetail(null);
             }
         }catch (Exception e){
             result.setMsg(e.getMessage());

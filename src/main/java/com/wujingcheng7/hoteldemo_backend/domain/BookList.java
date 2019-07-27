@@ -9,6 +9,9 @@ public class BookList {
     private String live_time;
     private String last_time;
 
+    public BookList() {
+    }
+
     public String getBook_id() {
         return book_id;
     }

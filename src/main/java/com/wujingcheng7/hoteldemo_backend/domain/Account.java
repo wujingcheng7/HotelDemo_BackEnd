@@ -13,6 +13,8 @@ public class Account {
         this.user_password = user_password;
     }
 
+    public Account() { }
+
     public String getUser_tel() {
         return user_tel;
     }
