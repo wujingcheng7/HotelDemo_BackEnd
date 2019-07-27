@@ -21,7 +21,7 @@ public class AccountService {
         result.setSuccess(false);
         result.setDetail(null);
         try{
-            Object existaccount = accountMapper.select(account.getUser_tel());
+            Object existaccount = accountMapper.getByTel(account.getUser_tel());
             if(existaccount != null){
                 //如果用户已存在
                 result.setMsg("该手机号已被注册");

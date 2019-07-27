@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountMapper {
     @Select("select * from account where user_tel=#{user_tel}")
-    Account select(String user_tel);
+    Account getByTel(String user_tel);
 
     @Delete("delete * from account where user_tel=#{user_tel}")
-    void delete(String user_tel);
+    void deleteByTel(String user_tel);
 
     @Insert("insert into account(user_tel,user_password) values (#{user_tel},#{user_password})")
     void regist(Account account);
