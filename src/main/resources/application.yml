@@ -8,3 +8,5 @@ spring:
     password: SC_bro_2019
   thymeleaf:
     prefix: classpath:/templates/
+  mvc:
+    static-path-pattern: /static/**

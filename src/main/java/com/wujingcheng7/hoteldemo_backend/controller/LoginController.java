@@ -21,7 +21,11 @@ public class LoginController {
     public String LoginHtml(){return "/login";}
     @PostMapping("")
     public String login(@RequestParam("user_tel") String user_tel, @RequestParam("user_password") String user_password){
-        accountService.login(user_tel,user_password);
-        return "redirect:/index";
+        Result result;
+        result = accountService.login(user_tel,user_password);
+        if(result.isSuccess())
+            return "redirect:/index";
+        else
+            return "用户名或密码错误";
     }
 }

@@ -93,7 +93,7 @@
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
-                    <form class="form" method="" action="">
+                    <form class="form" method="POST" action="/login/">
                         <div class="header header-primary text-center">
                             <div class="logo-container">
                                 <img src="../static/img/1.jpg" alt="">
@@ -104,17 +104,17 @@
                                 <!--<span class="input-group-addon">-->
                                     <!--<i class="now-ui-icons users_circle-08"></i>-->
                                 <!--</span>-->
-                                <input type="text" class="form-control" placeholder="tel">
+                                <input name="user_tel" type="text" class="form-control" placeholder="Telephone">
                             </div>
                             <div class="input-group form-group-no-border input-lg">
                                 <!--<span class="input-group-addon">-->
                                     <!--<i class="now-ui-icons text_caps-small"></i>-->
                                 <!--</span>-->
-                                <input type="text" placeholder="password" class="form-control" />
+                                <input name="user_password" type="text" placeholder="Password" class="form-control" />
                             </div>
                         </div>
                         <div class="footer text-center">
-                            <a href="index.html" class="btn btn-primary btn-round btn-lg btn-block">登陆</a>
+                            <input type="submit" class="btn btn-primary btn-round btn-lg btn-block" value="登录">
                         </div>
                         <div class="pull-left">
                             <h6>

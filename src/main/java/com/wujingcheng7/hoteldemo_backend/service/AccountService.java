@@ -60,6 +60,7 @@ public class AccountService {
             result.setMsg(e.getMessage());
             e.printStackTrace();
         }
+        System.out.println(result.toString());
         return  result;
     }
 }
