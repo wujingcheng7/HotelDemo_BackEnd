@@ -18,11 +18,14 @@ public class RegisterController {
     @GetMapping("")
     public String RegisterHtml(){return "/register";}
     @PostMapping("")
-    public Result Register(@RequestParam("user_tel") String user_tel, @RequestParam("user_password") String user_password){
+    public String Register(@RequestParam("user_tel") String user_tel, @RequestParam("user_password") String user_password,@RequestParam("confirm_password") String confirm_password){
+        if (!user_password.equals(confirm_password))
+            return "两次密码不一致";
         Account account = new Account();
         account.setUser_tel(user_tel);
         account.setUser_password(user_password);
         account.toString();
-        return accountService.regist(account);
+        accountService.regist(account);
+        return "/login";
     }
 }
