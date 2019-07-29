@@ -600,7 +600,7 @@ div.letters_block a { width:119px; }
 .show_history .history_list { display:block; }
 /* save search end */
 
-/* find hotel S*/
+/* find Hotel S*/
 .find_hotel_side{
     padding: 14px 18px 14px 18px; margin-bottom: 10px; border: 1px solid #dedede;
     background-color: #f2f2f2;
@@ -656,7 +656,7 @@ div.letters_block a { width:119px; }
 .find_hotel_side .fhs_bd .btn_action:hover .ico_arr_r{
 	background-position: -140px -320px;
 }
-/* find hotel E*/
+/* find Hotel E*/
 /* double christmas S */
 .xmas{font: normal 14px "Microsoft Yahei";}
 /* double christmas E */
@@ -746,7 +746,7 @@ div.letters_block a { width:119px; }
 .ie8w980 .nearby_htl_detail a,.ie8w980 .nearby_htl_detail2 .second_list a {width:108px;}
 .ie8w980 .nearby_htl_detail2 .first_list li {width:114px;}
 .ie8w980 .search_form .search_history_box { left:224px; }
-/* for hotel affiliate */
+/* for Hotel affiliate */
 .ie8w980 .hotel_affiliate{width:338px;}
 .ie8w980 .hotel_affiliate img{margin-left:-20px;}
 /* surrounding tour */
@@ -811,7 +811,7 @@ div.letters_block a { width:119px; }
 	.nearby_htl_detail a, .nearby_htl_detail2 .second_list a {width:108px;}
 	.nearby_htl_detail2 .first_list li {width:114px;}
 	.search_form .search_history_box { left:224px; }
-	/* for hotel affiliate */
+	/* for Hotel affiliate */
 	.hotel_affiliate{width:338px;}
 
 	.hotel_affiliate img{margin-left:-20px;}

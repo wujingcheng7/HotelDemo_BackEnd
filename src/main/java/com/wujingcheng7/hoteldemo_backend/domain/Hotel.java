@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
-public class hotel {
+public class Hotel {
     private String hotel_id;
     private String hotel_name;
     private String hotel_longitude;
@@ -8,8 +8,21 @@ public class hotel {
     private String hotel_stars;
     private String hotel_address;
     private String hotel_text;
+    private String hotel_city;
 
-    public hotel() {
+    public Hotel(String hotel_id, String hotel_name, String hotel_longitude, String hotel_latitude, String hotel_stars, String hotel_address, String hotel_text, String hotel_city) {
+        this.hotel_id = hotel_id;
+        this.hotel_name = hotel_name;
+        this.hotel_longitude = hotel_longitude;
+        this.hotel_latitude = hotel_latitude;
+        this.hotel_stars = hotel_stars;
+        this.hotel_address = hotel_address;
+        this.hotel_text = hotel_text;
+        this.hotel_city = hotel_city;
+    }
+
+
+    public Hotel() {
     }
 
     public String getHotel_id() {
@@ -68,13 +81,11 @@ public class hotel {
         this.hotel_text = hotel_text;
     }
 
-    public hotel(String hotel_id, String hotel_name, String hotel_longitude, String hotel_latitude, String hotel_stars, String hotel_address, String hotel_text) {
-        this.hotel_id = hotel_id;
-        this.hotel_name = hotel_name;
-        this.hotel_longitude = hotel_longitude;
-        this.hotel_latitude = hotel_latitude;
-        this.hotel_stars = hotel_stars;
-        this.hotel_address = hotel_address;
-        this.hotel_text = hotel_text;
+    public String getHotel_city() {
+        return hotel_city;
+    }
+
+    public void setHotel_city(String hotel_city) {
+        this.hotel_city = hotel_city;
     }
 }
