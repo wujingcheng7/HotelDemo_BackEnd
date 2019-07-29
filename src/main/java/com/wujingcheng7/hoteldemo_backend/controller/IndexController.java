@@ -25,13 +25,18 @@ public class IndexController {
     public ModelAndView goHtml(@Param("hotel_city")String hotel_city,
                                @Param("hotel_name")String hotel_name){
         ModelAndView model = new ModelAndView("hotel_display");
-//        ArrayList<Hotel> hotels = hotelSearchService.getByCityAndName(hotel_city,hotel_name);
-//        if (hotels.get(1) == null){
-//            System.out.println("草泥马没读取成功,来自IndexController");
-//        }else {
-//            System.out.println("草泥马读取成功了,来自IndexController");
-//        }
-//        model.addObject("HotelArrayList",hotels);
+        ArrayList<Hotel> hotels = hotelSearchService.getByCityAndName(hotel_city,hotel_name);
+        try{
+            if (hotels.size()==0){
+                System.out.println("草泥马没读取成功,来自IndexController");
+            }
+            else
+                System.out.println("草泥马读取成功了,来自IndexController");
+                System.out.println(hotels);
+        }catch (Exception e){
+            System.out.println("出现异常");
+        }
+        model.addObject("HotelArrayList",hotels);
         return model;
     }
 }
