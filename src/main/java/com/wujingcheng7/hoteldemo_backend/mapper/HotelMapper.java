@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+
 @Mapper
 @Repository
 public interface HotelMapper {
@@ -18,4 +20,7 @@ public interface HotelMapper {
 
     @Insert("Insert into book_list(hotel_id,hotel_name,hotel_longitude,hotel_latitude,hotel_stars,hotel_address,hotel_text) values(#{hotel_id},#{hotel_name},#{hotel_longitude},#{hotel_latitude},#{hotel_stars},#{hotel_address},#{hotel_text})")
     void createHotel(Hotel hotel);
+
+    @Select("select * from hotel where hotel_name like '%#{hotel_name}%' and hotel_city like '%#{hotel_city}%'")
+    ResultSet getResultsetByCityAndName(String hotel_city, String hotel_name);
 }
