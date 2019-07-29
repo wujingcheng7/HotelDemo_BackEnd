@@ -27,9 +27,9 @@ public class HotelSearchController {
                               @Param("hotel_name")String hotel_name){
         ArrayList<Hotel> hotels = hotelSearchService.getByCityAndName(hotel_city,hotel_name);
         if (hotels.get(1) == null){
-            System.out.println("草泥马没读取成功");
+            System.out.println("草泥马没读取成功,来自HotelSearchController");
         }else {
-            System.out.println("草泥马读取成功了");
+            System.out.println("草泥马读取成功了,来自HotelSearchController");
         }
     }
 }

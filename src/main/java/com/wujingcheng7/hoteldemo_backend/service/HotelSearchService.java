@@ -15,9 +15,10 @@ public class HotelSearchService {
     HotelMapper hotelMapper;
 
     public ArrayList<Hotel> getByCityAndName(String hotel_city, String hotel_name){
+        try {
         ResultSet rs = hotelMapper.getResultsetByCityAndName(hotel_city,hotel_name);
         ArrayList<Hotel> hotels = new ArrayList<>();
-        try {
+
             while (rs.next()) {
                 hotels.add(new Hotel(
                         rs.getString("hotel_id"),
@@ -30,16 +31,12 @@ public class HotelSearchService {
                         rs.getString("hotel_city")
                 ));
             }
+            rs.close();
+        return hotels;
         }catch (SQLException e){
             System.out.println("酒店列表SQL语句读取时出错");
             e.printStackTrace();
+            return null;
         }
-        try {
-            rs.close();
-        } catch (SQLException e) {
-            System.out.println("酒店列表SQL语句关闭时出错");
-            e.printStackTrace();
-        }
-        return hotels;
     }
 }
