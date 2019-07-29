@@ -25,7 +25,7 @@ public class LoginController {
         Result result;
         result = accountService.login(user_tel,user_password);
         if(result.isSuccess()) {
-            return "redirect:/index?{user_tem}";
+            return "/index";
         }
         else {
             model.addAttribute("msg","用户名或密码错误");

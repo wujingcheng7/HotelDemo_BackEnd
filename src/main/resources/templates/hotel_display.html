@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Gallery</title>
+<title>酒店信息——QQ酒店</title>
 <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
@@ -274,11 +274,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="alert alert-success">
 			<table border="0" align="center" width="1200px">
 				<tr>
-					<td>酒店名</td>
-					<td>所在城市</td>
-					<td>酒店星级</td>
-					<td>酒店地址</td>
-					<td>最低价格</td>
+					<th>酒店名</th>
+					<th>所在城市</th>
+					<th>酒店星级</th>
+					<th>酒店地址</th>
+					<th>最低价格</th>
+					<th>操作</th>
 				</tr>
 				<tr th:each ="i:${info}">
 					<td th:text = "${i.hotel_name}"></td>
@@ -286,6 +287,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<td th:text = "${i.hotel_stars}"></td>
 					<td th:text = "${i.hotel_address}"></td>
 					<td th:text = "${i.hotel_price}"></td>
+					<td><input type="submit" value="预定房间"></td>
 				</tr>
 			</table>
 		</div>
