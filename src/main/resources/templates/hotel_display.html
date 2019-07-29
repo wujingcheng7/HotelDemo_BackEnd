@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>Gallery</title>
 <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -179,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!--<li><a href=""> <i class="icon5"> </i> </a></li>-->
 			<!--</ul>-->
 		<!--</div>-->
-   	</div>
+   	<!--</div>-->
    </div>
    <!--<div class="living_middle">-->
    	  <!--<div class="container">-->
@@ -248,10 +248,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <!--</div>-->
    <!--</div>-->
 	<!--自行添加->展示数据库-->
-	<div>
-
+	<div class="banner">
+		<div class="container_wrap">
+			<h1>酒店查询</h1>
+			<form action="/hotel">
+				<input type="text" name="hotel_city" value="目的地" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '目的地';}">
+				<font color="white">入住</font>
+				<input type="date" value="入住时间"/>
+				<font color="white">退房</font>
+				<input type="date" value="退房时间"/><br>
+				<input type="text" name="hotel_name" value="关键字（酒店名），..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '关键字（酒店名），...';}">
+				<div class="contact_btn">
+					<label class="btn1 btn-2 btn-2g"><input type="submit" value="查询"></label>
+				</div>
+			</form>
+			<div class="clearfix"></div>
+		</div>
 	</div>
-   <div class="living_bottom">
+	</div>
+
+<!--数据库酒店信息-->
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="alert alert-success">
+			<table border="0" align="center" width="1200px">
+				<tr>
+					<td>酒店名</td>
+					<td>所在城市</td>
+					<td>酒店星级</td>
+					<td>酒店地址</td>
+					<td>最低价格</td>
+				</tr>
+				<tr th:each ="i:${info}">
+					<td th:text = "${i.hotel_name}"></td>
+					<td th:text = "${i.hotel_city}"></td>
+					<td th:text = "${i.hotel_stars}"></td>
+					<td th:text = "${i.hotel_address}"></td>
+					<td th:text = "${i.hotel_price}"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="living_bottom">
    	  <div class="container">
    	  	<h2 class="title block-title">Latest Posts</h2>
    	  	<div class="col-md-6 post_left wow fadeInLeft" data-wow-delay="0.4s">
