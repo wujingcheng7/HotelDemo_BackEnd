@@ -88,7 +88,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="banner">
    	  <div class="container_wrap">
    		<h1>酒店查询</h1>
-		  <input type="text" value="目的地" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '目的地';}"><br>
+	  <form method="post" action="/hotel_display">
+		  <input type="text" name="hotel_city" value="目的地" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '目的地';}"><br>
    	       <!--<div class="dropdown-buttons">-->
             		<!--<div class="dropdown-button">-->
             			<!--<select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>-->
@@ -120,12 +121,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  		<input type="date" value="入住时间"/>
 		  		<font color="white">退房</font>
 		  		<input type="date" value="退房时间"/>
-		    <form>
-				<input type="text" value="关键字（酒店名），..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '关键字（酒店名），...';}">
+
+				<input type="text"  name="hotel_name" value="关键字（酒店名），..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '关键字（酒店名），...';}">
 			    <div class="contact_btn">
 	               <label class="btn1 btn-2 btn-2g"><input name="submit" type="submit" id="submit" value="查询"></label>
 	            </div>
-			</form>        		
+	  </form>
    		    <div class="clearfix"></div>
          </div>
    </div>
