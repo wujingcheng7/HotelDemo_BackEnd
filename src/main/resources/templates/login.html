@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
@@ -48,9 +48,11 @@
                                 <input name="user_password" type="password" maxlength="20" minlength="8" placeholder="Password" class="form-control" />
                             </div>
                         </div>
+                        <div th:text="${msg}" style="color: red"></div>
                         <div class="footer text-center">
                             <input type="submit" class="btn btn-primary btn-round btn-lg btn-block" value="登录">
                         </div>
+
                         <div class="pull-left">
                             <h6>
                                 <a href="/register" class="link">注册帐号</a>
