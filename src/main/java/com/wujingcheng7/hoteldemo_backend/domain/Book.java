@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
-public class BookList {
+public class Book {
     private String book_id;
     private String hotel_id;
     private String user_tel;
@@ -9,7 +9,7 @@ public class BookList {
     private String live_time;
     private String last_time;
 
-    public BookList() {
+    public Book() {
     }
 
     public String getBook_id() {
@@ -68,7 +68,7 @@ public class BookList {
         this.last_time = last_time;
     }
 
-    public BookList(String book_id, String hotel_id, String user_tel, String room_id, String book_time, String live_time, String last_time) {
+    public Book(String book_id, String hotel_id, String user_tel, String room_id, String book_time, String live_time, String last_time) {
         this.book_id = book_id;
         this.hotel_id = hotel_id;
         this.user_tel = user_tel;

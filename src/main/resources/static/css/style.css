@@ -2626,7 +2626,7 @@ h2.title.block-title {
 	right: 0;
 }
 #loginContainer {
-	width: 100%;
+	width: 30%;
 }
 #loginContainer {
 	padding: 0.5em 1em;
@@ -2635,7 +2635,7 @@ h2.title.block-title {
 	top: 50px;
 }
 #loginForm {
-	width: 430px;
+	width: 100px;
 }
 .header_right {
 	width:100%;
