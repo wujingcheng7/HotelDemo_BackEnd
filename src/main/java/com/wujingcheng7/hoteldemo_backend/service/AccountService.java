@@ -20,6 +20,7 @@ public class AccountService {
         Result result = new Result();
         result.setSuccess(false);
         result.setDetail(null);
+        result.setMsg(null);
         try{
             Object existaccount = accountMapper.getByTel(account.getUser_tel());
             if(existaccount != null){
