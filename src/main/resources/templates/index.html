@@ -179,6 +179,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
    	</div>
    </div> -->
+	<mapper namespace="org.mybatis.hotel1">
+		<select id="selecthotel1" resultmap="sh">
+			select * from hotel where id = #{id}
+		</select>
+	</mapper>
+
    <div class="content_middle">
    	  <div class="container">
    	    <div class="content_middle_box">
