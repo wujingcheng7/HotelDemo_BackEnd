@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>管理信息——QQ酒店</title>
+<title>QQ酒店——订单管理</title>
 <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
-<!--Animation-->
+<script src="../static/js/jquery.easydropdown.js"></script>
 <script src="../static/js/wow.min.js"></script>
 <link href="../static/css/animate.css" rel='stylesheet' type='text/css' />
 <script>
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!--<script>-->
 							<!--new UISearch( document.getElementById( 'sb-search' ) );-->
 						<!--</script>-->
-						<!--&lt;!&ndash;&#45;&#45;//search-scripts&#45;&#45;&ndash;&gt;						-->
+						<!--&lt;!&ndash;&#45;&#45;//search-scripts&#45;&#45;&ndash;&gt;-->
 	    		    <!--<div class="clearfix"></div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
@@ -82,60 +82,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                 <div class="clearfix"></div>
 	                 </div>
 	                <div class="clearfix"></div>
-   </div>
-   <!-- <div class="contact">
-   	<div class="container">
-   	 <h1>Contact Us</h1>
-   	 <div class="col-md-9 wow fadeInLeft" data-wow-delay="0.4s">
-   	 	<div class="map">
-		   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
+    </div>
+
+	<!--订单信息显示列表-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-success">
+				<table border="0" align="center" width="1200px">
+					<tr>
+						<th>预定时间</th>
+						<th>酒店名称</th>
+						<th>离店时间</th>
+						<th>住宿时间</th>
+						<th>花费金额</th>
+					</tr>
+					<tr th:each ="i:${info}">
+						<td th:text = "${i.book_indate}"></td>
+						<td th:text = "${.......}"></td>
+						<td th:text = "${i.book_outdate}"></td>
+						<td th:text = "${i.book_lastdays}"></td>
+						<td th:text = "${.......}"></td>
+					</tr>
+				</table>
+			</div>
 		</div>
-   	 </div>
-   	 <div class="col-md-3 wow fadeInRight" data-wow-delay="0.4s">
-   	 	<address class="address">
-              <p>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
-              <dl>
-                 <dt></dt>
-                 <dd>Freephone:<span> +1 800 254 2478</span></dd>
-                 <dd>Telephone:<span> +1 800 547 5478</span></dd>
-                 <dd>FAX: <span>+1 800 658 5784</span></dd>
-                 <dd>E-mail:&nbsp; <a href="mailto:info@example.com">info(at)Hotel Deluxe.com</a></dd>
-              </dl>
-           </address>
-   	 </div>
-   </div>
-   </div> -->
-   <div class="living_middle wow fadeInUp" data-wow-delay="0.4s">
-   	  <div class="container">
-   	  	<h2>个人信息修改</h2>
-   	  	  <form>
-					<div class="to">
-                     	<input type="text" class="text" value="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}">
-					 	<input type="text" class="text" value="sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'sex';}" style="margin-left:20px">
-					 	<input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px">
-					 	<div class="clearfix"></div>
-					</div>
-					<div class="to">
-							<input type="text" class="text" value="tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'tel';}">
-							<input type="text" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" style="margin-left:20px">
-							<!-- <input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px"> -->
-							<div class="clearfix"></div>
-					   </div>
-					<!-- <div class="text">
-	                   <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
-	                </div> -->
-	                <div class="form-submit1">
-			           <input name="submit" type="submit" id="submit" value="提交修改">
-			         
-					</div>
-					<div class="clearfix"></div>
-          </form>
-   	  </div>	  
-   </div>
-   <div class="footer">
+	</div>
+
+
+
+
+
+
+
+
+<div class="footer">
    	<div class="container">
    	 <div class="footer_top">
-   	   <h3>订阅我们的资讯</h3>
+   	   <h3>Subscribe to our newsletter</h3>
    	   <form>
 		<span>
 			<i><img src="../static/img/mail.png" alt=""></i>
@@ -175,7 +158,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  <li><a href=""><i class="u_tube"> </i> </a></li>
 		 	</ul>
 		 	<div class="copy wow fadeInRight" data-wow-delay="0.4s">
-              <!--<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>-->
 	        </div>
 		  </div>
 		  <div class="clearfix"> </div>
