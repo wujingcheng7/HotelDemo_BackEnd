@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>管理信息——QQ酒店</title>
 <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -60,7 +60,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    <!--<div class="clearfix"></div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-					<div id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
+					<p th:if="${session.user_tel}">欢迎</p>
+					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
 						    <!--<div id="loginBox">                -->
 						        <!--<form id="loginForm">-->
 						                <!--<fieldset id="body">-->
