@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 
-public class RoomService {
+public class HotelRoomService {
     @Autowired
     HotelRoomMapper roomMapper;
 
