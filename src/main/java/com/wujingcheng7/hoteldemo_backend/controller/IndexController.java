@@ -23,19 +23,8 @@ public class IndexController {
     @PostMapping("")
     public ModelAndView goHtml(@Param("hotel_city")String hotel_city,
                                @Param("hotel_name")String hotel_name){
-
-        System.out.println("此POST被index的controller接收处理了");
         ModelAndView model = new ModelAndView("hotels_display");
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
-        try{
-            if (hotels.size()==0){
-                System.out.println("草泥马没读取成功,来自IndexController");
-            }
-            else
-                System.out.println("草泥马读取成功了,来自IndexController");
-        }catch (Exception e){
-            System.out.println("出现异常");
-        }
         model.addObject("HotelList",hotels);
         return model;
     }
