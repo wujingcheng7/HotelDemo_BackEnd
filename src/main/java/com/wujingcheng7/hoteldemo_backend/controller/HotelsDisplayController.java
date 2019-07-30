@@ -26,8 +26,10 @@ public class HotelsDisplayController {
     public Model showHotelList(@Param("hotel_city")String hotel_city,
                               @Param("hotel_name")String hotel_name,
                               Model model){
-        model.addAttribute("Hotel_city",hotel_city);
-        model.addAttribute("Hotel_name",hotel_name);
+        if (hotel_city.equals("目的地"))
+            hotel_city="";
+        if (hotel_name.equals("关键字（酒店名），..."))
+            hotel_name="";
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
         model.addAttribute("HotelList",hotels);
         return model;
