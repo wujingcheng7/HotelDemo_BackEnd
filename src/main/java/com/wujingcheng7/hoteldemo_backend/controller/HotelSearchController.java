@@ -1,7 +1,7 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
 import com.wujingcheng7.hoteldemo_backend.domain.Hotel;
-import com.wujingcheng7.hoteldemo_backend.service.HotelSearchService;
+import com.wujingcheng7.hoteldemo_backend.service.HotelService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/hotel_display")
 public class HotelSearchController {
     @Autowired
-    HotelSearchService hotelSearchService;
+    HotelService hotelSearchService;
 
     @GetMapping("")
     public String getHtml(){
