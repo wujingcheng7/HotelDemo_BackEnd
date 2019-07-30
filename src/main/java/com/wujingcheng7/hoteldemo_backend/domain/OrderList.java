@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
-public class Orderlist {
+public class OrderList {
     private int order_id;
     private String hotel_id;
     private String user_tel;
@@ -11,7 +11,7 @@ public class Orderlist {
     private String order_outdate;
     private String order_howmanyday;
 
-    public Orderlist(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, String order_indate, String order_outdate, String order_howmanyday) {
+    public OrderList(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, String order_indate, String order_outdate, String order_howmanyday) {
         this.order_id = order_id;
         this.hotel_id = hotel_id;
         this.user_tel = user_tel;

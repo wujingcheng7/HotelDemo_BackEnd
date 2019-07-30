@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
-import com.wujingcheng7.hoteldemo_backend.domain.Orderlist;
+import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.service.OrderlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,28 +10,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/books_diaplay")
+@RequestMapping("/books_display")
 public class OrderController {
     @Autowired
     OrderlistService orderlistService;
 
     @GetMapping("")
-    public String OrdersDisplay(){
+    public String OrdersDisplay(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String user_tel = (String)session.getAttribute("user_tel");
+        List<OrderList> listOfOrderLists = orderlistService.getAllMyOrders(user_tel);
+        model.addAttribute("listOfOrderLists",listOfOrderLists);
         return "/books_display";
     }
 
-    @PostMapping("/show_myBooks")
-    public Model OrdersShow(Model model, @RequestParam("user_tel")String user_tel){
+ /*   @PostMapping("/show_myBooks")
+    public Model OrdersShow(Model model, HttpServletRequest request){
 
-
-        List<Orderlist> listOfOrderlists = orderlistService.getAllMyOrders(user_tel);
-
+        HttpSession session = request.getSession();
+        String user_tel = (String)session.getAttribute("user_tel");
+        List<OrderList> listOfOrderLists = orderlistService.getAllMyOrders(user_tel);
+        model.addAttribute("listOfOrderLists",listOfOrderLists);
         //TODO:此方法仍需要完善
         return model;
-    }
+    }*/
 
     @PostMapping("/delte_a_book")
     public Model deleteAnOrder(Model model,@RequestParam("order_id")String order_id){
