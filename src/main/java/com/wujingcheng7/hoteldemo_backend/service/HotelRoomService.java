@@ -13,7 +13,7 @@ public class HotelRoomService {
     @Autowired
     HotelRoomMapper roomMapper;
 
-    List<HotelRoom> getRoomListByHotelId(String hotel_id){
+    public List<HotelRoom> getRoomListByHotelId(String hotel_id){
         return roomMapper.getHotelRoomListByHotelId(hotel_id);
     }
 }
