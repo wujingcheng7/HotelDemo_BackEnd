@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/hotel_display")
+@RequestMapping("/hotels_display")
 public class HotelDisplayController {
     @Autowired
     HotelService hotelSearchService;
 
     @GetMapping("")
     public String getHtml(){
-        return "/hotel_display";
+        return "/hotels_display";
     }
 
     @PostMapping("")
