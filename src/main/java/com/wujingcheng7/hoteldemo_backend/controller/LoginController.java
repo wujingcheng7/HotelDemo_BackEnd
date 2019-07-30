@@ -4,11 +4,16 @@ import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.ui.Model;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/login")
@@ -21,10 +26,15 @@ public class LoginController {
     @GetMapping("")
     public String LoginHtml(){return "/login";}
     @PostMapping("")
-    public String login(@RequestParam("user_tel") String user_tel, @RequestParam("user_password") String user_password,Model model){
+    public String login(HttpServletRequest request, Model model){
         Result result;
+        String user_tel = request.getParameter("user_tel");
+        String user_password = request.getParameter("user_password");
         result = accountService.login(user_tel,user_password);
         if(result.isSuccess()) {
+            HttpSession session = request.getSession();
+            session.setAttribute("isLogin",1);
+            session.setAttribute("user_tel",user_tel);
             return "/index";
         }
         else {

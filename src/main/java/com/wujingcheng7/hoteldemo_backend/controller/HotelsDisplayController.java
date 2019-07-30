@@ -27,7 +27,6 @@ public class HotelsDisplayController {
     public Model showHotelList(@Param("hotel_city")String hotel_city,
                               @Param("hotel_name")String hotel_name,
                               Model model){
-        System.out.println("此POST被hotels_display的controller接收处理了");
         model.addAttribute("Hotel_city",hotel_city);
         model.addAttribute("Hotel_name",hotel_name);
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
