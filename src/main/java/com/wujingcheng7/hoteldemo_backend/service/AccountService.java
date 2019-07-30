@@ -19,8 +19,8 @@ public class AccountService {
     * 注册
     * @return Result
     * */
-    public Result<String> regist(Account account){
-        Result<String> result = new Result<>();
+    public Result regist(Account account){
+        Result result = new Result();
         result.setSuccess(false);
         result.setDetail(null);
         result.setMsg(null);
@@ -48,7 +48,7 @@ public class AccountService {
     * @return Result
     * */
     public Result login(String user_tel,String user_password){
-        Result<String> result = new Result<>();
+        Result result = new Result();
         result.setSuccess(false);
         result.setDetail(null);
         try{

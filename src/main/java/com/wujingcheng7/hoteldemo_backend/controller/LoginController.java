@@ -27,10 +27,9 @@ public class LoginController {
     public String LoginHtml(){return "/login";}
     @PostMapping("")
     public String login(HttpServletRequest request, Model model){
-        Result result;
         String user_tel = request.getParameter("user_tel");
         String user_password = request.getParameter("user_password");
-        result = accountService.login(user_tel,user_password);
+        Result result = accountService.login(user_tel,user_password);
         if(result.isSuccess()) {
             HttpSession session = request.getSession();
             session.setAttribute("isLogin",1);
