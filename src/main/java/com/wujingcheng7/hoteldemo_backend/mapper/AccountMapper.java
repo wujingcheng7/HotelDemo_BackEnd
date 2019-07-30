@@ -25,4 +25,13 @@ public interface AccountMapper {
     * */
     @Select("select user_tel from account where user_tel=#{user_tel} and user_password=#{user_password}")
     String login(String user_tel,String user_password);
+
+    @Update("update account set user_password=#{user_password} where user_tel=#{user_tel}")
+    boolean updateUserPassword(String user_password,String user_tel);
+    @Update("update account set user_sex=#{user_sex} where user_tel=#{user_tel}")
+    boolean updateUserSex(String user_sex,String user_tel);
+    @Update("update account set user_name=#{user_name} where user_tel=#{user_tel}")
+    boolean updateUserName(String user_name,String user_tel);
+    @Update("update account set user_bankcard=#{user_bankcard} where user_tel=#{user_tel}")
+    boolean updateUserBankcard(String user_bankcard,String user_tel);
 }

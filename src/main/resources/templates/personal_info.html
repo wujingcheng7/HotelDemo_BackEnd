@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  <a class="toggleMenu" href="#"><img src="../static/img/nav.png" alt="" /></a>
 						    <ul class="nav" id="nav">
 								<li class="active"><a href="/index/">首页</a></li>
-								<li><a href="/hotels_display">酒店信息</a></li>
+								<li><a href="/hotels_display/">酒店信息</a></li>
 								<li><a href="/books_display/">订单管理</a></li>
 								<li><a href="/personal-info/">信息管理</a></li>
 								<div class="clearfix"></div>
@@ -108,18 +108,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="living_middle wow fadeInUp" data-wow-delay="0.4s">
    	  <div class="container">
    	  	<h2>个人信息修改</h2>
-   	  	  <form>
+   	  	  <form method="post" action="/personal_info">
 			  <div class="to">
-				  <input name="user_tel" type="text" class="text" value="tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机号';}">
-				  <input name="user_password" type="text" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}" style="margin-left:20px">
+				  <input name="user_tel" type="text" class="text" value="tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = null;}">
+				  <input name="user_password" type="text" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = null;}" style="margin-left:20px">
 				  <!-- <input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px"> -->
 				  <div class="clearfix"></div>
 			  </div>
 			  <div class="form-submit1">
 				  	<div class="to">
-                     	<input name="user_name" type="text" class="text" value="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
-					 	<input name="user_sex" type="text" class="text" value="sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '性别';}" style="margin-left:20px">
-					 	<input name="user_bankcard" type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '银行卡号';}" style="margin-left:20px">
+                     	<input name="user_name"  type="text" class="text" value="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = null;}">
+					 	<input name="user_sex" type="text" class="text" value="sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = null;}" style="margin-left:20px">
+					 	<input name="user_bankcard" type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = null;}" style="margin-left:20px">
 					 	<div class="clearfix"></div>
 					</div>
 

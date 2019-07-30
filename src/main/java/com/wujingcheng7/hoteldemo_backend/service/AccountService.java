@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+import java.sql.SQLOutput;
+
 @Service
 @Transactional(rollbackFor = RuntimeException.class)
 public class AccountService {
@@ -63,5 +66,18 @@ public class AccountService {
         }
         System.out.println(result.toString());
         return  result;
+    }
+
+    public boolean updatePassword(String user_password,String user_tel){
+        return accountMapper.updateUserPassword(user_password,user_tel);
+    }
+    public boolean updateName(String user_name,String user_tel){
+        return accountMapper.updateUserName(user_name,user_tel);
+    }
+    public boolean updateSex(String user_sex,String user_tel){
+        return accountMapper.updateUserSex(user_sex,user_tel);
+    }
+    public boolean updateBankcard(String user_bankcard,String user_tel){
+        return accountMapper.updateUserBankcard(user_bankcard,user_tel);
     }
 }
