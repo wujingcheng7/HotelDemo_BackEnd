@@ -277,15 +277,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<th>所在城市</th>
 					<th>酒店星级</th>
 					<th>酒店地址</th>
-					<th>最低价格</th>
+					<!--<th>最低价格</th>-->
 					<th>操作</th>
 				</tr>
-				<tr th:each ="i:${info}">
+				<tr th:each ="i:${HotelList}">
 					<td th:text = "${i.hotel_name}"></td>
 					<td th:text = "${i.hotel_city}"></td>
 					<td th:text = "${i.hotel_stars}"></td>
 					<td th:text = "${i.hotel_address}"></td>
-					<td th:text = "${i.hotel_price}"></td>
+					<!--<td th:text = "${i.hotel_price}"></td>-->
 					<td><input type="submit" value="预定房间"></td>
 				</tr>
 			</table>

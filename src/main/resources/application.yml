@@ -17,5 +17,3 @@ spring:
 logging:
   level:
     com.wujingcheng7.hoteldemo_backend.mapper: debug
-
-
