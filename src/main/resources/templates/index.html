@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="banner">
    	  <div class="container_wrap">
    		<h1>酒店查询</h1>
-	  <form method="post" action="/hotel_display">
+	  <form method="post" action="/index">
 		  <input type="text" name="hotel_city" value="目的地" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '目的地';}"><br>
    	       <!--<div class="dropdown-buttons">-->
             		<!--<div class="dropdown-button">-->
@@ -178,6 +178,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
    	</div>
    </div> -->
+	<mapper namespace="org.mybatis.hotel1">
+		<select id="selecthotel1" resultmap="sh">
+			select * from hotel where id = #{id}
+		</select>
+	</mapper>
+
    <div class="content_middle">
    	  <div class="container">
    	    <div class="content_middle_box">
