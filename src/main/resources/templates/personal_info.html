@@ -109,23 +109,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    	  <div class="container">
    	  	<h2>个人信息修改</h2>
    	  	  <form>
-					<div class="to">
-                     	<input type="text" class="text" value="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}">
-					 	<input type="text" class="text" value="sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'sex';}" style="margin-left:20px">
-					 	<input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px">
+			  <div class="to">
+				  <input name="user_tel" type="text" class="text" value="tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机号';}">
+				  <input name="user_password" type="password" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}" style="margin-left:20px">
+				  <!-- <input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px"> -->
+				  <div class="clearfix"></div>
+			  </div>
+			  <div class="form-submit1">
+				  	<div class="to">
+                     	<input name="user_name" type="text" class="text" value="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
+					 	<input name="user_sex" type="text" class="text" value="sex" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '性别';}" style="margin-left:20px">
+					 	<input name="user_bankcard" type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '银行卡号';}" style="margin-left:20px">
 					 	<div class="clearfix"></div>
 					</div>
-					<div class="to">
-							<input type="text" class="text" value="tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'tel';}">
-							<input type="text" class="text" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}" style="margin-left:20px">
-							<!-- <input type="text" class="text" value="bankcard" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'bankcard';}" style="margin-left:20px"> -->
-							<div class="clearfix"></div>
-					   </div>
-					<!-- <div class="text">
-	                   <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
-	                </div> -->
-	                <div class="form-submit1">
-			           <input name="submit" type="submit" id="submit" value="提交修改">
+
+			           <input name="submit" type="submit"  value="提交修改">
 			         
 					</div>
 					<div class="clearfix"></div>
