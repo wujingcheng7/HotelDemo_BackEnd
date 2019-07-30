@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/hotels_display")
-public class HotelDisplayController {
+public class HotelsDisplayController {
     @Autowired
     HotelService hotelSearchService;
 
@@ -24,12 +24,14 @@ public class HotelDisplayController {
     }
 
     @PostMapping("")
-    public void showHotelList(@Param("hotel_city")String hotel_city,
+    public Model showHotelList(@Param("hotel_city")String hotel_city,
                               @Param("hotel_name")String hotel_name,
                               Model model){
-        model.addAttribute("hotel_city",hotel_city);
-        model.addAttribute("hotel_name",hotel_name);
+        System.out.println("此POST被hotels_display的controller接收处理了");
+        model.addAttribute("Hotel_city",hotel_city);
+        model.addAttribute("Hotel_name",hotel_name);
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
         model.addAttribute("HotelList",hotels);
+        return model;
     }
 }

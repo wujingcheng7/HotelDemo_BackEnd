@@ -64,12 +64,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container_wrap">
 			<h1>酒店查询</h1>
 			<form action="/hotels_display">
-				<input type="text" name="hotel_city" value="${hotel_city}" onblur="this.value=''">
+				<input type="text" name="hotel_city" value=${Hotel_city} onblur="this.value=''">
 				<font color="white">入住</font>
 				<input type="date" value="入住时间"/>
 				<font color="white">退房</font>
 				<input type="date" value="退房时间"/><br>
-				<input type="text" name="hotel_name" value="${hotel_name}">
+				<input type="text" name="hotel_name" value=${Hotel_name}>
 				<div class="contact_btn">
 					<label class="btn1 btn-2 btn-2g"><input type="submit" value="查询"></label>
 				</div>
@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<th>操作</th>
 				</tr>
 				<tr th:each ="i:${HotelList}">
-					<form name="HotelId" data-slider-value="${i.hotel_id}" method="post" action="/room_display">
+					<form name="HotelId" data-slider-value="${i.hotel_id}" method="post" action="/rooms_display">
 					<td th:text = "${i.hotel_name}"></td>
 					<td th:text = "${i.hotel_city}"></td>
 					<td th:text = "${i.hotel_stars}"></td>
