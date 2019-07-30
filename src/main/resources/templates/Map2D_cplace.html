@@ -20,16 +20,16 @@
 <div id="container"></div>
 
 <div class="input-card" style="width:24rem">
-    <h4>设置地图中心点</h4>
-    <div class="input-item">
-        <button id="random-zoom-btn" class="btn">随机地图层级 setZoom</button>
-    </div>
-    <div class="input-item">
-        <button id="random-center-btn" class="btn">随机地图中心点 setCenter</button>
-    </div>
-    <div class="input-item">
-        <button id="random-zoomcenter-btn" class="btn">随机地图层级与中心点 setZoomAndCenter</button>
-    </div>
+    <h4>当前位置</h4>
+    <!--<div class="input-item">-->
+        <!--<button id="random-zoom-btn" class="btn">随机地图层级 setZoom</button>-->
+    <!--</div>-->
+    <!--<div class="input-item">-->
+        <!--<button id="random-center-btn" class="btn">随机地图中心点 setCenter</button>-->
+    <!--</div>-->
+    <!--<div class="input-item">-->
+        <!--<button id="random-zoomcenter-btn" class="btn">随机地图层级与中心点 setZoomAndCenter</button>-->
+    <!--</div>-->
 </div>
 
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script>
@@ -39,7 +39,7 @@
     var map = new AMap.Map('container', {
         resizeEnable: true, //是否监控地图容器尺寸变化
         zoom: 30, //初始地图级别
-        center: [104.057229,30.667032], //初始地图中心点
+        center: [104.056666,30.667032], //初始地图中心点
         showIndoorMap: false //关闭室内地图
     });
 
