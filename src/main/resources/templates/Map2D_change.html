@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body,
+        #container {
+            width: 1000px;
+            height: 780px;
+        }
+    </style>
+    <title>设置地图级别与中心点</title>
+</head>
+<!--TODO:请前端人员将此页面集成进酒店房间展示页面右下方，用于表示酒店地址-->
+<body>
+<div id="container"></div>
+
+<div class="input-card" style="width:24rem">
+    <!--<h4>设置地图中心点</h4>-->
+    <!--<div class="input-item">-->
+        <!--<button id="random-zoom-btn" class="btn">随机地图层级 setZoom</button>-->
+    <!--</div>-->
+    <!--<div class="input-item">-->
+        <!--<button id="random-center-btn" class="btn">随机地图中心点 setCenter</button>-->
+    <!--</div>-->
+    <!--<div class="input-item">-->
+        <!--<button id="random-zoomcenter-btn" class="btn">随机地图层级与中心点 setZoomAndCenter</button>-->
+    <!--</div>-->
+</div>
+
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+<script>
+    //初始化地图
+    var map = new AMap.Map('container', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom: 30, //初始地图级别
+        center: [104.057229,30.667032], //初始地图中心点
+        showIndoorMap: false //关闭室内地图
+    });
+
+    //绑定按钮事件，改变地图层级
+    document.querySelector("#random-zoom-btn").onclick = function() {
+        var zoom = Math.floor(Math.random() * 7) + 11; //zoom范围[11,18]
+        map.setZoom(zoom); //设置地图层级
+        // log.info(`当前层级已设为${zoom}级`);
+    }
+
+    //绑定按钮事件，改变地图中心点
+    document.querySelector("#random-center-btn").onclick = function() {
+        var lng = 121.138398 + Math.floor(Math.random() * 589828) / 1e6; //经度范围[121.138398, 121.728226]
+        var lat = 30.972688 + Math.floor(Math.random() * 514923) / 1e6; //纬度范围[30.972688, 31.487611]
+        map.setCenter([lng, lat]); //设置地图中心点
+        // log.info(`当前中心点已设为 ${lng.toFixed(6)},${lat.toFixed(6)}`);
+    }
+
+    //绑定按钮事件，改变地图层级与中心点
+    document.querySelector("#random-zoomcenter-btn").onclick = function() {
+        var zoom = Math.floor(Math.random() * 7) + 11;
+        var lng = 121.138398 + Math.floor(Math.random() * 589828) / 1e6;
+        var lat = 30.972688 + Math.floor(Math.random() * 514923) / 1e6;
+        map.setZoomAndCenter(zoom, [lng, lat]); //同时设置地图层级与中心点
+        // log.info(`当前层级已设为${zoom}级，中心点已设为 ${lng.toFixed(6)},${lat.toFixed(6)}`);
+    }
+</script>
+</body>
+
+</html>
+
