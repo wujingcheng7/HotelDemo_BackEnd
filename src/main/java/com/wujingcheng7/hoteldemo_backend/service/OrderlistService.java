@@ -1,6 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.service;
 
-import com.wujingcheng7.hoteldemo_backend.domain.Orderlist;
+import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.mapper.OrderlistMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class OrderlistService {
     }
 
     //查看某用户的所有订单
-    public List<Orderlist> getAllMyOrders(String user_tel){
+    public List<OrderList> getAllMyOrders(String user_tel){
         return orderlistMapper.getAllOrderlistsByUserTel(user_tel);
     }
 
