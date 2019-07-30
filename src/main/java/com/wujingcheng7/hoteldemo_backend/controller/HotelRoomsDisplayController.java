@@ -3,6 +3,7 @@ package com.wujingcheng7.hoteldemo_backend.controller;
 import com.wujingcheng7.hoteldemo_backend.service.HotelRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

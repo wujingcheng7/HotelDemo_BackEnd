@@ -13,4 +13,5 @@ import java.util.List;
 public interface HotelRoomMapper {
     @Select("select * from hotel_room where hotel_id = #{hotel_id}")
     List<HotelRoom> getHotelRoomListByHotelId(@Param("hotel_id")String hotel_id);
+
 }
