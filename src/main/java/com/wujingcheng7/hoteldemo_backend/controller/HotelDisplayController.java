@@ -5,14 +5,16 @@ import com.wujingcheng7.hoteldemo_backend.service.HotelService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.List;
 
 @Controller
 @RequestMapping("/hotel_display")
-public class HotelSearchController {
+public class HotelDisplayController {
     @Autowired
     HotelService hotelSearchService;
 
@@ -23,12 +25,11 @@ public class HotelSearchController {
 
     @PostMapping("")
     public void showHotelList(@Param("hotel_city")String hotel_city,
-                              @Param("hotel_name")String hotel_name){
+                              @Param("hotel_name")String hotel_name,
+                              Model model){
+        model.addAttribute("hotel_city",hotel_city);
+        model.addAttribute("hotel_name",hotel_name);
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
-        if (hotels.size() == 0){
-            System.out.println("草泥马没读取成功,来自HotelSearchController");
-        }else {
-            System.out.println("草泥马读取成功了,来自HotelSearchController");
-        }
+        model.addAttribute("HotelList",hotels);
     }
 }

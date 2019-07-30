@@ -14,8 +14,8 @@ public class Personal_InfoController {
         return "/personal_info";
     }
 
-    @PostMapping("")
-    public String personal_info(){
+/*    @PostMapping("")
+*//*    public String personal_info(){
 
-    }
+    }*/
 }
