@@ -10,3 +10,12 @@ spring:
     prefix: classpath:/templates/
   mvc:
     static-path-pattern: /static/**
+#mybatis:这几行注释掉先，不确定是否能用
+#  config-location: classpath:mybatis/mybatis-config.xml
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+#  type-aliases-package: com.mybatis.springboot_mybatis.model
+logging:
+  level:
+    com.wujingcheng7.hoteldemo_backend.mapper: debug
+
+
