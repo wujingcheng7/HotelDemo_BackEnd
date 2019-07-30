@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/personal_info")
 public class Personal_InfoController {
@@ -26,8 +29,10 @@ public class Personal_InfoController {
     }
 
     @PostMapping("")
-    public Model personal_info_update(@RequestParam("user_tel") String user_tel,@RequestParam("user_password") String user_password ,@RequestParam("user_name") String user_name ,@RequestParam("user_sex") String user_sex ,@RequestParam("user_bankcard") String user_bankcard , Model model){
-        if (user_tel.equals("TEL"))
+    public Model personal_info_update(HttpServletRequest request, @RequestParam("user_password") String user_password , @RequestParam("user_name") String user_name , @RequestParam("user_sex") String user_sex , @RequestParam("user_bankcard") String user_bankcard , Model model){
+        HttpSession session = request.getSession();
+        String user_tel = (String) session.getAttribute("user_tel");
+        if (user_tel.equals("TEL")||user_tel.equals(""))
             return model;
         if(!user_password.equals("password"))
             accountService.updatePassword(user_password,user_tel);

@@ -35,6 +35,7 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("isLogin",1);
             session.setAttribute("user_tel",user_tel);
+            session.setAttribute("user_name",result.getDetail());
             return "/index";
         }
         else {

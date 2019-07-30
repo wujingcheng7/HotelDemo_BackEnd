@@ -19,13 +19,13 @@ public class AccountService {
     * 注册
     * @return Result
     * */
-    public Result regist(Account account){
-        Result result = new Result();
+    public Result<String> regist(Account account){
+        Result<String> result = new Result<>();
         result.setSuccess(false);
         result.setDetail(null);
         result.setMsg(null);
         try{
-            Object existaccount = accountMapper.getByTel(account.getUser_tel());
+            String existaccount = accountMapper.getByTel(account.getUser_tel());
             if(existaccount != null){
                 //如果用户已存在
                 result.setMsg("该手机号已被注册");
@@ -33,7 +33,7 @@ public class AccountService {
                 accountMapper.regist(account);
                 result.setMsg("注册成功");
                 result.setSuccess(true);
-                result.setDetail(account);
+                result.setDetail(account.getUser_name());
             }
         }catch (Exception e){
             result.setMsg(e.getMessage());
@@ -48,17 +48,17 @@ public class AccountService {
     * @return Result
     * */
     public Result login(String user_tel,String user_password){
-        Result result = new Result();
+        Result<String> result = new Result<>();
         result.setSuccess(false);
         result.setDetail(null);
         try{
-            String usertel = accountMapper.login(user_tel,user_password);
-            if(usertel == null){
+            Account user = accountMapper.login(user_tel,user_password);
+            if(user == null){
                 result.setMsg("用户名或密码错误");
             }else{
                 result.setMsg("登录成功");
                 result.setSuccess(true);
-                result.setDetail(null);
+                result.setDetail(user.getUser_name());//Detail收录用户姓名
             }
         }catch (Exception e){
             result.setMsg(e.getMessage());
