@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    <ul class="nav" id="nav">
 								<li class="active"><a href="/index/">首页</a></li>
 								<li><a href="/hotels_display">酒店信息</a></li>
-								<li><a href="/books_display/">订单管理</a></li>
+								<li><a href="/books_display">订单管理</a></li>
 								<li><a href="/personal_info/">信息管理</a></li>
 								<div class="clearfix"></div>
 							</ul>
@@ -92,18 +92,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table border="0" align="center" width="1200px">
 					<tr>
 						<th>酒店名称</th>
+						<th>房间号</th>
 						<th>入住时间</th>
-<!--						<th>离店时间</th>-->
-<!--						<th>房间号</th>-->
+						<th>离店时间</th>
 						<th>花费金额</th>
 					</tr>
 					<tr th:each ="i:${listOfOrderLists}">
 						<td th:text = "${i.hotel_name}"></td>
-						<td th:text = "${i.book_outdate}"></td>
+						<td th:text = "${i.room_id}"></td>
+						<td th:text = "${i.order_indate}"></td>
+						<td th:text = "${i.order_outdate}"></td>
 						<td th:text = "${i.order_price}"></td>
-
-<!--						<td th:text = "${i.book_lastdays}"></td>-->
-<!--						<td th:text = "${.......}"></td>-->
 					</tr>
 				</table>
 			</div>

@@ -26,11 +26,6 @@ public class OrderController {
         HttpSession session = request.getSession();
         String user_tel = (String)session.getAttribute("user_tel");
         List<OrderList> listOfOrderLists = orderlistService.getAllMyOrders(user_tel);
-        for (OrderList orderList : listOfOrderLists){
-            orderList.setOrder_indate(orderList.getOrder_indate());
-            orderList.setOrder_outdate(orderList.getOrder_outdate());
-
-        }
         model.addAttribute("listOfOrderLists",listOfOrderLists);
         return "/books_display";
     }
