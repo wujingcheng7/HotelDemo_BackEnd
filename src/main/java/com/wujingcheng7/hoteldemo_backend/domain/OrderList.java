@@ -1,5 +1,7 @@
 package com.wujingcheng7.hoteldemo_backend.domain;
 
+import java.util.Date;
+
 public class OrderList {
     private int order_id;
     private String hotel_id;
@@ -7,21 +9,10 @@ public class OrderList {
     private String room_id;
     private String hotel_room_id;
     private String order_price;
-    private String order_indate;
-    private String order_outdate;
+    private Date order_indate;
+    private Date order_outdate;
     private String order_howmanyday;
-
-    public OrderList(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, String order_indate, String order_outdate, String order_howmanyday) {
-        this.order_id = order_id;
-        this.hotel_id = hotel_id;
-        this.user_tel = user_tel;
-        this.room_id = room_id;
-        this.hotel_room_id = hotel_room_id;
-        this.order_price = order_price;
-        this.order_indate = order_indate;
-        this.order_outdate = order_outdate;
-        this.order_howmanyday = order_howmanyday;
-    }
+    private String hotel_name;
 
     public int getOrder_id() {
         return order_id;
@@ -71,19 +62,19 @@ public class OrderList {
         this.order_price = order_price;
     }
 
-    public String getOrder_indate() {
+    public Date getOrder_indate() {
         return order_indate;
     }
 
-    public void setOrder_indate(String order_indate) {
+    public void setOrder_indate(Date order_indate) {
         this.order_indate = order_indate;
     }
 
-    public String getOrder_outdate() {
+    public Date getOrder_outdate() {
         return order_outdate;
     }
 
-    public void setOrder_outdate(String order_outdate) {
+    public void setOrder_outdate(Date order_outdate) {
         this.order_outdate = order_outdate;
     }
 
@@ -93,5 +84,29 @@ public class OrderList {
 
     public void setOrder_howmanyday(String order_howmanyday) {
         this.order_howmanyday = order_howmanyday;
+    }
+
+    public String getHotel_name() {
+        return hotel_name;
+    }
+
+    public void setHotel_name(String hotel_name) {
+        this.hotel_name = hotel_name;
+    }
+
+    public OrderList() {
+    }
+
+    public OrderList(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, Date order_indate, Date order_outdate, String order_howmanyday, String hotel_name) {
+        this.order_id = order_id;
+        this.hotel_id = hotel_id;
+        this.user_tel = user_tel;
+        this.room_id = room_id;
+        this.hotel_room_id = hotel_room_id;
+        this.order_price = order_price;
+        this.order_indate = order_indate;
+        this.order_outdate = order_outdate;
+        this.order_howmanyday = order_howmanyday;
+        this.hotel_name = hotel_name;
     }
 }

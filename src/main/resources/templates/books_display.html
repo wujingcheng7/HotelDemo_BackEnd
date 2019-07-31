@@ -91,18 +91,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="alert alert-success">
 				<table border="0" align="center" width="1200px">
 					<tr>
-						<th>预定时间</th>
 						<th>酒店名称</th>
-						<th>离店时间</th>
-						<th>住宿时间</th>
+						<th>入住时间</th>
+<!--						<th>离店时间</th>-->
+<!--						<th>房间号</th>-->
 						<th>花费金额</th>
 					</tr>
 					<tr th:each ="i:${listOfOrderLists}">
-						<td th:text = "${i.book_indate}"></td>
-						<td th:text = "${.......}"></td>
+						<td th:text = "${i.hotel_name}"></td>
 						<td th:text = "${i.book_outdate}"></td>
-						<td th:text = "${i.book_lastdays}"></td>
-						<td th:text = "${.......}"></td>
+						<td th:text = "${i.order_price}"></td>
+
+<!--						<td th:text = "${i.book_lastdays}"></td>-->
+<!--						<td th:text = "${.......}"></td>-->
 					</tr>
 				</table>
 			</div>

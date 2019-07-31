@@ -5,6 +5,7 @@ import com.wujingcheng7.hoteldemo_backend.mapper.OrderlistMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -13,8 +14,8 @@ public class OrderlistService {
     private OrderlistMapper orderlistMapper;
 
     //预定房间
-    public void createAnOrder(){
-        orderlistMapper.insertOrderlist();//由于OrderlistMapper此方法有待完善，导致这句语句无效
+    public void createAnOrder(OrderList orderList){
+        orderlistMapper.insertOrderlist(orderList);//由于OrderlistMapper此方法有待完善，导致这句语句无效
     }
 
     //查看某用户的所有订单
