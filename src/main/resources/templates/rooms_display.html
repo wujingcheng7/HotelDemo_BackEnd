@@ -187,15 +187,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<th>房间类型</th>
 					<th>房间价格</th>
 					<th>房间描述</th>
+                    <th>入住日期</th>
+                    <th>退房日期</th>
 					<th>操作</th>
 				</tr>
 				<tr th:each ="i:${RoomList}">
-					<form>
+					<form method="post" action="/make_an_order">
 					<td th:text = "${i.room_id}" th:value = "${i.room_id}" name="room_id"></td>
 					<td th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></td>
 					<td th:text = "${i.room_price}" th:value = "${i.room_price}" name="room_price"></td>
 					<td th:text = "${i.room_text}" th:value = "${i.room_text}" name="room_text"></td>
-						<td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>
+                    <td><input type="date" name="order_indate"/></td>
+                    <td><input type="date" name="order_outdate"/></td>
+                    <td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>
 					</form>
 				</tr>
 			</table>
