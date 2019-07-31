@@ -96,13 +96,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>入住时间</th>
 						<th>离店时间</th>
 						<th>花费金额</th>
+						<th>删除操作</th>
 					</tr>
 					<tr th:each ="i:${listOfOrderLists}">
 						<td th:text = "${i.hotel_name}"></td>
 						<td th:text = "${i.room_id}"></td>
 						<td th:text = "${i.order_indate}"></td>
 						<td th:text = "${i.order_outdate}"></td>
-						<td th:text = "${i.order_price}"></td>
+						<td th:text = "'￥'+${i.order_price}"></td>
+						<td>
+							<form method="post" action="/books_display/delete_a_book">
+								<button type="submit" name="order_id" th:value="${i.order_id}">删除订单</button>
+							</form>
+						</td>
 					</tr>
 				</table>
 			</div>
