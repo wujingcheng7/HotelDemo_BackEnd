@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+//此类用于控制订单管理页面，不用于创建订单
 @Controller
 @RequestMapping("/books_display")
 public class OrderController {
