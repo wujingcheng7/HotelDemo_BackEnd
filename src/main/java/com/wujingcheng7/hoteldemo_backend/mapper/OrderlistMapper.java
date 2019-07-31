@@ -20,7 +20,6 @@ public interface OrderlistMapper {
     List<OrderList> getAllOrderlistsByUserTel(String user_tel);
 
     @Options(useGeneratedKeys = true,keyProperty = "order_id",keyColumn = "order_id")
-    @Insert("insert into order_list(hotel_id,user_tel,room_id,hotel_room_id,order_price,order_indate,order_outdate,order_howmanyday,hotel_name)" +
-            "values (#{hotel_id},#{user_tel},#{room_id},#{hotel_room_id},#{order_price},#{order_indate},#{order_outdate},#{order_howmanyday},#{hotel_name})")
+    @Insert("insert into order_list(hotel_id,user_tel,room_id,hotel_room_id,order_price,order_indate,order_outdate,order_howmanyday,hotel_name) values (#{hotel_id},#{user_tel},#{room_id},#{hotel_room_id},#{order_price},#{order_indate},#{order_outdate},#{order_howmanyday},#{hotel_name})")
     void insertOrderlist(OrderList orderList);
 }

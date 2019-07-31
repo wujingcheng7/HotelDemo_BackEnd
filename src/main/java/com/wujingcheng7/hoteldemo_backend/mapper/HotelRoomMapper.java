@@ -14,4 +14,6 @@ public interface HotelRoomMapper {
     @Select("select * from hotel_room where hotel_id = #{hotel_id}")
     List<HotelRoom> getHotelRoomListByHotelId(@Param("hotel_id")String hotel_id);
 
+    @Select("select * from hotel_room where hotel_room_id = #{hotel_room_id}")
+    HotelRoom getHotelRoomByHoteRoomlId(String hotel_room_id);
 }
