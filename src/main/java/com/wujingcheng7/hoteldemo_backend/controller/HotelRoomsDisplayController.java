@@ -32,7 +32,6 @@ public class HotelRoomsDisplayController {
     @PostMapping("")
     public Model showRoomList(HttpServletRequest request, @Param("hotel_id")String hotel_id,Model model){
         HttpSession session = request.getSession();
-        hotel_id="000001";//暂时写死，为了验证后面的代码正确性
 
         List<HotelRoom> rooms = hotelRoomService.getRoomListByHotelId(hotel_id);
         model.addAttribute("RoomList",rooms);
