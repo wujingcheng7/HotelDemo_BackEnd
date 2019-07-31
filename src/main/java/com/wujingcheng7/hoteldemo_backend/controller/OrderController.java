@@ -41,10 +41,10 @@ public class OrderController {
         return model;
     }*/
 
-    @PostMapping("/delte_a_book")
-    public Model deleteAnOrder(Model model,@RequestParam("order_id")String order_id){
+    @PostMapping("/delete_a_book")
+    public String deleteAnOrder(Model model,HttpServletRequest request,@RequestParam("order_id")int order_id){
 
-
-        return model;
+        orderlistService.deleteAnOrder(order_id);
+        return OrdersDisplay(model,request);
     }
 }

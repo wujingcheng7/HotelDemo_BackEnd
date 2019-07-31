@@ -13,8 +13,8 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where order_id=#{order_id}")
     OrderList getOrderlistByOrderlistId(String order_id);
 
-    @Delete("Delete * from order_list where order_id=#{order_id}")
-    void deleteOrderlistByOrderId(String order_id);
+    @Delete("Delete from order_list where order_id=#{order_id}")
+    void deleteOrderlistByOrderId(int order_id);
 
     @Select("Select * from order_list where user_tel=#{user_tel}")
     List<OrderList> getAllOrderlistsByUserTel(String user_tel);
