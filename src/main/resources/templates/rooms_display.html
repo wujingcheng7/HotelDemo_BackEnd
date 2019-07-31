@@ -69,19 +69,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                <div class="clearfix"></div>
 			</div>
 <div id="tab_1">
-	<iframe src="/Map3D"
-			height="200"
-			width="25%"
-			frameborder="0"
-			scrolling="No"
-	></iframe>
-	<iframe src="/Map2D"
-			height="200"
-			width="25%"
-			frameborder="0"
-			scrolling="No"
-	></iframe>
-	<span size="6">四川省成都市金牛区建设路111号（新苑小区对面）</span>
+	<td>
+		<iframe src="/Map3D"
+				height="200"
+				width="25%"
+				frameborder="0"
+				scrolling="No"
+		></iframe>
+	</td>
+	<td>
+		<iframe src="/Map2D"
+				height="200"
+				width="25%"
+				frameborder="0"
+				scrolling="No"
+		></iframe>
+	</td>
+	<td>
+		<table border="0" align="center" width="1200px">
+		<tr th:text ="'酒店：'+${HotelObject.hotel_name}"></tr>
+		<tr th:text ="'城市：'+${HotelObject.hotel_city}"></tr>
+		<tr th:text ="'星级：'+${HotelObject.hotel_stars}"></tr>
+		<tr th:text ="'地址：'+${HotelObject.hotel_address}"></tr>
+		<tr th:text ="'简介：'+${HotelObject.hotel_text}"></tr>
+		</table>
+	</td>
 </div>
 
  <div class="row">
