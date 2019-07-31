@@ -35,7 +35,7 @@ public class LoginController {
             session.setAttribute("isLogin",1);
             session.setAttribute("user_tel",user_tel);
             session.setAttribute("user_name",result.getDetail());
-            return "/index";
+            return "redirect:/index";
         }
         else {
             model.addAttribute("msg","用户名或密码错误");
