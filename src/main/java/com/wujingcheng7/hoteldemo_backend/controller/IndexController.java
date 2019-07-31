@@ -1,15 +1,14 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
-import com.wujingcheng7.hoteldemo_backend.domain.Hotel;
+
 import com.wujingcheng7.hoteldemo_backend.service.HotelService;
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import java.util.List;
+//import java.util.List;
 
 @Controller
 @RequestMapping("/index")
@@ -20,12 +19,12 @@ public class IndexController {
     @GetMapping("")
     public String index(){return "/index";}
 
-    @PostMapping("")
+/*    @PostMapping("")
     public ModelAndView goHtml(@Param("hotel_city")String hotel_city,
                                @Param("hotel_name")String hotel_name){
         ModelAndView model = new ModelAndView("hotels_display");
         List<Hotel> hotels = hotelSearchService.getHotelListByCityAndName(hotel_city,hotel_name);
         model.addObject("HotelList",hotels);
         return model;
-    }
+    }*/
 }

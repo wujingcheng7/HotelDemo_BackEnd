@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+//此类用于控制订单管理页面，不用于创建订单
 @Controller
 @RequestMapping("/books_display")
 public class OrderController {
@@ -25,6 +26,11 @@ public class OrderController {
         HttpSession session = request.getSession();
         String user_tel = (String)session.getAttribute("user_tel");
         List<OrderList> listOfOrderLists = orderlistService.getAllMyOrders(user_tel);
+        for (OrderList orderList : listOfOrderLists){
+            orderList.setOrder_indate(orderList.getOrder_indate());
+            orderList.setOrder_outdate(orderList.getOrder_outdate());
+
+        }
         model.addAttribute("listOfOrderLists",listOfOrderLists);
         return "/books_display";
     }
