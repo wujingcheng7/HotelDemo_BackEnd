@@ -18,7 +18,8 @@ public class HotelsDisplayController {
     HotelService hotelSearchService;
 
     @GetMapping("")
-    public String getHtml(){
+    public String getHtml(Model model){
+        model=showHotelList("","",model);
         return "/hotels_display";
     }
 
