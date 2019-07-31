@@ -32,7 +32,7 @@ public class Personal_InfoController {
     public Model personal_info_update(HttpServletRequest request, @RequestParam("user_password") String user_password , @RequestParam("user_name") String user_name , @RequestParam("user_sex") String user_sex , @RequestParam("user_bankcard") String user_bankcard , Model model){
         HttpSession session = request.getSession();
         String user_tel = (String) session.getAttribute("user_tel");
-        if (user_tel.equals("TEL")||user_tel.equals(""))
+        if (user_tel.equals("")||user_tel.equals("TEL"))
             return model;
         if(!user_password.equals("password"))
             accountService.updatePassword(user_password,user_tel);
