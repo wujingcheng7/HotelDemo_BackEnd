@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/books_display")
 public class OrderController {
     @Autowired
-    OrderlistService orderlistService;
+    private OrderlistService orderlistService;
 
     @GetMapping("")
     public String OrdersDisplay(Model model, HttpServletRequest request){
@@ -41,10 +41,10 @@ public class OrderController {
         return model;
     }*/
 
-    @PostMapping("/delte_a_book")
-    public Model deleteAnOrder(Model model,@RequestParam("order_id")String order_id){
+    @PostMapping("/delete_a_book")
+    public String  deleteAnOrder(Model model,@RequestParam("order_id")String order_id){
+        orderlistService.deleteAnOrder(order_id);
 
-
-        return model;
+        return "/books_display";
     }
 }
