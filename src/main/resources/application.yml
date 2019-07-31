@@ -17,3 +17,6 @@ spring:
 logging:
   level:
     com.wujingcheng7.hoteldemo_backend.mapper: debug
+#registry:
+#  addViewController("/index"):
+#    setViewName("/hotels_display");:
