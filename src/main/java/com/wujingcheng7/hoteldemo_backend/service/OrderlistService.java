@@ -47,7 +47,7 @@ public class OrderlistService {
     }
 
     //根据订单号删除某个订单
-    public void deleteAnOrder(String order_id){
+    public void deleteAnOrder(int order_id){
         orderlistMapper.deleteOrderlistByOrderId(order_id);
     }
 }

@@ -1,7 +1,9 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
+import com.wujingcheng7.hoteldemo_backend.domain.Hotel;
 import com.wujingcheng7.hoteldemo_backend.domain.HotelRoom;
 import com.wujingcheng7.hoteldemo_backend.service.HotelRoomService;
+import com.wujingcheng7.hoteldemo_backend.service.HotelService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,8 @@ import static javax.swing.text.html.CSS.getAttribute;
 public class HotelRoomsDisplayController {
     @Autowired
     HotelRoomService hotelRoomService;
+    @Autowired
+    HotelService hotelService;
 
     @GetMapping("")
     public String getHtml(){
@@ -32,9 +36,10 @@ public class HotelRoomsDisplayController {
     @PostMapping("")
     public Model showRoomList(HttpServletRequest request, @Param("hotel_id")String hotel_id,Model model){
         HttpSession session = request.getSession();
-
         List<HotelRoom> rooms = hotelRoomService.getRoomListByHotelId(hotel_id);
+        Hotel hotel = hotelService.getHotelById(hotel_id);
         model.addAttribute("RoomList",rooms);
+        model.addAttribute("HotelObject",hotel);
         return model;
     }
 

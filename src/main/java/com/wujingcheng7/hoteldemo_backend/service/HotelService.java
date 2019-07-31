@@ -14,4 +14,8 @@ public class HotelService {
     public List<Hotel> getHotelListByCityAndName(String hotel_city, String hotel_name){
         return hotelMapper.getListByCityAndName(hotel_city,hotel_name);
     }
+
+    public Hotel getHotelById(String hotel_id){
+        return hotelMapper.getById(hotel_id);
+    }
 }
