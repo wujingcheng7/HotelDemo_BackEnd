@@ -9,8 +9,9 @@ public class Hotel {
     private String hotel_address;
     private String hotel_text;
     private String hotel_city;
+    private String hotel_img_url;
 
-    public Hotel(String hotel_id, String hotel_name, String hotel_longitude, String hotel_latitude, String hotel_stars, String hotel_address, String hotel_text, String hotel_city) {
+    public Hotel(String hotel_id, String hotel_name, String hotel_longitude, String hotel_latitude, String hotel_stars, String hotel_address, String hotel_text, String hotel_city, String hotel_img_url) {
         this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.hotel_longitude = hotel_longitude;
@@ -19,10 +20,18 @@ public class Hotel {
         this.hotel_address = hotel_address;
         this.hotel_text = hotel_text;
         this.hotel_city = hotel_city;
+        this.hotel_img_url = hotel_img_url;
     }
 
-
     public Hotel() {
+    }
+
+    public String getHotel_img_url() {
+        return hotel_img_url;
+    }
+
+    public void setHotel_img_url(String hotel_img_url) {
+        this.hotel_img_url = hotel_img_url;
     }
 
     public String getHotel_id() {
