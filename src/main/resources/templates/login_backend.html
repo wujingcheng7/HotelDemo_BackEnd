@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>QQ酒店管理系统——管理员登录</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -30,15 +30,16 @@
   <div class="login-box-body">
     <p class="login-box-msg">酒店管理人员登陆</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="/login_backend" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="tel">
+        <input type="text" name="hotel_admin_id" class="form-control" placeholder="tel">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="hotel_admin_pwd" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <div th:text="${msg}" style="color: red"></div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

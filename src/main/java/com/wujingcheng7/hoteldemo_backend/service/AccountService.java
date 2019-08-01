@@ -101,12 +101,12 @@ public class AccountService {
     /*
     * 管理员登录
     * */
-    public Result AdminLogin(String hotel_admin_id,String hotel_admin_psw){
+    public Result AdminLogin(String hotel_admin_id,String hotel_admin_pwd){
         Result result = new Result();
         result.setSuccess(false);
         result.setDetail(null);
         try{
-            HotelAdmin hotelAdmin = hotelAdminMapper.login(hotel_admin_id,hotel_admin_psw);
+            HotelAdmin hotelAdmin = hotelAdminMapper.login(hotel_admin_id,hotel_admin_pwd);
             if(hotelAdmin == null){
                 result.setMsg("用户名或密码错误");
             }else{
