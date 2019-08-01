@@ -127,21 +127,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<img src="../static/img/abc123.jpg" th:src="@{${hotel.hotel_img_url}}" class="img-responsive" alt="">
 							<span class="zoom-icon"></span>
 						</a>
-						<div class="grid_box2">
+						<div class="grid_box2" onclick="sendform">
 							<form method="post" action="/rooms_display" name="form_to_post">
 								<h4><a th:text="${hotel.hotel_name}" ></a></h4>
 								<div >
-									<a th:text="${hotel.hotel_address}"></a>
-									<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+									<span th:text="${hotel.hotel_address}"></span>
+									<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 									<input type="submit" class="rightbutton" value="详情"></input>
 								</div>
-
 								<input name="hotel_id" th:value="${hotel.hotel_id}" hidden="hidden"/>
-
 							</form>
-							<!--<form method="post" action="/rooms_display">-->
-							<!--<button type="submit" name="hotel_id" th:value="${i.hotel_id}">酒店详情</button>-->
-							<!--</form>-->
 						</div>
 						<h2 th:text="${iterStat.index}+1"></h2>
 					</div>
