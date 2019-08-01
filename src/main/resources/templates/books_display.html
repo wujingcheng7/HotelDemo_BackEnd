@@ -60,27 +60,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    <!--<div class="clearfix"></div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-                    <p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></p>
+                   <!-- <p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></p>
 					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
-						    <!--<div id="loginBox">                -->
-						        <!--<form id="loginForm">-->
-						                <!--<fieldset id="body">-->
-						                	<!--<fieldset>-->
-						                          <!--<label for="email">Email Address</label>-->
-						                          <!--<input type="text" name="email" id="email">-->
-						                    <!--</fieldset>-->
-						                    <!--<fieldset>-->
-						                            <!--<label for="password">Password</label>-->
-						                            <!--<input type="password" name="password" id="password">-->
-						                     <!--</fieldset>-->
-						                    <!--<input type="submit" id="login" value="Sign in">-->
-						                	<!--<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>-->
-						            	<!--</fieldset>-->
-						                 <!--<span><a href="#">Forgot your password?</a></span>-->
-							      <!--</form>-->
-				              <!--</div>-->
-			             </div>
-		                 <div class="clearfix"></div>
+						    &lt;!&ndash;<div id="loginBox">                &ndash;&gt;
+						        &lt;!&ndash;<form id="loginForm">&ndash;&gt;
+						                &lt;!&ndash;<fieldset id="body">&ndash;&gt;
+						                	&lt;!&ndash;<fieldset>&ndash;&gt;
+						                          &lt;!&ndash;<label for="email">Email Address</label>&ndash;&gt;
+						                          &lt;!&ndash;<input type="text" name="email" id="email">&ndash;&gt;
+						                    &lt;!&ndash;</fieldset>&ndash;&gt;
+						                    &lt;!&ndash;<fieldset>&ndash;&gt;
+						                            &lt;!&ndash;<label for="password">Password</label>&ndash;&gt;
+						                            &lt;!&ndash;<input type="password" name="password" id="password">&ndash;&gt;
+						                     &lt;!&ndash;</fieldset>&ndash;&gt;
+						                    &lt;!&ndash;<input type="submit" id="login" value="Sign in">&ndash;&gt;
+						                	&lt;!&ndash;<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>&ndash;&gt;
+						            	&lt;!&ndash;</fieldset>&ndash;&gt;
+						                 &lt;!&ndash;<span><a href="#">Forgot your password?</a></span>&ndash;&gt;
+							      &lt;!&ndash;</form>&ndash;&gt;
+				              &lt;!&ndash;</div>&ndash;&gt;
+			             </div>-->
+                    <br>
+                    <div th:switch="${session.user_tel}">
+                        <p th:case="null"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a><div class="clearfix"></div></p>
+                        <p th:case="*"><span th:text="'Welcome,'+${session.user_name}"></p>
+                    </div>
+
+                    <div class="clearfix"></div>
 	                 </div>
 	                <div class="clearfix"></div>
     </div>
