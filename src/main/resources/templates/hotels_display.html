@@ -51,16 +51,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				    </div>
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-					<!--<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span></p>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span></p>
 					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
 		                 <div class="clearfix"></div>
-	                 </div>-->
-					<br>
-                    <div th:switch="${session.user_tel}">
-                    <p th:case="null"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a><div class="clearfix"></div></p>
-                    <p th:case="*"><span th:text="'Welcome,'+${session.user_name}"></p>
-                    </div>
-
+	                 </div>
 	                <div class="clearfix"></div>
    </div>
 
@@ -87,36 +81,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--数据库酒店信息-->
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="alert alert-success">
-			<table border="0" align="center" width="1200px">
-				<tr>
-					<th>酒店名</th>
-					<th>所在城市</th>
-					<th>酒店星级</th>
-					<th>酒店地址</th>
-					<th>操作</th>
-				</tr>
-				<tr th:each ="i:${HotelList}">
+<!--<div class="row">-->
+	<!--<div class="col-md-12">-->
+		<!--<div class="alert alert-success">-->
+			<!--<table border="0" align="center" width="1200px">-->
+				<!--<tr>-->
+					<!--<th>酒店名</th>-->
+					<!--<th>所在城市</th>-->
+					<!--<th>酒店星级</th>-->
+					<!--<th>酒店地址</th>-->
+					<!--<th>操作</th>-->
+				<!--</tr>-->
+				<!--<tr th:each ="i:${HotelList}">-->
 
-					<td th:text = "${i.hotel_name}"></td>
-					<td th:text = "${i.hotel_city}"></td>
-					<td th:text = "${i.hotel_stars}"></td>
-					<td th:text = "${i.hotel_address}"></td>
+					<!--<td th:text = "${i.hotel_name}"></td>-->
+					<!--<td th:text = "${i.hotel_city}"></td>-->
+					<!--<td th:text = "${i.hotel_stars}"></td>-->
+					<!--<td th:text = "${i.hotel_img_url}"></td>-->
 
-					<td>
-						<form method="post" action="/rooms_display">
-							<button type="submit" name="hotel_id" th:value="${i.hotel_id}">酒店详情</button>
-						</form>
-					</td>
+					<!--<td>-->
+						<!--<form method="post" action="/rooms_display">-->
+							<!--<button type="submit" name="hotel_id" th:value="${i.hotel_id}">酒店详情</button>-->
+						<!--</form>-->
+					<!--</td>-->
 
-				</tr>
-			</table>
+				<!--</tr>-->
+			<!--</table>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+<!--酒店信息展示-->
+<div class="living_middle">
+	<div class="container">
+		<div class="entertain_box wow fadeInLeft" data-wow-delay="0.4s" >
+
+			<div class="col-md-3 grid_box" th:each ="i:${HotelList}">
+				<a href="../static/img/abc123.jpg" th:href="@{${i.hotel_img_url}}" class="swipebox"  title="点击查看大图">
+					<img src="../static/img/abc123.jpg" th:src="@{${i.hotel_img_url}}" class="img-responsive" alt="">
+					<span class="zoom-icon"></span>
+				</a>
+				<div class="grid_box2">
+					<h4><a th:text="${i.hotel_name}" href="#"></a></h4>
+					<p th:text="${i.hotel_address}"></p>
+				</div>
+			</div>
+
 		</div>
+		<br>
 	</div>
 </div>
-
 
 
 <div class="living_bottom">

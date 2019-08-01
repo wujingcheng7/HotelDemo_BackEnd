@@ -2015,7 +2015,7 @@ p.educate {
 	top: -152px;
 	width: 290px;
 	height: 219px;
-	background: url(../images/zoom.png) center center no-repeat;
+	background: url(../img/zoom.png) center center no-repeat;
 	cursor: pointer;
 	transition: all .2s ease-in-out;
 	-webkit-transition: all .2s ease-in-out;
