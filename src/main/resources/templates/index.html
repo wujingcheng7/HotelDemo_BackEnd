@@ -45,16 +45,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    	    </div>
 	            <div class="col-sm-4 header_right">
 
-					<!--<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span></p>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span></p>
 	    		      <div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
-			             </div>-->
-					<br>
+			             </div>
+					<!--<br>
 					<div th:switch="${session.user_tel}">
-						<p th:case="null"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a><div class="clearfix"></div></p>
-						<p th:case="*"><span th:text="'Welcome,'+${session.user_name}"></p>
-					</div>
 
-					<div class="clearfix"></div>
+						<p th:case="null"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a></p>
+						<p th:case="'1'"><span th:text="'Welcome,'+${session.user_name}">???</p>
+						<div class="clearfix"></div>
+
+					</div>
+-->
+
+
 	                 </div>
 	                <div class="clearfix"></div>
    </div>
