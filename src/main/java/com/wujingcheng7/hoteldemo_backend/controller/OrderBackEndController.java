@@ -24,11 +24,12 @@ public class OrderBackEndController {
 * 展示
 * */
     @GetMapping("")
-    public String showHtml(Model model, HttpServletRequest request){//此处假设已获取该人员所属Hotel_id
+    public Model showHtml(Model model, HttpServletRequest request){//此处假设已获取该人员所属Hotel_id
         HttpSession session = request.getSession();
         String hotel_id = (String)session.getAttribute("hotel_id");
         List<OrderList> orderLists = orderlistService.getOrderListsByHotelId(hotel_id);
-        return "/bookinfo_backend";
+        model.addAttribute("OrderLists",orderLists);
+        return model;
     }
 
     /*
