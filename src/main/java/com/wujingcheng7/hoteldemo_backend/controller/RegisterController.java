@@ -30,7 +30,7 @@ public class RegisterController {
         account.setUser_tel(user_tel);
         account.setUser_password(user_password);
         account.toString();
-        Result result = accountService.regist(account);
+        Result result = accountService.UserRegister(account);
         if(result.getMsg()!="")
             model.addAttribute("msg","该手机号已注册");
         return "/register";

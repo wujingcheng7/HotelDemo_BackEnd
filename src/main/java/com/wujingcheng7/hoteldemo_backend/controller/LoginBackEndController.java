@@ -4,42 +4,41 @@ import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.HttpRequestHandler;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.ui.Model;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/login_backend")
+public class LoginBackEndController {
     @Autowired
     private AccountService accountService;
-    /*
-     * 登录
-     * */
+
     @GetMapping("")
-    public String LoginHtml(){return "/login";}
+    public String html(){
+        return "/login_backend";
+    }
+
     @PostMapping("")
-    public String login(HttpServletRequest request, Model model){
-        String user_tel = request.getParameter("user_tel");
-        String user_password = request.getParameter("user_password");
-        Result result = accountService.UserLogin(user_tel,user_password);
+    public String AdminLogin(HttpServletRequest request, Model model){
+        String hotel_admin_id = (String)request.getAttribute("hotel_admin_id");
+        String hotel_id = (String)request.getAttribute("hotel_id");
+        String hotel_admin_psw = (String)request.getAttribute("hotel_admin_psw");
+        Result result = accountService.AdminLogin(hotel_admin_id,hotel_admin_psw);
         if(result.isSuccess()) {
             HttpSession session = request.getSession();
             session.setAttribute("isLogin",1);
-            session.setAttribute("user_tel",user_tel);
-            session.setAttribute("user_name",result.getDetail());
-            return "redirect:/index";
+            session.setAttribute("hotel_admin_id",hotel_admin_id);
+            return "redirect:/bookinfo_backend";
         }
         else {
             model.addAttribute("msg","用户名或密码错误");
-            return "/login";
+            return "/login_backend";
         }
     }
+
 }
