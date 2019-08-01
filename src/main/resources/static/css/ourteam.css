@@ -1,0 +1,8 @@
+.sblyx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sblyx img{
+    width: 100%;
+}

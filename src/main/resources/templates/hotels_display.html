@@ -129,8 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 						<div class="grid_box2">
 							<form method="post" action="/rooms_display">
-								<h4><a th:text="${hotel.hotel_name}" href="#"></a></h4>
-								<p th:text="${hotel.hotel_address}"></p>
+								<h4><a th:text="${hotel.hotel_name}" href="" type="submit"></a></h4>
+								<p th:text="${hotel.hotel_address}" type="submit"></p>
+								<input name="hotel_id" th:value="${hotel.hotel_id}" hidden="hidden"/>
 							</form>
 							<!--<form method="post" action="/rooms_display">-->
 							<!--<button type="submit" name="hotel_id" th:value="${i.hotel_id}">酒店详情</button>-->
