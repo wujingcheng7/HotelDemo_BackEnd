@@ -529,22 +529,20 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>订单序号</th>
                   <th>订单号</th>
-                  <th>订单创建时间</th>
-                  <th>开始入住时间</th>
-                  <th>入住时常</th>
+                  <th>用户手机号</th>
+                  <th>房间号</th>
+                  <th>入住时间</th>
+                  <th>退房时间</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each ="i:${Booklist}">
-                  <td th:text="${i.Bookseid}">Trident</td>
-                  <td th:="${i.Bookid}">Internet
-                    Explorer 4.0
-                  </td>
-                  <td th:="${i.Createtime}">Win 95+</td>
-                  <td th:="${i.Intime}"> 4</td>
-                  <td th:="${i.Livingtime}">X</td>
+                <tr th:each ="i:${OrderList}">
+                  <td th:text="${i.order_id}"></td>
+                  <td th:="${i.user_tel}"></td>
+                  <td th:="${i.room_id}"></td>
+                  <td th:="${i.order_indate}"> </td>
+                  <td th:="${i.order_outdate}"></td>
                 </tr>
                 <!--<tr>&ndash;&gt;
                   &lt;!&ndash;<td>Trident</td>&ndash;&gt;
