@@ -31,4 +31,7 @@ public interface HotelMapper {
 
     @Update("update hotel set hotel_stars=#{hotel_stars} where hotel_id=#{hotel_id}")
     boolean updateStarById(String hotel_stars,String hotel_id);
+
+    @Update("update hotel set hotel_address=#{hotel_address} where hotel_id=#{hotel_id}")
+    boolean updateAddrById(String hotel_address,String hotel_id);
 }
