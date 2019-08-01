@@ -6,3 +6,7 @@
 .sblyx img{
     width: 100%;
 }
+.rightbutton{
+    margin-left: 100px;
+    backface-visibility: hidden;
+}
