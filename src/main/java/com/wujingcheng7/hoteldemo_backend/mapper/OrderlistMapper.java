@@ -11,7 +11,10 @@ import java.util.List;
 @Repository
 public interface OrderlistMapper {
     @Select("Select * from order_list where order_id=#{order_id}")
-    OrderList getOrderlistByOrderlistId(String order_id);
+    OrderList getOrderlistByOrderId(int order_id);
+
+    @Select("Select * from order_list where hotel_id=#{hotel_id}")
+    List<OrderList> getAllOrderlistsByHotelId(String hotel_id);
 
     @Delete("Delete from order_list where order_id=#{order_id}")
     void deleteOrderlistByOrderId(int order_id);

@@ -42,9 +42,9 @@ public class OrderController {
     }*/
 
     @PostMapping("/delete_a_book")
-    public String  deleteAnOrder(Model model,@RequestParam("order_id")String order_id){
-        orderlistService.deleteAnOrder(order_id);
+    public String deleteAnOrder(Model model,HttpServletRequest request,@RequestParam("order_id")int order_id){
 
-        return "/books_display";
+        orderlistService.deleteAnOrder(order_id);
+        return OrdersDisplay(model,request);
     }
 }

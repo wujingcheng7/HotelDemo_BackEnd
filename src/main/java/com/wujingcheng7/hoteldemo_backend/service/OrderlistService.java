@@ -50,4 +50,18 @@ public class OrderlistService {
     public void deleteAnOrder(int order_id){
         orderlistMapper.deleteOrderlistByOrderId(order_id);
     }
+
+    //查看某酒店所有订单
+    public List<OrderList> getOrderListsByHotelId(String hotel_id){ return orderlistMapper.getAllOrderlistsByHotelId(hotel_id);}
+
+    //根据订单号查询某个订单
+    public OrderList getOrderListByOrderId(int order_id){return orderlistMapper.getOrderlistByOrderId(order_id);}
+
+    //修改订单
+    public Boolean modifyOrderList(OrderList orderListBackUp,String user_tel,String hotel_id,String room_id,Date order_indate,Date order_outdate){
+        int order_id = orderListBackUp.getOrder_id();
+        deleteAnOrder(order_id);
+        OrderList neworderList = createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
+        return neworderList!=null;
+    }
 }
