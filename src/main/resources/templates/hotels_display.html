@@ -121,15 +121,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container" >
 				<div class="entertain_box wow fadeInLeft" data-wow-delay="0.4s" >
 
-					<div class="col-md-3 grid_box" th:each ="i:${HotelList}">
-						<a href="../static/img/abc123.jpg" th:href="@{${i.hotel_img_url}}" class="swipebox"  title="点击查看大图">
-							<img src="../static/img/abc123.jpg" th:src="@{${i.hotel_img_url}}" class="img-responsive" alt="">
+					<div class="col-md-3 grid_box" th:each ="hotel,iterStat:${HotelList}">
+
+						<a href="../static/img/abc123.jpg" th:href="@{${hotel.hotel_img_url}}" class="swipebox"  title="点击查看大图">
+							<img src="../static/img/abc123.jpg" th:src="@{${hotel.hotel_img_url}}" class="img-responsive" alt="">
 							<span class="zoom-icon"></span>
 						</a>
 						<div class="grid_box2">
-							<h4><a th:text="${i.hotel_name}" href="#"></a></h4>
-							<p th:text="${i.hotel_address}"></p>
+							<form method="post" action="/rooms_display">
+								<h4><a th:text="${hotel.hotel_name}" href="#"></a></h4>
+								<p th:text="${hotel.hotel_address}"></p>
+							</form>
+							<!--<form method="post" action="/rooms_display">-->
+							<!--<button type="submit" name="hotel_id" th:value="${i.hotel_id}">酒店详情</button>-->
+							<!--</form>-->
 						</div>
+						<h2 th:text="${iterStat.index}+1"></h2>
 					</div>
 				</div>
 
