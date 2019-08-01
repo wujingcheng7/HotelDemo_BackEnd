@@ -31,8 +31,8 @@ public class LoginBackEndController {
         if(result.isSuccess()) {
             HttpSession session = request.getSession();
             session.setAttribute("isLogin",1);
-            System.out.println("登陆成功");
             session.setAttribute("hotel_admin_id",hotel_admin_id);
+            session.setAttribute("hotel_id",accountService.getHotelIdByHotelAdminId(hotel_admin_id));
             return "redirect:/bookinfo_backend";
         }
         else {

@@ -5,6 +5,7 @@ import com.wujingcheng7.hoteldemo_backend.mapper.AccountMapper;
 import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.domain.Account;
 import com.wujingcheng7.hoteldemo_backend.mapper.HotelAdminMapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -120,6 +121,9 @@ public class AccountService {
         }
         System.out.println(result.toString());
         return  result;
+    }
+    public String getHotelIdByHotelAdminId(String hotel_admin_id){
+        return hotelAdminMapper.getHotelIdByHotelAdminId(hotel_admin_id);
     }
     public boolean updatePassword(String user_password,String user_tel){
         return accountMapper.updateUserPassword(user_password,user_tel);

@@ -16,4 +16,7 @@ public interface HotelAdminMapper {
     HotelAdmin login(String hotel_admin_id, String hotel_admin_pwd);
     @Select("select hotel_admin_id form hotel_admin where hotel_admin_id=#{hotel_admin_id}")
     String getByHotelAdminId(String hotel_admin_id);
+
+    @Select("select hotel_id from hotel_admin where hotel_admin_id=#{hotel_admin_id}")
+    String getHotelIdByHotelAdminId(String hotel_admin_id);
 }
