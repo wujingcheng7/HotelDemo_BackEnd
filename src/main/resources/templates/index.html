@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  <a class="toggleMenu" href="#"><img src="../static/img/nav.png" alt="" /></a>
 						    <ul class="nav" id="nav">
 						    	<li class="active"><a href="/index">首页</a></li>
-						    	<li><a href="/hotels_display">酒店信息</a></li>
+						    	<li><a href="hotels_display.html" th:href="@{/hotels_display}">酒店信息</a></li>
 						    	<li><a href="/books_display">订单管理</a></li>
 						    	<li><a href="/personal_info">信息管理</a></li>
 								<div class="clearfix"></div>
@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    	    </div>
 	            <div class="col-sm-4 header_right">
 
-					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></p>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span></p>
 	    		      <div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
 			             </div>
 		                 <div class="clearfix"></div>
@@ -72,11 +72,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          </div>
    </div>
 
-	<mapper namespace="org.mybatis.hotel1">
-		<select id="selecthotel1" resultmap="sh">
-			select * from hotel where id = #{id}
-		</select>
-	</mapper>
 
    <div class="content_middle">
    	  <div class="container">
