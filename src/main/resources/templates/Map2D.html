@@ -9,8 +9,8 @@
         html,
         body,
         #container {
-            width: 1000px;
-            height: 780px;
+            width: 400px;
+            height: 200px;
         }
     </style>
     <title>设置地图级别与中心点</title>
@@ -38,6 +38,12 @@
         showIndoorMap: false //关闭室内地图
     });
 
+    // 创建一个 Marker 实例：
+    var marker = new AMap.Marker({
+        position: new AMap.LngLat(hotel_longitude, hotel_latitude),   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+        title: '酒店位置'
+    });
+    map.add(marker);
     //绑定按钮事件，改变地图层级
     document.querySelector("#random-zoom-btn").onclick = function() {
         var zoom = Math.floor(Math.random() * 7) + 11; //zoom范围[11,18]
