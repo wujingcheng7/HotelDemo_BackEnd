@@ -69,7 +69,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                <div class="clearfix"></div>
 			</div>
 <div id="tab_1">
-	<tr>
+	<table>
+
 	<td>
 			<iframe src="/Map3D"
 					height="215"
@@ -90,14 +91,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</td>
 	<td>
 		<table border="0" align="center" width="12px">
-		<tr th:text ="'酒店：'+${HotelObject.hotel_name}"></tr>
-		<tr th:text ="'城市：'+${HotelObject.hotel_city}"></tr>
-		<tr th:text ="'星级：'+${HotelObject.hotel_stars}"></tr>
-		<tr th:text ="'地址：'+${HotelObject.hotel_address}"></tr>
-		<tr th:text ="'简介：'+${HotelObject.hotel_text}"></tr>
+			<tr><td th:text ="'酒店：'+${HotelObject.hotel_name}"></td></tr>
+			<tr><td th:text ="'城市：'+${HotelObject.hotel_city}"></td></tr>
+			<tr><td th:text ="'星级：'+${HotelObject.hotel_stars}"></td></tr>
+			<tr><td th:text ="'地址：'+${HotelObject.hotel_address}"></td></tr>
+			<tr><td th:text ="'简介：'+${HotelObject.hotel_text}"></td></tr>
 		</table>
 	</td>
-	</tr>
+	</table>
 </div>
 
  <!--<div class="row">-->
