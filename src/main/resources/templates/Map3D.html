@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>、
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
@@ -43,6 +43,17 @@
             title: '酒店位置'
         });
         map.add(marker);
+        // 构造矢量圆形
+        var circle = new AMap.Circle({
+            center: new AMap.LngLat(hotel_longitude, hotel_latitude), // 圆心位置
+            radius: 20,  //半径
+            strokeColor: "#FFF",  //线颜色
+            strokeOpacity: 1,  //线透明度
+            strokeWeight: 3,  //线粗细度
+            fillColor: "#ee2200",  //填充颜色
+            fillOpacity: 0.35 //填充透明度
+        });
+        map.add(circle);
 
         map.addControl(new AMap.ControlBar({
             showZoomBar:false,
