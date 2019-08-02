@@ -70,9 +70,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <input type="text" name="hotel_city" value="目的地" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '目的地';}"><br>
 
 		  		<font color="white">入住</font>
-		  		<input type="date" value="入住时间"/>
+		  		<input type="date" value="入住时间" id="checkinDate"/>
 		  		<font color="white">退房</font>
-		  		<input type="date" value="退房时间"/>
+		  		<input type="date" value="退房时间" id="checkoutDate"/>
 				<br>
 				<input type="text"  name="hotel_name" value="关键字（酒店名），..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '关键字（酒店名），...';}">
 			    <div class="contact_btn">
@@ -487,4 +487,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
    </div>
 </body>
+<script>
+	Date.prototype.toDateInputValue = (function() {
+		var local = new Date(this);
+		local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+		return local.toJSON().slice(0,10);
+	});
+
+	$(document).ready(function () {
+		$('#checkinDate').val(new Date().toDateInputValue());
+		$('#checkinDate').attr("min", new Date().toDateInputValue())
+
+		$("#checkoutDate").change(function () {
+			var checkInDate = $('#checkinDate').val();
+			var checkoutDate = $(this).val();
+
+			if(checkInDate >= checkoutDate) {
+				alert("退房日期不能早于入住日期");
+				$(this).val('');
+			}
+		})
+	})
+</script>
 </html>		
