@@ -30,16 +30,6 @@ public class OrderController {
         return "/books_display";
     }
 
- /*   @PostMapping("/show_myBooks")
-    public Model OrdersShow(Model model, HttpServletRequest request){
-
-        HttpSession session = request.getSession();
-        String user_tel = (String)session.getAttribute("user_tel");
-        List<OrderList> listOfOrderLists = orderlistService.getAllMyOrders(user_tel);
-        model.addAttribute("listOfOrderLists",listOfOrderLists);
-        //TODO:此方法仍需要完善
-        return model;
-    }*/
 
     @PostMapping("/delete_a_book")
     public String deleteAnOrder(Model model,HttpServletRequest request,@RequestParam("order_id")int order_id){
