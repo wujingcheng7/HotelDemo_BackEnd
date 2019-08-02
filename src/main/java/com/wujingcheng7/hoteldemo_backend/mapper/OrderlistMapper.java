@@ -16,6 +16,12 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where hotel_id=#{hotel_id}")
     List<OrderList> getAllOrderlistsByHotelId(String hotel_id);
 
+    /*
+    * 预定房间时查询该房间所有冲突订单
+    * */
+    @Select("Select * from order_list where hotel_room_id=#{hotel_room_id} and order_outdate>#{order_indate} and order_indate<#{order_outdate}")
+    List<OrderList> getAllOrderlistsByHotelRoomIdAndDate(OrderList orderList);
+
     @Delete("Delete from order_list where order_id=#{order_id}")
     void deleteOrderlistByOrderId(int order_id);
 
