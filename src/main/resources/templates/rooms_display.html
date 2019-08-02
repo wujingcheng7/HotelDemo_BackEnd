@@ -132,8 +132,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
    <div class="living_middle">
    	  <div class="container">
-   	  		<h2 class="title block-title">Luxury Rooms</h2>
-   	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each ="i:${RoomList}">
+   	  		<h2 class="title block-title">房间详情</h2>
+   	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each ="i,iterStat:${RoomList}">
    	    	<div class="living_box"><a href="#" >
 			    <img src="../static/img/l1.jpg" class="img-responsive" alt=""/>
 				<span class="sale-box">
@@ -155,6 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </tr>
                 </tbody></table>
 			</div>
+			<h2 th:text="${iterStat.index}+1"></h2>
 		 </div>
    	     <!--<div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">-->
    	     	<!--<div class="living_box"><a href="#">-->
