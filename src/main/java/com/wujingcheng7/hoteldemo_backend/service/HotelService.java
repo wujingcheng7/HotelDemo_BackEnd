@@ -37,5 +37,6 @@ public class HotelService {
     //根据酒店Id更改酒店文字地址（非坐标）
     public boolean updateHotelAddr(String hotel_address,String hotel_id){
         return hotelMapper.updateAddrById(hotel_address, hotel_id);
+
     }
 }
