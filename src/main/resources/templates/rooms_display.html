@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    <!--<div class="clearfix"> </div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></p>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"><br><a href="/logout/">退出登录</a></p>
 					<div th:if="${session.user_tel}==null" id="loginContainer">
 						<a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
 				 	</div>
@@ -69,24 +69,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                <div class="clearfix"></div>
 			</div>
 <div id="tab_1">
+	<tr>
 	<td>
-		<iframe src="/Map3D"
-				height="200"
-				width="25%"
-				frameborder="0"
-				scrolling="No"
-		></iframe>
+			<iframe src="/Map3D"
+					height="215"
+					width="25%"
+					frameborder="0"
+					scrolling="No"
+			></iframe>
+
 	</td>
 	<td>
-		<iframe src="/Map2D"
-				height="200"
-				width="25%"
-				frameborder="0"
-				scrolling="No"
-		></iframe>
+			<iframe src="/Map2D"
+					height="200"
+					width="25%"
+					frameborder="0"
+					scrolling="No"
+			></iframe>
+
 	</td>
 	<td>
-		<table border="0" align="center" width="1200px">
+		<table border="0" align="center" width="12px">
 		<tr th:text ="'酒店：'+${HotelObject.hotel_name}"></tr>
 		<tr th:text ="'城市：'+${HotelObject.hotel_city}"></tr>
 		<tr th:text ="'星级：'+${HotelObject.hotel_stars}"></tr>
@@ -94,53 +97,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<tr th:text ="'简介：'+${HotelObject.hotel_text}"></tr>
 		</table>
 	</td>
+	</tr>
 </div>
 
- <div class="row">
-	<div class="col-md-12">
-		<div class="alert alert-success">
-			<table border="0" align="center" width="1200px">
-				<tr>
-					<th>房间号</th>
-					<th>房间类型</th>
-					<th>房间价格</th>
-					<th>房间描述</th>
-                    <th>入住日期</th>
-                    <th>退房日期</th>
-					<th>操作</th>
-				</tr>
-				<tr th:each ="i:${RoomList}">
-					<form method="post" action="/make_an_order">
-					<td th:text = "${i.room_id}" th:value = "${i.room_id}" name="room_id"></td>
-					<td th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></td>
-					<td th:text = "${i.room_price}" th:value = "${i.room_price}" name="room_price"></td>
-					<td th:text = "${i.room_text}" th:value = "${i.room_text}" name="room_text"></td>
-                    <td><input type="date" name="order_indate"/></td>
-                    <td><input type="date" name="order_outdate"/></td>
-                    <td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>
-					</form>
-				</tr>
-			</table>
-		</div>
-	</div>
- </div>
+ <!--<div class="row">-->
+	<!--<div class="col-md-12">-->
+		<!--<div class="alert alert-success">-->
+			<!--<table border="0" align="center" width="1200px">-->
+				<!--<tr>-->
+					<!--<th>房间号</th>-->
+					<!--<th>房间类型</th>-->
+					<!--<th>房间价格</th>-->
+					<!--<th>房间描述</th>-->
+                    <!--<th>入住日期</th>-->
+                    <!--<th>退房日期</th>-->
+					<!--<th>操作</th>-->
+				<!--</tr>-->
+				<!--<tr th:each ="i:${RoomList}">-->
+					<!--<form method="post" action="/make_an_order">-->
+					<!--<td th:text = "${i.room_id}" th:value = "${i.room_id}" name="room_id"></td>-->
+					<!--<td th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></td>-->
+					<!--<td th:text = "${i.room_price}" th:value = "${i.room_price}" name="room_price"></td>-->
+					<!--<td th:text = "${i.room_text}" th:value = "${i.room_text}" name="room_text"></td>-->
+                    <!--<td><input type="date" name="order_indate"/></td>-->
+                    <!--<td><input type="date" name="order_outdate"/></td>-->
+                    <!--<td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>-->
+					<!--</form>-->
+				<!--</tr>-->
+			<!--</table>-->
+		<!--</div>-->
+	<!--</div>-->
+ <!--</div>-->
 
 
    <div class="living_middle">
    	  <div class="container">
    	  		<h2 class="title block-title">Luxury Rooms</h2>
-   	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
-   	    	<div class="living_box"><a href="#">
+   	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each ="i:${RoomList}">
+   	    	<div class="living_box"><a href="#" >
 			    <img src="../static/img/l1.jpg" class="img-responsive" alt=""/>
 				<span class="sale-box">
 				  <span class="sale-label">Rooms</span>
 			    </span>
 				</a>
 				<div class="living_desc">
-				<h3><a href="#">aliquam volutp</a></h3>
-				<p>Lorem ipsum consectetuer adipiscing </p>
-				<a href="single.html" class="btn3">Rent</a>
-				<p class="price">$100.00</p>
+				<h3><a href="#" th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></a></h3>
+				<p><a th:text = "${i.room_text}" th:value = "${i.room_text}" name="room_text"></a></p>
+				<button class="btn3" type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定</button>
+					<!--<td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>-->
+				<p class="price" th:text = "'￥'+${i.room_price}" th:value = "${i.room_price}" name="room_price">￥100.00</p>
 				</div>
 			    <table border="1" class="propertyDetails">
                 <tbody><tr>
@@ -151,50 +156,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </tbody></table>
 			</div>
 		 </div>
-   	     <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
-   	     	<div class="living_box"><a href="#">
-			    <img src="../static/img/l2.jpg" class="img-responsive" alt=""/>
-				<span class="sale-box">
-				  <span class="sale-label">Rooms</span>
-			    </span>
-				</a>
-				<div class="living_desc">
-				<h3><a href="#">aliquam volutp</a></h3>
-				<p>Lorem ipsum consectetuer adipiscing </p>
-				<a href="single.html" class="btn3">Rent</a>
-				<p class="price">$89.00</p>
-				</div>
-			    <table border="1" class="propertyDetails">
-                <tbody><tr>
-                   <td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>
-                   <td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>
-                   <td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>
-                    </tr>
-                </tbody></table>
-			</div>
-   	     </div>
-   	     <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
-   	     	<div class="living_box"><a href="#">
-			    <img src="../static/img/l3.jpg" class="img-responsive" alt=""/>
-				<span class="sale-box">
-				  <span class="sale-label">Rooms</span>
-			    </span>
-				</a>
-				<div class="living_desc">
-				<h3><a href="#">aliquam volutp</a></h3>
-				<p>Lorem ipsum consectetuer adipiscing </p>
-				<a href="single.html" class="btn3">Rent</a>
-				<p class="price">$100.00</p>
-				</div>
-			    <table border="1" class="propertyDetails">
-                <tbody><tr>
-                   <td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>
-                   <td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>
-                   <td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>
-                    </tr>
-                </tbody></table>
-			</div>
-   	      </div>
+   	     <!--<div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">-->
+   	     	<!--<div class="living_box"><a href="#">-->
+			    <!--<img src="../static/img/l2.jpg" class="img-responsive" alt=""/>-->
+				<!--<span class="sale-box">-->
+				  <!--<span class="sale-label">Rooms</span>-->
+			    <!--</span>-->
+				<!--</a>-->
+				<!--<div class="living_desc">-->
+				<!--<h3><a href="#">aliquam volutp</a></h3>-->
+				<!--<p>Lorem ipsum consectetuer adipiscing </p>-->
+				<!--<a href="single.html" class="btn3">Rent</a>-->
+				<!--<p class="price">$89.00</p>-->
+				<!--</div>-->
+			    <!--<table border="1" class="propertyDetails">-->
+                <!--<tbody><tr>-->
+                   <!--<td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>-->
+                   <!--<td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>-->
+                   <!--<td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>-->
+                    <!--</tr>-->
+                <!--</tbody></table>-->
+			<!--</div>-->
+   	     <!--</div>-->
+   	     <!--<div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s">-->
+   	     	<!--<div class="living_box"><a href="#">-->
+			    <!--<img src="../static/img/l3.jpg" class="img-responsive" alt=""/>-->
+				<!--<span class="sale-box">-->
+				  <!--<span class="sale-label">Rooms</span>-->
+			    <!--</span>-->
+				<!--</a>-->
+				<!--<div class="living_desc">-->
+				<!--<h3><a href="#">aliquam volutp</a></h3>-->
+				<!--<p>Lorem ipsum consectetuer adipiscing </p>-->
+				<!--<a href="single.html" class="btn3">Rent</a>-->
+				<!--<p class="price">$100.00</p>-->
+				<!--</div>-->
+			    <!--<table border="1" class="propertyDetails">-->
+                <!--<tbody><tr>-->
+                   <!--<td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>-->
+                   <!--<td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>-->
+                   <!--<td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>-->
+                    <!--</tr>-->
+                <!--</tbody></table>-->
+			<!--</div>-->
+   	      <!--</div>-->
    	    </div>
    </div>
    <div class="living_bottom">
