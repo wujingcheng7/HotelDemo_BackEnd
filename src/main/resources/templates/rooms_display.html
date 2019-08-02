@@ -60,17 +60,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    <!--<div class="clearfix"> </div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"><br><a href="/logout/">退出登录</a></p>
-					<div th:if="${session.user_tel}==null" id="loginContainer">
-						<a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
-				 	</div>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a></p>
+					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
+
+					</div>
 		                 <div class="clearfix"> </div>
 			 	</div>
 	                <div class="clearfix"></div>
 			</div>
 <div id="tab_1">
-	<table>
-
+	<tr>
 	<td>
 			<iframe src="/Map3D"
 					height="215"
@@ -91,14 +90,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</td>
 	<td>
 		<table border="0" align="center" width="12px">
-			<tr><td th:text ="'酒店：'+${HotelObject.hotel_name}"></td></tr>
-			<tr><td th:text ="'城市：'+${HotelObject.hotel_city}"></td></tr>
-			<tr><td th:text ="'星级：'+${HotelObject.hotel_stars}"></td></tr>
-			<tr><td th:text ="'地址：'+${HotelObject.hotel_address}"></td></tr>
-			<tr><td th:text ="'简介：'+${HotelObject.hotel_text}"></td></tr>
+		<tr th:text ="'酒店：'+${HotelObject.hotel_name}"></tr>
+		<tr th:text ="'城市：'+${HotelObject.hotel_city}"></tr>
+		<tr th:text ="'星级：'+${HotelObject.hotel_stars}"></tr>
+		<tr th:text ="'地址：'+${HotelObject.hotel_address}"></tr>
+		<tr th:text ="'简介：'+${HotelObject.hotel_text}"></tr>
 		</table>
 	</td>
-	</table>
+	</tr>
 </div>
 
  <!--<div class="row">-->
@@ -137,9 +136,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="living_middle">
 	   <div align="center">
 	   <font color="black">入住时间</font>
-	   <input type="date" value="入住时间"/>
+	   <input type="date" id="checkInDate" value="入住时间"/>
 	   <font color="black">退房时间</font>
-	   <input type="date" value="退房时间"/>
+	   <input type="date" id="checkoutDate" value="退房时间"/>
 	   </div>
    	  <div class="container">
    	  		<h2 class="title block-title">房间详情</h2>
@@ -290,5 +289,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var latitude="[[${HotelObject.hotel_latitude}]]";
 		return latitude;
 	}
+
+	Date.prototype.toDateInputValue = (function() {
+		var local = new Date(this);
+		local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+		return local.toJSON().slice(0,10);
+	});
+	
+	$(document).ready(function () {
+		$('#checkInDate').val(new Date().toDateInputValue());
+		$('#checkInDate').attr("min", new Date().toDateInputValue())
+
+		$("#checkoutDate").change(function () {
+			var checkInDate = $('#checkInDate').val();
+			var checkoutDate = $(this).val();
+
+			if(checkInDate >= checkoutDate) {
+				alert("退房日期不能小于入住日期");
+				$(this).val('');
+			}
+		})
+	})
 </script>
 </html>		
