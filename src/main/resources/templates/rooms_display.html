@@ -68,48 +68,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 	</div>
 	                <div class="clearfix"></div>
 			</div>
-<div id="tab_1">
-	<tr>
-	<td>
-			<iframe src="/Map3D"
-					height="215"
-					width="25%"
-					frameborder="0"
-					scrolling="No"
-			></iframe>
+<div class="main"  style=" margin:auto; width:100%; height:220px; border:solid 0px #000000;">
+	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+		<iframe src="/Map3D"
+				height="100%"
+				width="100%"
+				frameborder="0"
+				scrolling="No"
+		></iframe>
+	</div>
 
-	</td>
-	<td>
-			<iframe src="/Map2D"
-					height="215"
-					width="25%"
-					frameborder="0"
-					scrolling="No"
-			></iframe>
+	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+		<iframe src="/Map2D"
+				height="100%"
+				width="100%"
+				frameborder="0"
+				scrolling="No"
+		></iframe>
+	</div>
 
-	</td>
-	<td>
-		<table border="0" align="center" width="12px">
-		<tr th:text ="'酒店：'+${HotelObject.hotel_name}"></tr>
-		<tr th:text ="'城市：'+${HotelObject.hotel_city}"></tr>
-		<tr th:text ="'星级：'+${HotelObject.hotel_stars}"></tr>
-		<tr th:text ="'地址：'+${HotelObject.hotel_address}"></tr>
-		<tr th:text ="'简介：'+${HotelObject.hotel_text}"></tr>
-		</table>
-	</td>
-	</tr>
+	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+
+			<h1 th:text ="'酒店：'+${HotelObject.hotel_name}"></h1>
+			<h2 th:text ="'城市：'+${HotelObject.hotel_city}"></h2>
+			<h2 th:text ="'星级：'+${HotelObject.hotel_stars}"></h2>
+			<h3 th:text ="'地址：'+${HotelObject.hotel_address}"></h3>
+			<h3 th:text ="'简介：'+${HotelObject.hotel_text}"></h3>
+	</div>
 </div>
-
-
-
-
-
    <div class="living_middle">
 	   <div align="center">
+		   <h2 class="title block-title">请选择入住日期和退房日期</h2>
 	   <font color="black">入住时间</font>
-	   <input type="date" id="checkInDate" value="入住时间"/>
+	   <input type="date" id="checkInDate" value="入住时间" style="border: solid 1px orange;"/>
 	   <font color="black">退房时间</font>
-	   <input type="date" id="checkoutDate" value="退房时间"/>
+	   <input type="date" id="checkoutDate" value="退房时间" style="border: solid 1px orange;"/>
 	   </div>
    	  <div class="container">
    	  		<h2 class="title block-title">房间详情</h2>
