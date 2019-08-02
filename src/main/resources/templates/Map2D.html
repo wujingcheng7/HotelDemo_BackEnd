@@ -44,6 +44,17 @@
         title: '酒店位置'
     });
     map.add(marker);
+    // 构造矢量圆形
+    var circle = new AMap.Circle({
+        center: new AMap.LngLat(hotel_longitude, hotel_latitude), // 圆心位置
+        radius: 20,  //半径
+        strokeColor: "#FFF",  //线颜色
+        strokeOpacity: 1,  //线透明度
+        strokeWeight: 3,  //线粗细度
+        fillColor: "#ee2200",  //填充颜色
+        fillOpacity: 0.35 //填充透明度
+    });
+    map.add(circle);
     //绑定按钮事件，改变地图层级
     document.querySelector("#random-zoom-btn").onclick = function() {
         var zoom = Math.floor(Math.random() * 7) + 11; //zoom范围[11,18]
