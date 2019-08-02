@@ -1,5 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.service;
 
+import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.mapper.HotelMapper;
 import com.wujingcheng7.hoteldemo_backend.mapper.HotelRoomMapper;
@@ -20,7 +21,8 @@ public class OrderlistService {
     private HotelRoomMapper hotelRoomMapper;
 
     //预定房间
-    public OrderList createAnOrder(String user_tel,String hotel_id,String room_id,Date order_indate,Date order_outdate){
+    public Result createAnOrder(String user_tel, String hotel_id, String room_id, Date order_indate, Date order_outdate){
+        //初始化orderList
         OrderList orderList = new OrderList();
         String hotel_name = hotelMapper.getById(hotel_id).getHotel_name();
         String hotel_room_id = hotel_id+room_id;
@@ -37,8 +39,21 @@ public class OrderlistService {
         orderList.setHotel_room_id(hotel_room_id);
         orderList.setOrder_howmanyday(order_howmanyday);
         orderList.setOrder_price(order_price);
-        orderlistMapper.insertOrderlist(orderList);
-        return orderList;
+
+        //冲突检测
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setDetail(null);
+        List<OrderList> orderLists = orderlistMapper.getAllOrderlistsByHotelRoomIdAndDate(orderList);
+        result.setSuccess(orderLists.isEmpty());
+        if (result.isSuccess()) {
+            result.setMsg("订单创建成功");
+            orderlistMapper.insertOrderlist(orderList);
+        }
+        else {
+            result.setMsg("订单与已有订单冲突");
+        }
+        return result;
     }
 
     //查看某用户的所有订单
@@ -61,7 +76,11 @@ public class OrderlistService {
     public Boolean modifyOrderList(OrderList orderListBackUp,String user_tel,String hotel_id,String room_id,Date order_indate,Date order_outdate){
         int order_id = orderListBackUp.getOrder_id();
         deleteAnOrder(order_id);
-        OrderList neworderList = createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
-        return neworderList!=null;
+        Result result = createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
+        return result.isSuccess();
+    }
+
+    public List<OrderList> getOrderListsByHotelRoomIdAndDate(OrderList orderList){
+        return orderlistMapper.getAllOrderlistsByHotelRoomIdAndDate(orderList);
     }
 }
