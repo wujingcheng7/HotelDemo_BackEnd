@@ -23,11 +23,18 @@
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=d7f2c1f1daed7356d9a9f1763b69f657"></script>
 <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
 <script>
+    var hotel_longitude_string = parent.getLongitude();
+    var hotel_latitude_string = parent.getLatitude();
+    hotel_longitude = parseFloat(hotel_longitude_string);
+    hotel_latitude = parseFloat(hotel_latitude_string);
+
+
     //初始化地图
     var map = new AMap.Map('container', {
         resizeEnable: true, //是否监控地图容器尺寸变化
         zoom: 17, //初始地图级别
-        center: [104.057229,30.667032], //初始地图中心点
+        // center: [104.057229,30.667032], //初始地图中心点
+        center: [hotel_longitude,hotel_latitude], //初始地图中心点
         showIndoorMap: false //关闭室内地图
     });
 
@@ -54,6 +61,7 @@
         map.setZoomAndCenter(zoom, [lng, lat]); //同时设置地图层级与中心点
         // log.info(`当前层级已设为${zoom}级，中心点已设为 ${lng.toFixed(6)},${lat.toFixed(6)}`);
     }
+
 </script>
 </body>
 

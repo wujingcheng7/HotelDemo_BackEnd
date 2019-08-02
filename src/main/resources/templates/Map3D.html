@@ -16,6 +16,11 @@
 <body >
 <div id="container" style="width:100%; height:100%;resize:both;"></div>
 <script language="javascript">
+    var hotel_longitude_string = parent.getLongitude();
+    var hotel_latitude_string = parent.getLatitude();
+    hotel_longitude = parseFloat(hotel_longitude_string);
+    hotel_latitude = parseFloat(hotel_latitude_string);
+
     var map;
     function mapInit(){
         map = new AMap.Map('container', {
@@ -30,7 +35,7 @@
 
             expandZoomRange:true,
             zooms:[3,20],
-            center:[104.057229,30.667032]
+            center:[hotel_longitude_string,hotel_latitude]
         });
 
         map.addControl(new AMap.ControlBar({
