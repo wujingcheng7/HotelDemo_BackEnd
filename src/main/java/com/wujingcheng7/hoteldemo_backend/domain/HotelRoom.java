@@ -8,8 +8,28 @@ public class HotelRoom {
     private String room_type;
     private String room_price;
     private String room_text;
+    private String room_img_url;
 
     public HotelRoom() {
+    }
+
+    public HotelRoom(String hotel_room_id, String room_id, String hotel_id, String book_id, String room_type, String room_price, String room_text, String room_img_url) {
+        this.hotel_room_id = hotel_room_id;
+        this.room_id = room_id;
+        this.hotel_id = hotel_id;
+        this.book_id = book_id;
+        this.room_type = room_type;
+        this.room_price = room_price;
+        this.room_text = room_text;
+        this.room_img_url = room_img_url;
+    }
+
+    public String getRoom_img_url() {
+        return room_img_url;
+    }
+
+    public void setRoom_img_url(String room_img_url) {
+        this.room_img_url = room_img_url;
     }
 
     public String getHotel_room_id() {
