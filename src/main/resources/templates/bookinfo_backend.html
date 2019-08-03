@@ -348,7 +348,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../static/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> 了解详情</a></li>
+            <li><a href="hotel_info_backend.html"><i class="fa fa-circle-o"></i> 修改信息</a></li>
             <!--<li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>-->
             <!--<li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>-->
             <!--<li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>-->
@@ -372,7 +372,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="bookinfo_backend.html"><i class="fa fa-circle-o"></i> 历史订单</a></li>
-            <!--<li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>-->
+            <li><a href="nowbooks_backend.html"><i class="fa fa-circle-o"></i>当前订单</a></li>
             <!--<li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>-->
             <!--<li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>-->
           </ul>
@@ -402,17 +402,17 @@
 
   <!-- Content Wrapper. Contains page content --><div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <h1>
-      订单信息
-      <small>本信息由QQ酒店辅助管理系统提供</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Tables</a></li>
-      <li class="active">Data tables</li>
-    </ol>
-  </section>
+  <!--<section class="content-header">-->
+    <!--<h1>-->
+      <!--订单信息-->
+      <!--<small>本信息由QQ酒店辅助管理系统提供</small>-->
+    <!--</h1>-->
+    <!--<ol class="breadcrumb">-->
+      <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+      <!--<li><a href="#">Tables</a></li>-->
+      <!--<li class="active">Data tables</li>-->
+    <!--</ol>-->
+  <!--</section>-->
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -442,15 +442,6 @@
                 <td th:text="${i.order_outdate}"></td>
               </tr>
               </tbody>
-              <tfoot>
-              <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
-              </tr>
-              </tfoot>
             </table>
           </div>
         </div>
