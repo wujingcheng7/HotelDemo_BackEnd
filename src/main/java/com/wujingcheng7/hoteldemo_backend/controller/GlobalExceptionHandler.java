@@ -1,21 +1,24 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    public static final String DEFAULT_ERROR_VIEW = "error";
 
-    @ExceptionHandler(value = Exception.class)
-    public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("exception", e);
-        mav.addObject("url", req.getRequestURL());
-        mav.setViewName(DEFAULT_ERROR_VIEW);
-        return mav;
+    @ResponseBody
+    @ExceptionHandler(Exception.class)
+    public void handleException(Exception e, Model model,HttpServletRequest servletRequest){
+        String wrong_url = servletRequest.getRequestURL().toString();
+        String message = e.getMessage();
+        System.out.println("异常地址："+wrong_url);
+        System.out.println("异常信息："+message);
+        model.addAttribute("wrong_url",wrong_url);
+        model.addAttribute("message",message);
+        return ;
     }
+
 }

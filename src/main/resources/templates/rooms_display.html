@@ -96,13 +96,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3 th:text ="'简介：'+${HotelObject.hotel_text}"></h3>
 	</div>
 </div>
+
+
+<form action="/make_an_order/" method="post">
    <div class="living_middle">
 	   <div align="center">
 		   <h2 class="title block-title">请选择入住日期和退房日期</h2>
+
 	   <font color="black">入住时间</font>
-	   <input type="date" id="checkInDate" value="入住时间" style="border: solid 1px orange;"/>
+	   <input type="date" id="checkInDate"  value="入住时间" name="order_indate" style="border: solid 1px orange;"/>
 	   <font color="black">退房时间</font>
-	   <input type="date" id="checkoutDate" value="退房时间" style="border: solid 1px orange;"/>
+	   <input type="date" id="checkoutDate" value="退房时间" name="order_outdate" style="border: solid 1px orange;"/>
 	   </div>
    	  <div class="container">
    	  		<h2 class="title block-title">房间详情</h2>
@@ -133,6 +137,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 	  </div>
    </div>
+</form>
+
+
    <div class="living_bottom">
    	  <div class="container">
    	  	<h2 class="title block-title">Latest Posts</h2>
