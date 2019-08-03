@@ -13,9 +13,13 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where order_id=#{order_id}")
     OrderList getOrderlistByOrderId(int order_id);
 
-    /*查看酒店所有订单*/
-    @Select("Select * from order_list where hotel_id=#{hotel_id}")
-    List<OrderList> getAllOrderlistsByHotelId(String hotel_id);
+    /*查看酒店所有当前订单*/
+    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate>CURRENT_DATE()")
+    List<OrderList> getNowOrderlistsByHotelId(String hotel_id);
+
+    /*查看酒店所有当前订单*/
+    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE()")
+    List<OrderList> getOldOrderlistsByHotelId(String hotel_id);
 
     /*
     * 预定房间时查询该房间所有冲突订单

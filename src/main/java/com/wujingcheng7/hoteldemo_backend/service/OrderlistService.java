@@ -79,8 +79,11 @@ public class OrderlistService {
         orderlistMapper.deleteOrderlistByOrderId(order_id);
     }
 
-    //查看某酒店所有订单
-    public List<OrderList> getOrderListsByHotelId(String hotel_id){ return orderlistMapper.getAllOrderlistsByHotelId(hotel_id);}
+    //查看某酒店当前订单
+    public List<OrderList> getNowOrderListsByHotelId(String hotel_id){ return orderlistMapper.getNowOrderlistsByHotelId(hotel_id);}
+
+    //查看某酒店历史订单
+    public List<OrderList> getOldOrderListsByHotelId(String hotel_id){ return orderlistMapper.getOldOrderlistsByHotelId(hotel_id);}
 
     //根据订单号查询某个订单
     public OrderList getOrderListByOrderId(int order_id){return orderlistMapper.getOrderlistByOrderId(order_id);}

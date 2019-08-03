@@ -20,20 +20,30 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/bookinfo_backend")
-@ResponseBody
 public class OrderBackEndController {
     @Autowired
     private OrderlistService orderlistService;
-/*
-* 展示
-* */
+    /*
+    * 展示当前订单
+    * */
     @GetMapping("")
-    public Model showHtml(Model model, HttpServletRequest request){
+    public Model showNowOrders(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String hotel_id = (String)session.getAttribute("hotel_id");
-        List<OrderList> orderLists = orderlistService.getOrderListsByHotelId(hotel_id);
-        model.addAttribute("OrderLists",orderLists);
+        List<OrderList> NowOrderLists = orderlistService.getNowOrderListsByHotelId(hotel_id);
+        model.addAttribute("NowOrderLists",NowOrderLists);
         return model;
+    }
+    /*
+    * 展示历史订单
+    * */
+    @GetMapping("/history")
+    public String showHistoryOrders(Model model,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String hotel_id = (String)session.getAttribute("hotel_id");
+        List<OrderList> OldOrderLists = orderlistService.getOldOrderListsByHotelId(hotel_id);
+        model.addAttribute("OldOrderLists",OldOrderLists);
+        return "/oldbooks_backend";
     }
 
     /*
@@ -41,7 +51,7 @@ public class OrderBackEndController {
     * 当前可修改信息为：
     * 日期、房间号
     * */
-    @PostMapping("/modify_orderList")
+    @PostMapping("/modify")
     public String modifyOrderList(HttpServletRequest request,Model model,@Param("order_id")int order_id,@Param("order_indate")Date order_indate,@Param("order_outdate") Date order_outdate,@Param("room_id")String room_id){
         HttpSession session = request.getSession();
         String hotel_id = (String)session.getAttribute("hotel_id");
