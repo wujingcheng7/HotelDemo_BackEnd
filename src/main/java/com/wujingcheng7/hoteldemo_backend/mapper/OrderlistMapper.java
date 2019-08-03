@@ -13,6 +13,7 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where order_id=#{order_id}")
     OrderList getOrderlistByOrderId(int order_id);
 
+    /*查看酒店所有订单*/
     @Select("Select * from order_list where hotel_id=#{hotel_id}")
     List<OrderList> getAllOrderlistsByHotelId(String hotel_id);
 
@@ -22,10 +23,17 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where hotel_room_id=#{hotel_room_id} and order_outdate>#{order_indate} and order_indate<#{order_outdate}")
     List<OrderList> getAllOrderlistsByHotelRoomIdAndDate(OrderList orderList);
 
-    @Delete("Delete from order_list where order_id=#{order_id}")
+    /*
+    * 删除订单，
+    * 设置为对用户不可见
+    * */
+    @Delete("update  order_list set visible=0 where order_id=#{order_id}")
     void deleteOrderlistByOrderId(int order_id);
 
-    @Select("Select * from order_list where user_tel=#{user_tel}")
+    /*
+    * 根据用户根据手机号查看可见订单
+    * */
+    @Select("Select * from order_list where user_tel=#{user_tel} and visible=1")
     List<OrderList> getAllOrderlistsByUserTel(String user_tel);
 
     @Options(useGeneratedKeys = true,keyProperty = "order_id",keyColumn = "order_id")
