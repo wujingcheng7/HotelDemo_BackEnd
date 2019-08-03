@@ -13,6 +13,11 @@ public class OrderList {
     private Date order_outdate;
     private String order_howmanyday;
     private String hotel_name;
+    private boolean visible;
+
+    public boolean isVisible() {
+        return visible;
+    }
 
     public int getOrder_id() {
         return order_id;
