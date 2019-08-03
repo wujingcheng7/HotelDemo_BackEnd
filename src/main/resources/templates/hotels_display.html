@@ -54,10 +54,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   </div>
 
 			<div class="col-sm-4 header_right">
-					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"><br><a href="/logout/">退出登录</a></span></p>
-					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
-		                 <div class="clearfix"></div>
-	                 </div>
+				<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a></p>
+				<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
+
+				</div>
 	                <div class="clearfix"></div>
 			</div>
 
@@ -127,13 +127,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<img src="../static/img/abc123.jpg" th:src="@{${hotel.hotel_img_url}}" class="img-responsive" alt="">
 							<span class="zoom-icon"></span>
 						</a>
-						<div class="grid_box2" onclick="sendform">
+						<div class="grid_box2">
 							<form method="post" action="/rooms_display" name="form_to_post">
 								<h4><a th:text="${hotel.hotel_name}" ></a></h4>
-								<div >
-									<span th:text="${hotel.hotel_address}"></span>
-									<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-									<input type="submit" class="rightbutton" value="详情"></input>
+								<div style=" margin:auto; width:100%;height: 20px;border:solid 0px #000000;glyph-orientation-horizontal: true">
+									<span th:text="${hotel.hotel_address}" style="width: 50%;height: 30px;border: solid 0px orange;float: left;margin-left: 1%"></span>
+									<button type="submit" style="float: right;background-color: orange;color: #FFFFFF;-webkit-border-radius: 4px;-moz-border-radius: 4px;display: inline-block">详情</button>
+
 								</div>
 								<input name="hotel_id" th:value="${hotel.hotel_id}" hidden="hidden"/>
 							</form>
@@ -169,7 +169,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
    	<div class="container">
    	 <div class="footer_top">
-   	   <h3>Subscribe to our newsletter</h3>
+   	   <h3>订阅我们的资讯</h3>
    	   <form>
 		<span>
 			<i><img src="../static/img/mail.png" alt=""></i>

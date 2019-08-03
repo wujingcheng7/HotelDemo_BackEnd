@@ -60,9 +60,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    <!--<div class="clearfix"></div>-->
 	    	    </div>
 	            <div class="col-sm-4 header_right">
-                    <p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"><br><a href="/logout/">退出登录</a></p>
+					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a></p>
 					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
-						    <!--<div id="loginBox">                -->
+
+						<!--<div id="loginBox">                -->
 						        <!--<form id="loginForm">-->
 						                <!--<fieldset id="body">-->
 						                	<!--<fieldset>-->
@@ -131,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
    	<div class="container">
    	 <div class="footer_top">
-   	   <h3>Subscribe to our newsletter</h3>
+   	   <h3>订阅我们的资讯</h3>
    	   <form>
 		<span>
 			<i><img src="../static/img/mail.png" alt=""></i>

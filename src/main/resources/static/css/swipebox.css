@@ -31,7 +31,7 @@
 }
 
 #swipebox-slider .slide {
-  background: url(../images/loader.gif) no-repeat center center;
+  background: url(../img/loader.gif) no-repeat center center;
   height: 100%;
   line-height: 1px;
   text-align: center;

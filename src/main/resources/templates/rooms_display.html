@@ -107,11 +107,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    	  <div class="container">
    	  		<h2 class="title block-title">房间详情</h2>
    	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each ="i,iterStat:${RoomList}">
-   	    	<div class="living_box"><a href="#" >
-			    <img src="../static/img/l1.jpg" class="img-responsive" alt=""/>
-				<span class="sale-box">
-				  <span class="sale-label">Rooms</span>
-			    </span>
+   	    	<div class="living_box">
+				<a href="#" >
+			    	<img src="../static/img/l1.jpg" th:src="@{${i.room_img_url}}" class="img-responsive"  alt=""/>
+						<span class="sale-box">
+					  	<span class="sale-label">Rooms</span>
+			    	</span>
 				</a>
 				<div class="living_desc">
 				<h3><a href="#" th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></a></h3>
