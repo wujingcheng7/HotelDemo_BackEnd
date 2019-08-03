@@ -1,8 +1,10 @@
 package com.wujingcheng7.hoteldemo_backend.controller;
 
+import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.service.OrderlistService;
 import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,16 +43,18 @@ public class OrderBackEndController {
     * */
     @PostMapping("/modify_orderList")
     public String modifyOrderList(HttpServletRequest request,Model model,@Param("order_id")int order_id,@Param("order_indate")Date order_indate,@Param("order_outdate") Date order_outdate,@Param("room_id")String room_id){
-        //TODO:记录修改人员等信息
         HttpSession session = request.getSession();
         String hotel_id = (String)session.getAttribute("hotel_id");
+        String hotel_admin_id = (String)session.getAttribute("hotel_admin_id") ;
         OrderList orderListBackUp = orderlistService.getOrderListByOrderId(order_id);//备份
         String user_tel = orderListBackUp.getUser_tel();
-        Boolean isSuccess = orderlistService.modifyOrderList(orderListBackUp,user_tel,hotel_id,room_id,order_indate,order_outdate);
-        if(isSuccess)
-            model.addAttribute("msg","修改成功");
-        else
-            model.addAttribute("msg","修改失败");
+        Result result = orderlistService.modifyOrderList(orderListBackUp,user_tel,hotel_id,room_id,order_indate,order_outdate,hotel_admin_id);
+        if(result.isSuccess()) {
+            model.addAttribute("msg", "修改成功");
+        }
+        else {
+            model.addAttribute("msg", "您要修改的订单与已有订单冲突");
+        }
         return "/bookinfo_backend";
     }
 }

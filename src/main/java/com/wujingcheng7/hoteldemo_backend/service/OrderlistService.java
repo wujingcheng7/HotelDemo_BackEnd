@@ -1,6 +1,7 @@
 package com.wujingcheng7.hoteldemo_backend.service;
 
 import com.wujingcheng7.hoteldemo_backend.config.Result;
+import com.wujingcheng7.hoteldemo_backend.domain.Log;
 import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.mapper.HotelMapper;
 import com.wujingcheng7.hoteldemo_backend.mapper.HotelRoomMapper;
@@ -19,6 +20,8 @@ public class OrderlistService {
     private HotelMapper hotelMapper;
     @Autowired
     private HotelRoomMapper hotelRoomMapper;
+
+    private LogService logService;
 
     //预定房间
     public Result createAnOrder(String user_tel, String hotel_id, String room_id, Date order_indate, Date order_outdate){
@@ -63,6 +66,14 @@ public class OrderlistService {
 
     //根据订单号删除某个订单
     public void deleteAnOrder(int order_id){
+        OrderList orderList = orderlistMapper.getOrderlistByOrderId(order_id);
+        Log log = new Log();
+        log.setLog_man(orderList.getUser_tel());
+        log.setLog_operation("删除");
+        log.setLog_time(new Date());
+        log.setOrder_id(order_id);
+        log.setHotel_id(orderList.getHotel_id());
+        logService.CreateLog(log);
         orderlistMapper.deleteOrderlistByOrderId(order_id);
     }
 
@@ -73,11 +84,26 @@ public class OrderlistService {
     public OrderList getOrderListByOrderId(int order_id){return orderlistMapper.getOrderlistByOrderId(order_id);}
 
     //修改订单
-    public Boolean modifyOrderList(OrderList orderListBackUp,String user_tel,String hotel_id,String room_id,Date order_indate,Date order_outdate){
+    public Result modifyOrderList(OrderList orderListBackUp,String user_tel,String hotel_id,String room_id,Date order_indate,Date order_outdate,String hotel_admin_id){
         int order_id = orderListBackUp.getOrder_id();
+        OrderList orderList = orderlistMapper.getOrderlistByOrderId(order_id);
+        Log log = new Log();
+        log.setLog_man(orderList.getUser_tel());
+        log.setLog_operation("修改");
+        log.setLog_time(new Date());
+        log.setOrder_id(order_id);
+        log.setHotel_id(orderList.getHotel_id());
         deleteAnOrder(order_id);
         Result result = createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
-        return result.isSuccess();
+        if (result.isSuccess()){
+            logService.CreateLog(log);
+        }
+        else {
+            //恢复备份
+            createAnOrder(orderListBackUp.getUser_tel(),orderListBackUp.getHotel_id(),orderListBackUp.getRoom_id(),orderListBackUp.getOrder_indate(),orderListBackUp.getOrder_outdate());
+        }
+
+        return result;
     }
 
     public List<OrderList> getOrderListsByHotelRoomIdAndDate(OrderList orderList){
