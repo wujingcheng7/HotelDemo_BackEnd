@@ -20,8 +20,8 @@ public class OrderlistService {
     private HotelMapper hotelMapper;
     @Autowired
     private HotelRoomMapper hotelRoomMapper;
-
-    private LogService logService;
+    @Autowired
+    LogService logService;
 
     //预定房间
     public Result createAnOrder(String user_tel, String hotel_id, String room_id, Date order_indate, Date order_outdate){
@@ -67,6 +67,8 @@ public class OrderlistService {
     //根据订单号删除某个订单
     public void deleteAnOrder(int order_id){
         OrderList orderList = orderlistMapper.getOrderlistByOrderId(order_id);
+
+        //初始化log
         Log log = new Log();
         log.setLog_man(orderList.getUser_tel());
         log.setLog_operation("删除");
