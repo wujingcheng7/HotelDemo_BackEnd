@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 
-<form id="makeAnOrder" action="/make_an_order/" method="post">
+<form id="makeAnOrder" action="/make_an_order/" method="post" onsubmit="check()">
     <div class="living_middle">
         <div align="center">
             <!--提示-->
@@ -239,6 +239,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var orderInDate = $("#checkInDate").val(),
                 orderOutDate = $("#checkOutDate").val(),
                 url = "/make_an_order/";
+            if(orderInDate==''||orderOutDate==''){
+                alert("入住或离店日期不能为空");
+            }
 
             /* Send the data using post and put the results in a div */
             $.post(url, {hotel_room_id: hotelRoomId, order_indate: orderInDate, order_outdate: orderOutDate},
