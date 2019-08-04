@@ -438,8 +438,8 @@
                 <td th:text="${i.order_id}"></td>
                 <td th:text="${i.user_tel}"></td>
                 <td th:text="${i.room_id}"></td>
-                <td th:text="${i.order_indate}"> </td>
-                <td th:text="${i.order_outdate}"></td>
+                <td th:text="${#dates.format(i.order_indate, 'yyyy-MM-dd')}"> </td>
+                <td th:text="${#dates.format(i.order_outdate, 'yyyy-MM-dd')}"></td>
               </tr>
               </tbody>
             </table>
