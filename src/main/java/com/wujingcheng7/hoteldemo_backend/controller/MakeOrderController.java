@@ -41,7 +41,7 @@ public class MakeOrderController {
         String room_id = hotel_room_id.substring(6);
         Result result = orderlistService.createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
         if (!result.isSuccess()) {
-            model.addAttribute("createorder", "所选时段房间已被预定");
+            session.setAttribute("createorder", "所选时段房间已被预定");
             return "redirect:/rooms_display";
         }
         return "redirect:/books_display";
