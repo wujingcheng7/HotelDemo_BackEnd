@@ -91,6 +91,75 @@
     </div>
 </div>
 
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #div1{width: 160px; height: 320px; background: #fff; /*border: 1px solid red;*/position: relative;left:-140px;top:100px;}
+        #div1 .hide{width: 140px; height: 320px; background: cyan; float: left;position: absolute;left: 0;top: 0;}
+        #div1 .show{width: 17px; height: auto;background: skyblue;border: 1px solid #000;float: right; position: absolute; top: 39%;right: 0;}
+    </style>
+    <script type="text/javascript">
+        window.οnlοad=function(){
+            var oDiv=document.getElementById('div1');
 
+            var timer;
+
+            oDiv.οnmοuseοver=function(){
+//startMove(10,0);speed,end
+                startMove(0);
+
+//这里稍作优化，原来传入两个参数改为一个参数
+            };
+            oDiv.οnmοuseοut=function(){
+//startMove(-10,-140);
+                startMove(-140);
+            }
+
+            function startMove(end){
+
+                /*var oDiv=document.getElementById('div1');*/
+                clearInterval(timer);
+                timer=setInterval(function(){
+                    var speed=0;
+//从-140到0,速度为正，从0到-140，速度为负
+
+                    if(oDiv.offsetLeft>end){
+                        speed=-10;
+                    }else{
+                        speed=10;
+                    }
+                    if(oDiv.offsetLeft==end){
+                        clearInterval(timer);
+                    }else{
+                        oDiv.style.left=oDiv.offsetLeft+speed+'px';
+                    }
+
+
+                },30);
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+
+<div id="div1">
+    <div class="hide">
+        <ul>
+            <li>qq</li>
+            <li>weibo</li>
+            <li>csdn</li>
+        </ul>
+    </div>
+    <div class="show">
+        <span>分享到</span>
+    </div>
+</div>
+
+
+</body>
 </body>
 </html>
