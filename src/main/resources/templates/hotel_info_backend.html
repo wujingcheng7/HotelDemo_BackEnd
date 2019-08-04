@@ -348,7 +348,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="hotel_info_backend.html"><i class="fa fa-circle-o"></i> 修改信息</a></li>
+            <li><a href="/hotel_info_backend"><i class="fa fa-circle-o"></i>修改酒店信息</a></li>
+            <li><a href="/hotelrooms_info_backend"><i class="fa fa-circle-o"></i>修改房间信息</a></li>
             <!--<li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>-->
             <!--<li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>-->
             <!--<li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>-->
@@ -371,7 +372,7 @@
                 </span>
           </a>
           <ul class="treeview-menu">
-              <li><a href="/bookinfo_backend/history"><i class="fa fa-circle-o"></i> 历史订单</a></li>
+              <li><a href="/bookinfo_backend/history"><i class="fa fa-circle-o"></i>历史订单</a></li>
               <li><a href="/bookinfo_backend"><i class="fa fa-circle-o"></i>当前订单</a></li>
             <!--<li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>-->
             <!--<li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>-->
@@ -414,23 +415,23 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      <form role="form">
+      <form role="form" action="/hotel_info_backend" method="post">
         <div class="box-body">
           <div class="form-group">
             <label for="hotel_name">酒店名称修改</label>
-            <input type="text" class="form-control" id="hotel_name" placeholder="酒店名称">
+            <input type="text" class="form-control" id="hotel_name" name="hotel_name" placeholder="酒店名称">
           </div>
           <div class="form-group">
             <label for="hotel_text">酒店简介</label>
-            <input type="text" class="form-control" id="hotel_text" placeholder="酒店简介">
+            <input type="text" class="form-control" id="hotel_text"  name="hotel_text" placeholder="酒店简介">
           </div>
           <div class="form-group">
             <label for="hotel_stars">酒店星级</label>
-            <input type="text" class="form-control" id="hotel_stars" placeholder="酒店星级">
+            <input type="text" class="form-control" id="hotel_stars" name="hotel_stars" placeholder="酒店星级">
           </div>
           <div class="form-group">
-            <label for="exampleInputFile">更换酒店封面图片</label>
-            <input type="file" id="exampleInputFile">
+            <label for="hotel_img_url">更换酒店封面图片</label>
+            <input type="file" id="hotel_img_url">
 
             <!--<p class="help-block">Example block-level help text here.</p>-->
           </div>

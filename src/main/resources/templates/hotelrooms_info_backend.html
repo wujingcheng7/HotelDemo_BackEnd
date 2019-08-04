@@ -401,55 +401,82 @@
     <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content --><div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!--<section class="content-header">-->
-    <!--<h1>-->
-    <!--订单信息-->
-    <!--<small>本信息由QQ酒店辅助管理系统提供</small>-->
-    <!--</h1>-->
-    <!--<ol class="breadcrumb">-->
-    <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
-    <!--<li><a href="#">Tables</a></li>-->
-    <!--<li class="active">Data tables</li>-->
-    <!--</ol>-->
-    <!--</section>-->
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">历史订单信息</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>订单号</th>
-                                <th>用户手机号</th>
-                                <th>房间号</th>
-                                <th>入住时间</th>
-                                <th>退房时间</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each ="i:${OldOrderLists}">
-                                <td th:text="${i.order_id}"></td>
-                                <td th:text="${i.user_tel}"></td>
-                                <td th:text="${i.room_id}"></td>
-                                <td th:text="${#dates.format(i.order_indate, 'yyyy-MM-dd')}"> </td>
-                                <td th:text="${#dates.format(i.order_outdate, 'yyyy-MM-dd')}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <section class="content">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">修改已有房间的信息</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form role="form" action="/hotelrooms_info_backend" method="post">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="hotelroom_id">请选择房间号</label>
+                                    <div class="dropdown-button">
+                                        <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="room_id" id="hotelroom_id"
+                                        th:each="room:${roomList}">
+                                            <option th:value="${room.room_id}"></option>
+                                            <!--<option value="1">四星级</option>-->
+                                            <!--<option value="2">三星级</option>-->
+                                            <!--<option value="3">二星及其以下</option>-->
+                                            <!-- <option value="4">mutationem</option>
+                                            <option value="5">hendrerit </option>
+                                            <option value="5"></option>
+                                            <option value="5"></option> -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hotelroom_type">房间类型修改</label>
+                                    <input type="text" class="form-control" id="hotelroom_type" name="room_type" placeholder="房间类型">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hotelroom_text">房间简介修改</label>
+                                    <input type="text" class="form-control" id="hotelroom_text"  name="room_text" placeholder="房间简介">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hotelroom_price">房间价格修改</label>
+                                    <input type="text" class="form-control" id="hotelroom_price" name="room_price" placeholder="房间价格">
+                                </div>
+                                <div class="form-group">
+                                    <label for="room_img_url">更换房间封面图片</label>
+                                    <input type="file" id="room_img_url">
+
+                                    <!--<p class="help-block">Example block-level help text here.</p>-->
+                                </div>
+                                <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                <!--<input type="checkbox"> Check me out-->
+                                <!--</label>-->
+                                <!--</div>-->
+                            </div>
+                            <!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">确认修改</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+
+
+
+
+
+
+
+
+    </div>
+
 
 
     <footer class="main-footer">

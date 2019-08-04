@@ -1,4 +1,4 @@
-package com.wujingcheng7.hoteldemo_backend.controller;
+package com.wujingcheng7.hoteldemo_backend.controller.front;
 
 import com.wujingcheng7.hoteldemo_backend.domain.Hotel;
 import com.wujingcheng7.hoteldemo_backend.service.HotelService;

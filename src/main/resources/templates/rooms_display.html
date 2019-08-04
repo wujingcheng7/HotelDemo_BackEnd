@@ -1,242 +1,318 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Hotel  A Hotel category Flat bootstrap Responsive  Website Template | Rooms</title>
-<link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Custom Theme files -->
-<link href="../static/css/style.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Hotel Deluxe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--webfont-->
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="../static/js/login.js"></script>
-<script src="../static/js/jquery.easydropdown.js"></script>
-<script src="../static/js/wow.min.js"></script>
-<link href="../static/css/animate.css" rel='stylesheet' type='text/css' />
-<script>
-	new WOW().init();
-</script>
+    <title>Hotel A Hotel category Flat bootstrap Responsive Website Template | Rooms</title>
+    <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="../static/css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Hotel Deluxe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/login.js"></script>
+    <script src="../static/js/jquery.easydropdown.js"></script>
+    <script src="../static/js/wow.min.js"></script>
+    <link href="../static/css/animate.css" rel='stylesheet' type='text/css'/>
+    <script>
+        new WOW().init();
+    </script>
 </head>
 <body>
 <div class="header">
-			<div class="col-sm-8 header-left">
-					 <div class="logo">
-						<a href="index.html"><img src="../static/img/logo.png" alt=""/></a>
-					 </div>
-					 <div class="menu">
-						  <a class="toggleMenu" href="#"><img src="../static/img/nav.png" alt="" /></a>
-						    <ul class="nav" id="nav">
-								<li class="active"><a href="/index/">首页</a></li>
-								<li><a href="/hotels_display">酒店信息</a></li>
-								<li><a href="/books_display/">订单管理</a></li>
-								<li><a href="/personal_info/">信息管理</a></li>
-								<div class="clearfix"> </div>
-							</ul>
-							<script type="text/javascript" src="../static/js/responsive-nav.js"></script>
-				    </div>	
-				     <!-- start search-->
-				      <!--<div class="search-box">-->
-							<!--<div id="sb-search" class="sb-search">-->
-								<!--<form>-->
-									<!--<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">-->
-									<!--<input class="sb-search-submit" type="submit" value="">-->
-									<!--<span class="sb-icon-search"> </span>-->
-								<!--</form>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--&lt;!&ndash;&#45;&#45;search-scripts&#45;&#45;&ndash;&gt;-->
-						<!--<script src="../static/js/classie.js"></script>-->
-						<!--<script src="../static/js/uisearch.js"></script>-->
-						<!--<script>-->
-							<!--new UISearch( document.getElementById( 'sb-search' ) );-->
-						<!--</script>-->
-						<!--&lt;!&ndash;&#45;&#45;//search-scripts&#45;&#45;&ndash;&gt;						-->
-	    		    <!--<div class="clearfix"> </div>-->
-	    	    </div>
-	            <div class="col-sm-4 header_right">
-					<p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a></p>
-					<div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
+    <div class="col-sm-8 header-left">
+        <div class="logo">
+            <a href="index.html"><img src="../static/img/logo.png" alt=""/></a>
+        </div>
+        <div class="menu">
+            <a class="toggleMenu" href="#"><img src="../static/img/nav.png" alt=""/></a>
+            <ul class="nav" id="nav">
+                <li class="active"><a href="/index/">首页</a></li>
+                <li><a href="/hotels_display">酒店信息</a></li>
+                <li><a href="/books_display/">订单管理</a></li>
+                <li><a href="/personal_info/">信息管理</a></li>
+                <div class="clearfix"></div>
+            </ul>
+            <script type="text/javascript" src="../static/js/responsive-nav.js"></script>
+        </div>
+        <!-- start search-->
+        <!--<div class="search-box">-->
+        <!--<div id="sb-search" class="sb-search">-->
+        <!--<form>-->
+        <!--<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">-->
+        <!--<input class="sb-search-submit" type="submit" value="">-->
+        <!--<span class="sb-icon-search"> </span>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;&#45;&#45;search-scripts&#45;&#45;&ndash;&gt;-->
+        <!--<script src="../static/js/classie.js"></script>-->
+        <!--<script src="../static/js/uisearch.js"></script>-->
+        <!--<script>-->
+        <!--new UISearch( document.getElementById( 'sb-search' ) );-->
+        <!--</script>-->
+        <!--&lt;!&ndash;&#45;&#45;//search-scripts&#45;&#45;&ndash;&gt;						-->
+        <!--<div class="clearfix"> </div>-->
+    </div>
+    <div class="col-sm-4 header_right">
+        <p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a>
+        </p>
+        <div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img
+                src="../static/img/login.png">登录</a>
 
-					</div>
-		                 <div class="clearfix"> </div>
-			 	</div>
-	                <div class="clearfix"></div>
-			</div>
-<div class="main"  style=" margin:auto; width:100%; height:220px; border:solid 0px #000000;">
-	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
-		<iframe src="/Map3D"
-				height="100%"
-				width="100%"
-				frameborder="0"
-				scrolling="No"
-		></iframe>
-	</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="main" style=" margin:auto; width:100%; height:220px; border:solid 0px #000000;">
+    <div class="sub1"
+         style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+        <iframe src="/Map3D"
+                height="100%"
+                width="100%"
+                frameborder="0"
+                scrolling="No"
+        ></iframe>
+    </div>
 
-	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
-		<iframe src="/Map2D"
-				height="100%"
-				width="100%"
-				frameborder="0"
-				scrolling="No"
-		></iframe>
-	</div>
+    <div class="sub1"
+         style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+        <iframe src="/Map2D"
+                height="100%"
+                width="100%"
+                frameborder="0"
+                scrolling="No"
+        ></iframe>
+    </div>
 
-	<div class="sub1" style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
+    <div class="sub1"
+         style="width: 32%;height: 215px;border: solid 1px orange;float: left;margin-left: 1%;margin-bottom: 1%">
 
-			<h1 th:text ="'酒店：'+${HotelObject.hotel_name}"></h1>
-			<h2 th:text ="'城市：'+${HotelObject.hotel_city}"></h2>
-			<h2 th:text ="'星级：'+${HotelObject.hotel_stars}"></h2>
-			<h3 th:text ="'地址：'+${HotelObject.hotel_address}"></h3>
-			<h3 th:text ="'简介：'+${HotelObject.hotel_text}"></h3>
-	</div>
+        <h1 th:text="'酒店：'+${HotelObject.hotel_name}"></h1>
+        <h2 th:text="'城市：'+${HotelObject.hotel_city}"></h2>
+        <h2 th:text="'星级：'+${HotelObject.hotel_stars}"></h2>
+        <h3 th:text="'地址：'+${HotelObject.hotel_address}"></h3>
+        <h3 th:text="'简介：'+${HotelObject.hotel_text}"></h3>
+    </div>
 </div>
 
 
-<form action="/make_an_order/" method="post">
-   <div class="living_middle">
-	   <div align="center">
-		   <h2 class="title block-title">请选择入住日期和退房日期</h2>
-
-	   <font color="black">入住时间</font>
-	   <input type="date" id="checkInDate"  value="入住时间" name="order_indate" style="border: solid 1px orange;"/>
-	   <font color="black">退房时间</font>
-	   <input type="date" id="checkoutDate" value="退房时间" name="order_outdate" style="border: solid 1px orange;"/>
-	   </div>
-   	  <div class="container">
-   	  		<h2 class="title block-title">房间详情</h2>
-   	    <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each ="i,iterStat:${RoomList}">
-   	    	<div class="living_box">
-				<a href="#" >
-			    	<img src="../static/img/l1.jpg" th:src="@{${i.room_img_url}}" class="img-responsive"  alt=""/>
-						<span class="sale-box">
+<form id="makeAnOrder" action="/make_an_order/" method="post" onsubmit="check()">
+    <div class="living_middle">
+        <div align="center">
+            <!--提示-->
+            <!--<div th:text=request. id="checkfull" style="color: red"></div>-->
+            <!--<input th:text="${createorder}" id="checkfull" hidden="hidden">-->
+            <h2 class="title block-title">请选择入住日期和退房日期</h2>
+            <font color="black">入住时间</font>
+            <input type="date" id="checkInDate" value="" name="order_indate" style="border: solid 1px orange;"/>
+            <font color="black">退房时间</font>
+            <input type="date" id="checkOutDate" value="" name="order_outdate" style="border: solid 1px orange;"/>
+        </div>
+        <div class="container">
+            <h2 class="title block-title">房间详情</h2>
+            <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.4s" th:each="i,iterStat:${RoomList}">
+                <div class="living_box">
+                    <a href="#">
+                        <img src="../static/img/l1.jpg" th:src="@{${i.room_img_url}}" class="img-responsive" alt=""/>
+                        <span class="sale-box">
 					  	<span class="sale-label">Rooms</span>
 			    	</span>
-				</a>
-				<div class="living_desc">
-				<h3><a href="#" th:text = "${i.room_type}" th:value = "${i.room_type}" name="room_type"></a></h3>
-				<p><a th:text = "${i.room_text}" th:value = "${i.room_text}" name="room_text"></a></p>
-				<button class="btn3" type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定</button>
-					<!--<td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>-->
-				<p class="price" th:text = "'￥'+${i.room_price}" th:value = "${i.room_price}" name="room_price">￥100.00</p>
-				</div>
-			    <table border="1" class="propertyDetails">
-                <tbody><tr>
-                   <td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>
-                   <td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>
-                   <td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>
-                    </tr>
-                </tbody></table>
-			</div>
-			<h2 th:text="${iterStat.index}+1"></h2>
-		 </div>
-	  </div>
-   </div>
+                    </a>
+                    <div class="living_desc">
+                        <h3><a href="#" th:text="${i.room_type}" th:value="${i.room_type}" name="room_type"></a></h3>
+                        <p><a th:text="${i.room_text}" th:value="${i.room_text}" name="room_text"></a></p>
+                        <button class="btn3" type="button" th:value="${i.hotel_room_id}" name="hotel_room_id">预定
+                        </button>
+                        <!--<td><button type="submit" th:value="${i.hotel_room_id}" name="hotel_room_id">预定房间</button></td>-->
+                        <p class="price" th:text="'￥'+${i.room_price}" th:value="${i.room_price}" name="room_price">
+                            ￥100.00</p>
+                    </div>
+                    <table border="1" class="propertyDetails">
+                        <tbody>
+                        <tr>
+                            <td><img src="../static/img/area.png" alt="" style="margin-right:7px;">2,412m</td>
+                            <td><img src="../static/img/bed.png" alt="" style="margin-right:7px;">6 Beds</td>
+                            <td><img src="../static/img/drop.png" alt="" style="margin-right:7px;">3 Baths</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 th:text="${iterStat.index}+1"></h2>
+            </div>
+        </div>
+    </div>
 </form>
 
 
-   <div class="living_bottom">
-   	  <div class="container">
-   	  	<h2 class="title block-title">Latest Posts</h2>
-   	  	<div class="col-md-6 post_left wow fadeInLeft" data-wow-delay="0.4s">
-   	  		<div class="mask1"><img src="../static/img/pic4.jpg" alt="image" class="img-responsive zoom-img" /></div>
-   	  	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, sem eget sagittis sagittis, nisl magna sodales eros, ut feugiat velit velit non turpis. Cras eu nibh dapibus justo fringilla   <a href="single.html">More</a></p>
-   	  	    <div class="divider"></div>
-   	  	    <p class="field-content">30 Sep 2015</span></p>
-   	  	</div>
-   	  	<div class="col-md-6 post_left wow fadeInRight" data-wow-delay="0.4s">
-   	  		<div class="mask1"><img src="../static/img/pic5.jpg" alt="image" class="img-responsive zoom-img" /></div>
-   	  	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, sem eget sagittis sagittis, nisl magna sodales eros, ut feugiat velit velit non turpis. Cras eu nibh dapibus justo fringilla   <a href="single.html">More</a></p>
-   	  	    <div class="divider"></div>
-   	  	    <p class="field-content">30 Sep 2015</span></p>
-   	  	</div>
-   	  </div>
-   </div>
-   <div class="footer">
-   	<div class="container">
-   	 <div class="footer_top">
-   	   <h3>Subscribe to our newsletter</h3>
-   	   <form>
+<div class="living_bottom">
+    <div class="container">
+        <h2 class="title block-title">Latest Posts</h2>
+        <div class="col-md-6 post_left wow fadeInLeft" data-wow-delay="0.4s">
+            <div class="mask1"><img src="../static/img/pic4.jpg" alt="image" class="img-responsive zoom-img"/></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, sem eget sagittis sagittis, nisl
+                magna sodales eros, ut feugiat velit velit non turpis. Cras eu nibh dapibus justo fringilla <a
+                        href="single.html">More</a></p>
+            <div class="divider"></div>
+            <p class="field-content">30 Sep 2015</span></p>
+        </div>
+        <div class="col-md-6 post_left wow fadeInRight" data-wow-delay="0.4s">
+            <div class="mask1"><img src="../static/img/pic5.jpg" alt="image" class="img-responsive zoom-img"/></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, sem eget sagittis sagittis, nisl
+                magna sodales eros, ut feugiat velit velit non turpis. Cras eu nibh dapibus justo fringilla <a
+                        href="single.html">More</a></p>
+            <div class="divider"></div>
+            <p class="field-content">30 Sep 2015</span></p>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="footer_top">
+            <h3>Subscribe to our newsletter</h3>
+            <form>
 		<span>
 			<i><img src="../static/img/mail.png" alt=""></i>
-		    <input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
-		    <label class="btn1 btn2 btn-2 btn-2g"> <input name="submit" type="submit" id="submit" value="Subscribe"> </label>
+		    <input type="text" value="Enter your email" onfocus="this.value = '';"
+                   onblur="if (this.value == '') {this.value = 'Enter your email';}">
+		    <label class="btn1 btn2 btn-2 btn-2g"> <input name="submit" type="submit" id="submit"
+                                                          value="Subscribe"> </label>
 		    <div class="clearfix"> </div>
-		</span>			 	    
-	   </form>
-	  </div>
-	  <div class="footer_grids">
-	     <div class="footer-grid">
-			<h4>Ipsum Quis</h4>
-			<ul class="list1">
-				<li><a href="contact.html">Contact</a></li>
-				<li><a href="#">Mirum est</a></li>
-				<li><a href="#">Placerat facer</a></li>
-				<li><a href="#">Claritatem</a></li>
-				<li><a href="#">Sollemnes </a></li>
-			</ul>
-		  </div>
-		  <div class="footer-grid">
-			<h4>Quis Ipsum</h4>
-			<ul class="list1">
-				<li><a href="#">Placerat facer</a></li>
-				<li><a href="#">Claritatem</a></li>
-				<li><a href="#">Sollemnes </a></li>
-				<li><a href="#">Claritas</a></li>
-				<li><a href="#">Mirum est</a></li>
-			</ul>
-		  </div>
-		  <div class="footer-grid last_grid">
-			<h4>Follow Us</h4>
-			<ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
-			  <li><a href=""> <i class="fb"> </i> </a></li>
-			  <li><a href=""><i class="tw"> </i> </a></li>
-			  <li><a href=""><i class="google"> </i> </a></li>
-			  <li><a href=""><i class="u_tube"> </i> </a></li>
-		 	</ul>
-		 	<div class="copy wow fadeInRight" data-wow-delay="0.4s">
-              <p> &copy; 2016 Hotel Deluxe. All rights reserved | Design <a href="http://w3layouts.com/">W3layouts</a></p>
-	        </div>
-		  </div>
-		  <div class="clearfix"> </div>
-	   </div>
-      </div>
-   </div>
-</body>
+		</span>
+            </form>
+        </div>
+        <div class="footer_grids">
+            <div class="footer-grid">
+                <h4>Ipsum Quis</h4>
+                <ul class="list1">
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Mirum est</a></li>
+                    <li><a href="#">Placerat facer</a></li>
+                    <li><a href="#">Claritatem</a></li>
+                    <li><a href="#">Sollemnes </a></li>
+                </ul>
+            </div>
+            <div class="footer-grid">
+                <h4>Quis Ipsum</h4>
+                <ul class="list1">
+                    <li><a href="#">Placerat facer</a></li>
+                    <li><a href="#">Claritatem</a></li>
+                    <li><a href="#">Sollemnes </a></li>
+                    <li><a href="#">Claritas</a></li>
+                    <li><a href="#">Mirum est</a></li>
+                </ul>
+            </div>
+            <div class="footer-grid last_grid">
+                <h4>Follow Us</h4>
+                <ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
+                    <li><a href=""> <i class="fb"> </i> </a></li>
+                    <li><a href=""><i class="tw"> </i> </a></li>
+                    <li><a href=""><i class="google"> </i> </a></li>
+                    <li><a href=""><i class="u_tube"> </i> </a></li>
+                </ul>
+                <div class="copy wow fadeInRight" data-wow-delay="0.4s">
+                    <p> &copy; 2016 Hotel Deluxe. All rights reserved | Design <a
+                            href="http://w3layouts.com/">W3layouts</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
 <script>
-	function getLongitude(){
-		var longitude="[[${HotelObject.hotel_longitude}]]";
-		return longitude;
-	}
-	function getLatitude() {
-		var latitude="[[${HotelObject.hotel_latitude}]]";
-		return latitude;
-	}
+    $(function () {
+        $('button[name="hotel_room_id"]').click(function () {
+            var hotelRoomId = $(this).val();
+            //console.log(hotelRoomId);
+            var orderInDate = $("#checkInDate").val(),
+                orderOutDate = $("#checkOutDate").val(),
+                url = "/make_an_order/";
+            if(orderInDate==''||orderOutDate==''){
+                alert("入住或离店日期不能为空");
+            }
 
-	Date.prototype.toDateInputValue = (function() {
-		var local = new Date(this);
-		local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-		return local.toJSON().slice(0,10);
-	});
-	
-	$(document).ready(function () {
-		$('#checkInDate').val(new Date().toDateInputValue());
-		$('#checkInDate').attr("min", new Date().toDateInputValue())
+            /* Send the data using post and put the results in a div */
+            $.post(url, {hotel_room_id: hotelRoomId, order_indate: orderInDate, order_outdate: orderOutDate},
+                function (data) {
+                    if (data.success) {
+                        alert(data.msg);
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            );
+        });
+    });
 
-		$("#checkoutDate").change(function () {
-			var checkInDate = $('#checkInDate').val();
-			var checkoutDate = $(this).val();
+    // function check() {
+    //     var checkInDate = $('#checkInDate').val();
+    //     var checkOutDate = $('#checkOutDate').val();
+    //
+    //     $.post("/make_an_order/",
+    //         function (data) {
+    //             //alert(data.name); // John
+    //             //console.log(data.time); //  2pm
+    //             if (data) {
+    //                 alert("入住或离店日期不能为空");
+    //                 return false;
+    //             } else if (checkfull) {
+    //                 alert("该时段已被预订");
+    //                 return false;
+    //             }
+    //         }, "json");
 
-			if(checkInDate >= checkoutDate) {
-				alert("退房日期不能早于入住日期");
-				$(this).val('');
-			}
-		})
-	})
+    // var checkfull = [[${createorder}]];
+    // if (checkInDate == '' || checkOutDate == '') {
+    //     alert("入住或离店日期不能为空");
+    //     return false;
+    // } else if (checkfull) {
+    //     alert("该时段已被预订");
+    //     return false;
+    // }
+    // }
+
+    function getLongitude() {
+        var longitude = "[[${HotelObject.hotel_longitude}]]";
+        return longitude;
+    }
+
+    function getLatitude() {
+        var latitude = "[[${HotelObject.hotel_latitude}]]";
+        return latitude;
+    }
+
+    Date.prototype.toDateInputValue = (function () {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0, 10);
+    });
+
+    $(document).ready(function () {
+        $('#checkInDate').val(new Date().toDateInputValue());
+        $('#checkInDate').attr("min", new Date().toDateInputValue())
+
+        $("#checkOutDate").change(function () {
+            var checkInDate = $('#checkInDate').val();
+            var checkOutDate = $(this).val();
+
+            if (checkInDate >= checkOutDate) {
+                alert("退房日期不能早于入住日期");
+                $(this).val('');
+            }
+        })
+    })
 </script>
+</body>
 </html>		
