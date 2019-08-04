@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,16 +35,15 @@ public class MakeOrderController {
     }
 
     @PostMapping("")
-    public String MakeOrderList(HttpServletRequest request, Model model, @Param("hotel_room_id")String hotel_room_id, @Param("order_indate")Date order_indate, @Param("order_outdate")Date order_outdate){
+    @ResponseBody
+    public Result MakeOrderList(HttpServletRequest request, Model model, @Param("hotel_room_id")String hotel_room_id, @Param("order_indate")Date order_indate, @Param("order_outdate")Date order_outdate){
         HttpSession session = request.getSession();
         String user_tel = (String)session.getAttribute("user_tel");
         String hotel_id = hotel_room_id.substring(0,6);
         String room_id = hotel_room_id.substring(6);
         Result result = orderlistService.createAnOrder(user_tel,hotel_id,room_id,order_indate,order_outdate);
-        if (!result.isSuccess()) {
-            session.setAttribute("createorder", "所选时段房间已被预定");
-            return "redirect:/rooms_display";
-        }
-        return "redirect:/books_display";
+        //model.addAttribute("createorder",result.isSuccess());
+//            System.out.println(model.toString());
+        return result;
     }
 }
