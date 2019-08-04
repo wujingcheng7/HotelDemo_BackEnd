@@ -1,14 +1,14 @@
-package com.wujingcheng7.hoteldemo_backend.controller;
+package com.wujingcheng7.hoteldemo_backend.controller.front;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Map3D")
-public class Map3DController {
+@RequestMapping("/Map2D")
+public class Map2DController {
     @GetMapping("")
     public String getHtml(){
-        return "/Map3D";
+        return "/Map2D";
     }
 }

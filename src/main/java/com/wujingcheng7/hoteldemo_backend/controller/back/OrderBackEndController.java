@@ -1,4 +1,4 @@
-package com.wujingcheng7.hoteldemo_backend.controller;
+package com.wujingcheng7.hoteldemo_backend.controller.back;
 
 import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
