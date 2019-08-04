@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler(Exception.class)
-    public void handleException(Exception e, Model model,HttpServletRequest servletRequest){
+    @ExceptionHandler(value = Exception.class)
+    public String handleException(Exception e, Model model,HttpServletRequest servletRequest){
         String wrong_url = servletRequest.getRequestURL().toString();
         String message = e.getMessage();
         System.out.println("异常地址："+wrong_url);
         System.out.println("异常信息："+message);
         model.addAttribute("wrong_url",wrong_url);
         model.addAttribute("message",message);
-        return ;
+        return e.getMessage();
     }
 
 }
