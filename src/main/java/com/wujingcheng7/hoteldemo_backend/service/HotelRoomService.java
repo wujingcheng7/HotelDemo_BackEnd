@@ -16,4 +16,8 @@ public class HotelRoomService {
     public List<HotelRoom> getRoomListByHotelId(String hotel_id){
         return roomMapper.getHotelRoomListByHotelId(hotel_id);
     }
+
+    public HotelRoom getRoomByHotelRoomId(String hotel_id) {
+        return roomMapper.getHotelRoomByHoteRoomlId(hotel_id);
+    }
 }
