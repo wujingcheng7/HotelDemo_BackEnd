@@ -64,7 +64,7 @@ public class OrderlistService {
         return orderlistMapper.getAllOrderlistsByUserTel(user_tel);
     }
 
-    //根据订单号删除某个订单
+    //根据订单号删除某个订单,设为对用户不可见
     public void deleteAnOrder(int order_id){
         OrderList orderList = orderlistMapper.getOrderlistByOrderId(order_id);
 
@@ -78,12 +78,28 @@ public class OrderlistService {
         logService.CreateLog(log);
         orderlistMapper.deleteOrderlistByOrderId(order_id);
     }
+    /*
+    * 用户取消订单
+    * */
+    public void cancelAnOrder(int order_id){
+        orderlistMapper.cancelOrderlistByOrderId(order_id);
+    }
 
     //查看某酒店当前订单
     public List<OrderList> getNowOrderListsByHotelId(String hotel_id){ return orderlistMapper.getNowOrderlistsByHotelId(hotel_id);}
 
     //查看某酒店历史订单
     public List<OrderList> getOldOrderListsByHotelId(String hotel_id){ return orderlistMapper.getOldOrderlistsByHotelId(hotel_id);}
+
+    //查看某用户当前订单
+    public List<OrderList> getyNowOrderListsByUserTel(String user_tel){
+        return orderlistMapper.getNowOrderlistsByUserTel(user_tel);
+    }
+
+    //查看某用户历史订单
+    public List<OrderList> getyOldOrderListsByUserTel(String user_tel){
+        return orderlistMapper.getOldOrderlistsByUserTel(user_tel);
+    }
 
     //根据订单号查询某个订单
     public OrderList getOrderListByOrderId(int order_id){return orderlistMapper.getOrderlistByOrderId(order_id);}
@@ -111,7 +127,4 @@ public class OrderlistService {
         return result;
     }
 
-    public List<OrderList> getOrderListsByHotelRoomIdAndDate(OrderList orderList){
-        return orderlistMapper.getAllOrderlistsByHotelRoomIdAndDate(orderList);
-    }
 }

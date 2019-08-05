@@ -17,13 +17,19 @@ public interface OrderlistMapper {
     @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate>CURRENT_DATE()")
     List<OrderList> getNowOrderlistsByHotelId(String hotel_id);
 
-    /*查看酒店所有当前订单*/
+    /*查看酒店所有历史订单*/
     @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE()")
     List<OrderList> getOldOrderlistsByHotelId(String hotel_id);
 
-    /*
-    * 预定房间时查询该房间所有冲突订单
-    * */
+    /*查看用户所有当前订单*/
+    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate>CURRENT_DATE()")
+    List<OrderList> getNowOrderlistsByUserTel(String user_tel);
+
+    /*查看用户所有历史订单*/
+    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate<CURRENT_DATE()")
+    List<OrderList> getOldOrderlistsByUserTel(String user_tel);
+
+    /*预定房间时查询该房间所有冲突订单*/
     @Select("Select * from order_list where hotel_room_id=#{hotel_room_id} and order_outdate>#{order_indate} and order_indate<#{order_outdate}")
     List<OrderList> getAllOrderlistsByHotelRoomIdAndDate(OrderList orderList);
 
@@ -31,8 +37,15 @@ public interface OrderlistMapper {
     * 删除订单，
     * 设置为对用户不可见
     * */
-    @Delete("update  order_list set visible=0 where order_id=#{order_id}")
+    @Update("update  order_list set visible=0 where order_id=#{order_id}")
     void deleteOrderlistByOrderId(int order_id);
+
+    /*
+    * 取消订单，
+    * 删除数据库订单
+    * */
+    @Delete("delete order_list where order_id = #{order_id}")
+    void cancelOrderlistByOrderId(int order_id);
 
     /*
     * 根据用户根据手机号查看可见订单
