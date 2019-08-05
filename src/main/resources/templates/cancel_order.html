@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <td th:text = "${#dates.format(i.order_outdate, 'yyyy-MM-dd')}"></td>
                     <td th:text = "'￥'+${i.order_price}"></td>
                     <td>
-                        <form method="post" action="/books_display/delete_a_book">
+                        <form method="post" action="/books_display/cancel_a_book">
                             <button type="submit" name="order_id" th:value="${i.order_id}">取消订单</button>
                         </form>
                     </td>

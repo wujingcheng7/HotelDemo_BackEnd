@@ -37,4 +37,15 @@ public class OrderController {
         orderlistService.deleteAnOrder(order_id);
         return OrdersDisplay(model,request);
     }
+
+    @PostMapping("/cancel_a_book")
+    public String cancelAnOrder(Model model,HttpServletRequest request,@RequestParam("order_id")int order_id){
+        boolean isSuccess = orderlistService.cancelAnOrder(order_id)==1;
+        if(!isSuccess)
+            model.addAttribute("cancelorder","不能取消已进行的订单");
+        else
+            model.addAttribute("cancelorder","订单取消成功");
+        return OrdersDisplay(model,request);
+    }
+
 }

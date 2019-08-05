@@ -81,8 +81,8 @@ public class OrderlistService {
     /*
     * 用户取消订单
     * */
-    public void cancelAnOrder(int order_id){
-        orderlistMapper.cancelOrderlistByOrderId(order_id);
+    public int cancelAnOrder(int order_id){
+        return orderlistMapper.cancelOrderlistByOrderId(order_id);
     }
 
     //查看某酒店当前订单

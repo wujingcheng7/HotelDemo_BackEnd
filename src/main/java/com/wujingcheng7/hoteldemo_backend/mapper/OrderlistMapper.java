@@ -42,10 +42,11 @@ public interface OrderlistMapper {
 
     /*
     * 取消订单，
+    * 只能取消未入住的订单
     * 删除数据库订单
     * */
-    @Delete("delete order_list where order_id = #{order_id}")
-    void cancelOrderlistByOrderId(int order_id);
+    @Delete("delete order_list where order_id = #{order_id} and order_indate>CURRENT_DATE()")
+    int cancelOrderlistByOrderId(int order_id);
 
     /*
     * 根据用户根据手机号查看可见订单
