@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>QQ酒店——订单管理</title>
+    <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="../static/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Hotel Deluxe Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/login.js"></script>
+    <script src="../static/js/jquery.easydropdown.js"></script>
+    <script src="../static/js/wow.min.js"></script>
+    <link href="../static/css/animate.css" rel='stylesheet' type='text/css' />
+    <script>
+        new WOW().init();
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="col-sm-8 header-left">
+        <div class="logo">
+            <a href="/index"><img src="../static/img/logo.png" alt=""/></a>
+        </div>
+        <div class="menu">
+            <a class="toggleMenu" href="#"><img src="../static/img/nav.png" alt="" /></a>
+            <ul class="nav" id="nav">
+                <li class="active"><a href="/index/">首页</a></li>
+                <li><a href="/hotels_display">酒店信息</a></li>
+                <li><a href="/books_display">当前订单</a></li>
+                <li><a href="/books_display">全部订单</a></li>
+                <li><a href="/personal_info/">信息管理</a></li>
+                <div class="clearfix"></div>
+            </ul>
+            <script type="text/javascript" src="../static/js/responsive-nav.js"></script>
+        </div>
+        <!-- start search-->
+        <!--<div class="search-box">-->
+        <!--<div id="sb-search" class="sb-search">-->
+        <!--<form>-->
+        <!--<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">-->
+        <!--<input class="sb-search-submit" type="submit" value="">-->
+        <!--<span class="sb-icon-search"> </span>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;&#45;&#45;search-scripts&#45;&#45;&ndash;&gt;-->
+        <!--<script src="../static/js/classie.js"></script>-->
+        <!--<script src="../static/js/uisearch.js"></script>-->
+        <!--<script>-->
+        <!--new UISearch( document.getElementById( 'sb-search' ) );-->
+        <!--</script>-->
+        <!--&lt;!&ndash;&#45;&#45;//search-scripts&#45;&#45;&ndash;&gt;-->
+        <!--<div class="clearfix"></div>-->
+    </div>
+    <div class="col-sm-4 header_right">
+        <p th:if="${session.user_tel}"><span th:text="'Welcome,'+${session.user_name}"></span><br><a href="/logout/">退出登录</a></p>
+        <div th:if="${session.user_tel}==null" id="loginContainer"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a>
+
+            <!--<div id="loginBox">                -->
+            <!--<form id="loginForm">-->
+            <!--<fieldset id="body">-->
+            <!--<fieldset>-->
+            <!--<label for="email">Email Address</label>-->
+            <!--<input type="text" name="email" id="email">-->
+            <!--</fieldset>-->
+            <!--<fieldset>-->
+            <!--<label for="password">Password</label>-->
+            <!--<input type="password" name="password" id="password">-->
+            <!--</fieldset>-->
+            <!--<input type="submit" id="login" value="Sign in">-->
+            <!--<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>-->
+            <!--</fieldset>-->
+            <!--<span><a href="#">Forgot your password?</a></span>-->
+            <!--</form>-->
+            <!--</div>-->
+        </div>
+        <!--<br>
+        <div th:switch="${session.user_tel}">
+            <p th:case="null"><a href="/login/" class="link"><img src="../static/img/login.png">登录</a><div class="clearfix"></div></p>
+            <p th:case="*"><span th:text="'Welcome,'+${session.user_name}"></p>
+        </div>-->
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<!--订单信息显示列表-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success">
+            <table border="0" align="center" width="1200px">
+                <tr>
+                    <th>酒店名称</th>
+                    <th>房间号</th>
+                    <th>入住时间</th>
+                    <th>离店时间</th>
+                    <th>花费金额</th>
+                    <th>取消订单</th>
+                </tr>
+                <tr th:each ="i:${listOfOrderLists}">
+                    <td th:text = "${i.hotel_name}"></td>
+                    <td th:text = "${i.room_id}"></td>
+                    <td th:text = "${#dates.format(i.order_indate, 'yyyy-MM-dd')}"></td>
+                    <td th:text = "${#dates.format(i.order_outdate, 'yyyy-MM-dd')}"></td>
+                    <td th:text = "'￥'+${i.order_price}"></td>
+                    <td>
+                        <form method="post" action="/books_display/delete_a_book">
+                            <button type="submit" name="order_id" th:value="${i.order_id}">取消订单</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="footer_top">
+            <h3>订阅我们的资讯</h3>
+            <form>
+		<span>
+			<i><img src="../static/img/mail.png" alt=""></i>
+		    <input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+		    <label class="btn1 btn2 btn-2 btn-2g"> <input name="submit" type="submit" id="submit" value="Subscribe"> </label>
+		    <div class="clearfix"> </div>
+		</span>
+            </form>
+        </div>
+        <div class="footer_grids">
+            <div class="footer-grid">
+                <h4>Ipsum Quis</h4>
+                <ul class="list1">
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Mirum est</a></li>
+                    <li><a href="#">Placerat facer</a></li>
+                    <li><a href="#">Claritatem</a></li>
+                    <li><a href="#">Sollemnes </a></li>
+                </ul>
+            </div>
+            <div class="footer-grid">
+                <h4>Quis Ipsum</h4>
+                <ul class="list1">
+                    <li><a href="#">Placerat facer</a></li>
+                    <li><a href="#">Claritatem</a></li>
+                    <li><a href="#">Sollemnes </a></li>
+                    <li><a href="#">Claritas</a></li>
+                    <li><a href="#">Mirum est</a></li>
+                </ul>
+            </div>
+            <div class="footer-grid last_grid">
+                <h4>Follow Us</h4>
+                <ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
+                    <li><a href=""> <i class="fb"> </i> </a></li>
+                    <li><a href=""><i class="tw"> </i> </a></li>
+                    <li><a href=""><i class="google"> </i> </a></li>
+                    <li><a href=""><i class="u_tube"> </i> </a></li>
+                </ul>
+                <div class="copy wow fadeInRight" data-wow-delay="0.4s">
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
