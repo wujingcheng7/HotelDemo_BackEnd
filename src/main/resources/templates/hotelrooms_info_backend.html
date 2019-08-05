@@ -418,9 +418,9 @@
                         <form role="form" action="/hotelrooms_info_backend" method="post">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="hotelroom_id">请选择房间号</label>
+                                    <label for="room_id">请选择房间号</label>
                                     <div class="dropdown-button">
-                                        <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="room_id" id="hotelroom_id">
+                                        <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="room_id" id="room_id" onchange="ChangeOthers()">
                                             <option th:each="room:${roomlist}" th:value="${room.room_id}" th:text="${room.room_id}"></option>
                                             <!--<option value="1">四星级</option>-->
                                             <!--<option value="2">三星级</option>-->
@@ -710,6 +710,24 @@
             'autoWidth'   : false
         })
     })
+
+    function ChangeOthers(){
+        var obj =document.getElementById("room_id");
+        var roomId = obj.selectedOptions[0].value;
+        var url = "/hotelrooms_info_backend/" + roomId;
+
+        $.post(url, function (data) {
+            var type = data.room_type;
+            var text = data.room_text;
+            var price = data.room_price;
+            $("#hotelroom_type").val(type);
+            $("#hotelroom_text").val(text);
+            $("#hotelroom_price").val(price);
+        })
+
+
+
+    }
 </script>
 </body>
 </html>
