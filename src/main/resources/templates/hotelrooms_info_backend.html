@@ -420,9 +420,8 @@
                                 <div class="form-group">
                                     <label for="hotelroom_id">请选择房间号</label>
                                     <div class="dropdown-button">
-                                        <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="room_id" id="hotelroom_id"
-                                        th:each="room:${roomList}">
-                                            <option th:value="${room.room_id}"></option>
+                                        <select class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}' name="room_id" id="hotelroom_id">
+                                            <option th:each="room:${roomlist}" th:value="${room.room_id}" th:text="${room.room_id}"></option>
                                             <!--<option value="1">四星级</option>-->
                                             <!--<option value="2">三星级</option>-->
                                             <!--<option value="3">二星及其以下</option>-->
