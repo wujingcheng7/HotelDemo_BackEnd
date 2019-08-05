@@ -3201,6 +3201,7 @@ span.four {
 }
 .living_box {
     padding: 5px;
+	max-width: 330px;
 }
 .wow.fadeInLeft.animated {
     padding: 0px;
