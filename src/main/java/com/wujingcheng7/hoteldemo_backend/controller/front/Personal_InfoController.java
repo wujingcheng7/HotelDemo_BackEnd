@@ -25,15 +25,15 @@ public class Personal_InfoController {
         String user_tel = (String) session.getAttribute("user_tel");
         Account account = accountService.getUserByTel(user_tel);
         model.addAttribute("user_tel",user_tel);
-        if (account.getUser_sex().equals(""))
+        if (account.getUser_sex()==null||account.getUser_sex().equals(""))
             model.addAttribute("user_sex","请完善信息");
         else
             model.addAttribute("user_sex",account.getUser_sex());
-        if (account.getUser_bankcard().equals(""))
+        if (account.getUser_bankcard()==null||account.getUser_bankcard().equals(""))
             model.addAttribute("user_bankcard","请完善信息");
         else
             model.addAttribute("user_bankcard",account.getUser_bankcard());
-        if (account.getUser_name().equals(""))
+        if (account.getUser_name()==null||account.getUser_name().equals(""))
             model.addAttribute("user_name","请完善信息");
         else
             model.addAttribute("user_name",account.getUser_name());
