@@ -57,6 +57,12 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>3.7.89.ALL</version>
         </dependency>
+        <!--可能有用-->
+        <dependency>
+            <groupId>white.fisher</groupId>
+            <artifactId>alipay-starter</artifactId>
+            <version>0.0.1</version>
+        </dependency>
 
 
     </dependencies>

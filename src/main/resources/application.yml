@@ -25,10 +25,10 @@ logging:
 pay:
   alipay:
     gatewayUrl: https://openhome.alipay.com/gateway.do
-    appid: 2019080566129054
-    appPrivateKey:
-    alipayPublicKey:
-    returnUrl:
-    notifyUrl:
+    appid: 2016101000650541
+    appPrivateKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7T3pm4ov/iFUrlEKmMvqTH6bV/lizOvQMqxZri3DlsSqHHcvZ5UP5x/0aGXmeqycU34xL24d8UeuffUT7Yctt+ez+Fyj/g6tSaFYQ1X2OhZ8YJXO3OjI1HxzDUS0mN9pYfAULCY6pFGDgCAgVi7l1W26fFPkw4lJJ4LB8TdxLpoJV+ocBieSfjPvFXiEuTwNPCWIlEJ4F3TIul/1aWoadRb3yiv9xNwPA7SQ4/WgutclwNSL4IvprTWDM9XDfXZ5EbZnC+96ajeHTgg/D7TFaWEfedYT+P7PKiYjHW+R2uSPNaKvLj099UX/uTfv3LPF7d4IYIjtu51ICjSZWXzgQIDAQAB
+    alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgWEK80l7HZ3321UgMz7dERDMRjSel3sDKB4AxncVZJJyM35dk86/d58HWYbnXunr8sdhRt28PedVWRSi4y5p5umOas/Ff2j91Ddks+UsRofmJIfHwyDIRKnQxKkTmuHuiawsd/xGz84dJehL1c68SmKbBB5ch28ajt/uyDM8p+VWXuEeVU5BIaODMyBLMaeVEbxMJRxgdbfA94GvNkuO4w/ks4uwDJZ6TIwFj5aSLL2kQ9sKvmKdjuHhJuzJEWdXQaSVrWCogoDC7RQNQwkserAkaJfAIGprK/iQY4j4+82Dy5SfqmXN8kQuWBiZWQtRiGTT8vHaM1Php7JH195M1wIDAQAB
+    returnUrl: localhost:8088/return_url.jsp
+    notifyUrl: localhost:8088/notify_url.jsp
 
 
