@@ -179,26 +179,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        $('button[name="order_id"]').click(function () {
-            var order_id = $(this).val();
-            // //console.log(hotelRoomId);
-            // var orderInDate = $("#checkInDate").val(),
-            //     orderOutDate = $("#checkOutDate").val(),
-                url = "/books_display/cancel_a_book";
-            // if(orderInDate==''||orderOutDate==''){
-            //     alert("入住或离店日期不能为空");
-            // }
-
-            /* Send the data using post and put the results in a div */
-            $.post(url, {order_id : order_id},
-                function (data) {
-                    alert(data.cancelorder);
-                }
-            );
-        });
-    });
-</script>
 </body>
 </html>
