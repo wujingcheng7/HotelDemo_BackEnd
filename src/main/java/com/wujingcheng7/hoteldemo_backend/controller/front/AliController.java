@@ -7,7 +7,9 @@ import com.alipay.api.domain.AlipayTradePayModel;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.config.AlipayConfig;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,41 +34,70 @@ public class AliController {
     String public_key = AlipayConfig.alipay_public_key;
     String signtype = AlipayConfig.sign_type;
 
+    @GetMapping("")
+    public String goHtml(){
+        return "/alipay";
+    }
+
     /**
      * 支付请求
      * @param response
      * @param request
-     * @param money
      * @throws IOException
      * @throws AlipayApiException
      */
     @RequestMapping("/pay")
-    public void pay(HttpServletResponse response, HttpServletRequest request,String money)throws IOException, AlipayApiException {
+    public void pay(HttpServletResponse response, HttpServletRequest request)throws IOException, AlipayApiException {
         // 模拟从前台传来的数据
-        String orderNo = "2019080722001432570525475491"; // 乱写个订单号
-        String totalAmount = money; // 支付总金额
-        String subject = "ITAEMBook"; // 订单名称
-        String body = "reading"; // 商品描述
+//        String orderNo = "20150320010101001"; // 生成订单号
+//        String totalAmount = "100"; // 支付总金额
+//        String subject = "ITAEMBook"; // 订单名称
+//        String body = "reading"; // 商品描述
 
-        // 封装请求客户端
-        AlipayClient client = new DefaultAlipayClient(url, app_id, private_key, format, charset, public_key, signtype);
+//        // 封装请求客户端
+//        AlipayClient client = new DefaultAlipayClient(url, app_id, private_key, format, charset, public_key, signtype);
 
         // 支付请求
-        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
-        alipayRequest.setReturnUrl(return_url);
-        alipayRequest.setNotifyUrl(notify_url);
-        AlipayTradePayModel model = new AlipayTradePayModel();
-        model.setProductCode("FAST_INSTANT_TRADE_PAY"); // 设置销售产品码
-        model.setOutTradeNo(orderNo); // 设置订单号
-        model.setSubject(subject); // 订单名称
-        model.setTotalAmount(totalAmount); // 支付总金额
-        model.setBody(body); // 设置商品描述
-        alipayRequest.setBizModel(model);
+//        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+//        alipayRequest.setReturnUrl(return_url);
+//        alipayRequest.setNotifyUrl(notify_url);
+//        AlipayTradePayModel model = new AlipayTradePayModel();
+//        model.setProductCode("FAST_INSTANT_TRADE_PAY"); // 设置销售产品码
+//        model.setOutTradeNo(orderNo); // 设置订单号
+//        model.setSubject(subject); // 订单名称
+//        model.setTotalAmount(totalAmount); // 支付总金额
+//        model.setBody(body); // 设置商品描述
+//        alipayRequest.setBizModel(model);
+//        String form = client.pageExecute(alipayRequest).getBody(); // 生成表单
+//        response.setContentType("text/html;charset=" + charset);
+//        response.getWriter().write(form); // 直接将完整的表单html输出到页面
+//        response.getWriter().flush();
+//        response.getWriter().close();
 
-        String form = client.pageExecute(alipayRequest).getBody(); // 生成表单
-
+        //支付请求
+        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", app_id, private_key, format, charset, public_key, signtype); //获得初始化的AlipayClient
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();//创建API对应的request
+        alipayRequest.setReturnUrl("http://domain.com/CallBack/return_url.jsp");
+        alipayRequest.setNotifyUrl("http://domain.com/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
+        alipayRequest.setBizContent("{" +
+                "    \"out_trade_no\":\"20150320010101001\"," +
+                "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
+                "    \"total_amount\":88.88," +
+                "    \"subject\":\"Iphone6 16G\"," +
+                "    \"body\":\"Iphone6 16G\"," +
+                "    \"passback_params\":\"merchantBizType%3d3C%26merchantBizNo%3d2016010101111\"," +
+                "    \"extend_params\":{" +
+                "    \"sys_service_provider_id\":\"2088511833207846\"" +
+                "    }"+
+                "  }");//填充业务参数
+        String form="";
+        try {
+            form = alipayClient.pageExecute(alipayRequest).getBody(); //调用SDK生成表单
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
         response.setContentType("text/html;charset=" + charset);
-        response.getWriter().write(form); // 直接将完整的表单html输出到页面
+        response.getWriter().write(form);//直接将完整的表单html输出到页面
         response.getWriter().flush();
         response.getWriter().close();
     }
