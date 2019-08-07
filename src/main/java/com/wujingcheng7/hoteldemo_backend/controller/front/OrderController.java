@@ -52,10 +52,9 @@ public class OrderController {
     public String cancelAnOrder(Model model,HttpServletRequest request,@RequestParam("order_id")int order_id){
         boolean isSuccess = orderlistService.cancelAnOrder(order_id)==1;
         if(!isSuccess)
-            model.addAttribute("cancelorder","不能取消已进行的订单");
+           return "failure.html";
         else
-            model.addAttribute("cancelorder","订单取消成功");
-        return OrdersDisplay(model,request);
+            return "success.html";
     }
 
 }
