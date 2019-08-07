@@ -21,6 +21,16 @@ public class OrderController {
     @Autowired
     private OrderlistService orderlistService;
 
+    //用户当前订单
+    @GetMapping("/now")
+    public String NowOrdersDisplay(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String user_tel = (String)session.getAttribute("user_tel");
+        List<OrderList> listOfOrderLists = orderlistService.getNowOrderListsByUserTel(user_tel);
+        model.addAttribute("listOfOrderLists",listOfOrderLists);
+        return "/cancel_order";
+    }
+    //用户所有订单
     @GetMapping("")
     public String OrdersDisplay(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();

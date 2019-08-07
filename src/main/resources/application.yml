@@ -10,6 +10,7 @@ spring:
     prefix: classpath:/templates/
   mvc:
     static-path-pattern: /static/**
+
 #mybatis:这几行注释掉先，不确定是否能用
 #  config-location: classpath:mybatis/mybatis-config.xml
 #  mapper-locations: classpath:mybatis/mapper/*.xml
@@ -20,3 +21,4 @@ logging:
 #registry:
 #  addViewController("/index"):
 #    setViewName("/hotels_display");:
+

@@ -92,12 +92,12 @@ public class OrderlistService {
     public List<OrderList> getOldOrderListsByHotelId(String hotel_id){ return orderlistMapper.getOldOrderlistsByHotelId(hotel_id);}
 
     //查看某用户当前订单
-    public List<OrderList> getyNowOrderListsByUserTel(String user_tel){
+    public List<OrderList> getNowOrderListsByUserTel(String user_tel){
         return orderlistMapper.getNowOrderlistsByUserTel(user_tel);
     }
 
     //查看某用户历史订单
-    public List<OrderList> getyOldOrderListsByUserTel(String user_tel){
+    public List<OrderList> getOldOrderListsByUserTel(String user_tel){
         return orderlistMapper.getOldOrderlistsByUserTel(user_tel);
     }
 

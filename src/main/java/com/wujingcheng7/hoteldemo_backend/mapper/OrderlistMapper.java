@@ -18,15 +18,15 @@ public interface OrderlistMapper {
     List<OrderList> getNowOrderlistsByHotelId(String hotel_id);
 
     /*查看酒店所有历史订单*/
-    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE()")
+    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE() and visible = 1")
     List<OrderList> getOldOrderlistsByHotelId(String hotel_id);
 
     /*查看用户所有当前订单*/
-    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate>CURRENT_DATE()")
+    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate>=CURRENT_DATE() and visible = 1")
     List<OrderList> getNowOrderlistsByUserTel(String user_tel);
 
     /*查看用户所有历史订单*/
-    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate<CURRENT_DATE()")
+    @Select("select * from order_list where user_tel=#{user_tel} and order_outdate<CURRENT_DATE() and visible = 1")
     List<OrderList> getOldOrderlistsByUserTel(String user_tel);
 
     /*预定房间时查询该房间所有冲突订单*/
@@ -45,7 +45,7 @@ public interface OrderlistMapper {
     * 只能取消未入住的订单
     * 删除数据库订单
     * */
-    @Delete("delete order_list where order_id = #{order_id} and order_indate>CURRENT_DATE()")
+    @Delete("delete from order_list where order_id=#{order_id} and order_indate>CURRENT_DATE()")
     int cancelOrderlistByOrderId(int order_id);
 
     /*

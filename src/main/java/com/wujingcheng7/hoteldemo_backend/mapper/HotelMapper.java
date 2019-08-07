@@ -11,7 +11,7 @@ public interface HotelMapper {
     @Select("select * from hotel where hotel_id=#{hotel_id}")
     Hotel getById(String hotel_id);
 
-    @Delete("Delete * from hotel where hotel_id=#{hotel_id}")
+    @Delete("Delete from hotel where hotel_id=#{hotel_id}")
     void deleteById(String hotel_id);
 
     @Insert("Insert into book_list(hotel_id,hotel_name,hotel_longitude,hotel_latitude,hotel_stars,hotel_address,hotel_text) values(#{hotel_id},#{hotel_name},#{hotel_longitude},#{hotel_latitude},#{hotel_stars},#{hotel_address},#{hotel_text})")
