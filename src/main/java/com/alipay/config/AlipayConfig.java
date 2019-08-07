@@ -18,13 +18,13 @@ public class AlipayConfig {
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
     // 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
-    public static String app_id = "";
+    public static String app_id = "2016101000650541";
 
     // 商户私钥，您的PKCS8格式RSA2私钥
-    public static String merchant_private_key = "";
+    public static String merchant_private_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7T3pm4ov/iFUrlEKmMvqTH6bV/lizOvQMqxZri3DlsSqHHcvZ5UP5x/0aGXmeqycU34xL24d8UeuffUT7Yctt+ez+Fyj/g6tSaFYQ1X2OhZ8YJXO3OjI1HxzDUS0mN9pYfAULCY6pFGDgCAgVi7l1W26fFPkw4lJJ4LB8TdxLpoJV+ocBieSfjPvFXiEuTwNPCWIlEJ4F3TIul/1aWoadRb3yiv9xNwPA7SQ4/WgutclwNSL4IvprTWDM9XDfXZ5EbZnC+96ajeHTgg/D7TFaWEfedYT+P7PKiYjHW+R2uSPNaKvLj099UX/uTfv3LPF7d4IYIjtu51ICjSZWXzgQIDAQAB";
 
     // 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
-    public static String alipay_public_key = "";
+    public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgWEK80l7HZ3321UgMz7dERDMRjSel3sDKB4AxncVZJJyM35dk86/d58HWYbnXunr8sdhRt28PedVWRSi4y5p5umOas/Ff2j91Ddks+UsRofmJIfHwyDIRKnQxKkTmuHuiawsd/xGz84dJehL1c68SmKbBB5ch28ajt/uyDM8p+VWXuEeVU5BIaODMyBLMaeVEbxMJRxgdbfA94GvNkuO4w/ks4uwDJZ6TIwFj5aSLL2kQ9sKvmKdjuHhJuzJEWdXQaSVrWCogoDC7RQNQwkserAkaJfAIGprK/iQY4j4+82Dy5SfqmXN8kQuWBiZWQtRiGTT8vHaM1Php7JH195M1wIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
     public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
@@ -42,7 +42,7 @@ public class AlipayConfig {
     public static String gatewayUrl = "https://openapi.alipay.com/gateway.do";
 
     // 支付宝网关
-    public static String log_path = "C:\\";
+    public static String log_path = "/Users/wujingcheng/VisualStudio Projects/mylog";
 
 
 //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
