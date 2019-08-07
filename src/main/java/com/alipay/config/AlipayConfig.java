@@ -27,10 +27,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgWEK80l7HZ3321UgMz7dERDMRjSel3sDKB4AxncVZJJyM35dk86/d58HWYbnXunr8sdhRt28PedVWRSi4y5p5umOas/Ff2j91Ddks+UsRofmJIfHwyDIRKnQxKkTmuHuiawsd/xGz84dJehL1c68SmKbBB5ch28ajt/uyDM8p+VWXuEeVU5BIaODMyBLMaeVEbxMJRxgdbfA94GvNkuO4w/ks4uwDJZ6TIwFj5aSLL2kQ9sKvmKdjuHhJuzJEWdXQaSVrWCogoDC7RQNQwkserAkaJfAIGprK/iQY4j4+82Dy5SfqmXN8kQuWBiZWQtRiGTT8vHaM1Php7JH195M1wIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+    public static String notify_url = "http://localhost/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://工程公网访问地址/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
+    public static String return_url = "http://localhost/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
 
     // 签名方式
     public static String sign_type = "RSA2";
@@ -43,6 +43,9 @@ public class AlipayConfig {
 
     // 支付宝网关
     public static String log_path = "/Users/wujingcheng/VisualStudio Projects/mylog";
+
+    //格式
+    public static String fromat = "json";
 
 
 //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
