@@ -1,5 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.controller.front;
 
+import com.wujingcheng7.hoteldemo_backend.domain.Account;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,22 +19,35 @@ public class Personal_InfoController {
 
     @Autowired
     AccountService accountService;
-    @GetMapping("/")
-    public String getPage(){
-        return "/personal_info";
-    }
-
     @GetMapping("")
-    public String getHtml(){
+    public String personal_info(HttpServletRequest request,Model model){
+        HttpSession session = request.getSession();
+        String user_tel = (String) session.getAttribute("user_tel");
+        Account account = accountService.getUserByTel(user_tel);
+        model.addAttribute("user_tel",user_tel);
+        if (account.getUser_sex().equals(""))
+            model.addAttribute("user_sex","请完善信息");
+        else
+            model.addAttribute("user_sex",account.getUser_sex());
+        if (account.getUser_bankcard().equals(""))
+            model.addAttribute("user_bankcard","请完善信息");
+        else
+            model.addAttribute("user_bankcard",account.getUser_bankcard());
+        if (account.getUser_name().equals(""))
+            model.addAttribute("user_name","请完善信息");
+        else
+            model.addAttribute("user_name",account.getUser_name());
         return "/personal_info";
     }
 
-    @PostMapping("")
-    public Model personal_info_update(HttpServletRequest request, @RequestParam("user_password") String user_password , @RequestParam("user_name") String user_name , @RequestParam("user_sex") String user_sex , @RequestParam("user_bankcard") String user_bankcard , Model model){
+    @GetMapping("/modify")
+    public String personal_info_updatehtml(){return "/personal_info_modify";}
+    @PostMapping("/modify")
+    public String personal_info_update(HttpServletRequest request, @RequestParam("user_password") String user_password , @RequestParam("user_name") String user_name , @RequestParam("user_sex") String user_sex , @RequestParam("user_bankcard") String user_bankcard , Model model){
         HttpSession session = request.getSession();
         String user_tel = (String) session.getAttribute("user_tel");
         if (user_tel.equals("")||user_tel.equals("TEL"))
-            return model;
+            return "redirect:/personal_info";
         if(!user_password.equals("password"))
             accountService.updatePassword(user_password,user_tel);
         if (!user_name.equals("name"))
@@ -42,7 +56,7 @@ public class Personal_InfoController {
             accountService.updateSex(user_sex,user_tel);
         if (!user_bankcard.equals("bankcard"))
             accountService.updateBankcard(user_bankcard,user_tel);
-        return model;
+        return "redirect:/personal_info";
     }
 
 }

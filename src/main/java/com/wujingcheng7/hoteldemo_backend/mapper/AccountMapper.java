@@ -11,6 +11,9 @@ public interface AccountMapper {
     @Select("select user_tel from account where user_tel=#{user_tel}")
     String getByTel(String user_tel);
 
+    @Select("select * from account where user_tel=#{user_tel}")
+    Account getUserByTel(String user_tel);
+
     @Delete("delete * from account where user_tel=#{user_tel}")
     void deleteByTel(String user_tel);
 

@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import java.sql.SQLException;
 import java.sql.SQLOutput;
@@ -121,6 +122,10 @@ public class AccountService {
         }
         System.out.println(result.toString());
         return  result;
+    }
+
+    public Account getUserByTel(String user_tel){
+        return accountMapper.getUserByTel(user_tel);
     }
     public String getHotelIdByHotelAdminId(String hotel_admin_id){
         return hotelAdminMapper.getHotelIdByHotelAdminId(hotel_admin_id);
