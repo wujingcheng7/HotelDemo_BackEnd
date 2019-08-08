@@ -75,7 +75,7 @@ public class AliController {
 //        response.getWriter().close();
 
         //支付请求
-        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", app_id, private_key, format, charset, public_key, signtype); //获得初始化的AlipayClient
+        AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipaydev.com/gateway.do", app_id, private_key, format, charset, public_key, signtype); //获得初始化的AlipayClient
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();//创建API对应的request
         alipayRequest.setReturnUrl("http://domain.com/CallBack/return_url.jsp");
         alipayRequest.setNotifyUrl("http://domain.com/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
