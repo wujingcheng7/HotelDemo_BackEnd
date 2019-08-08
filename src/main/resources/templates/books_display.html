@@ -104,6 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<th>入住时间</th>
 						<th>离店时间</th>
 						<th>花费金额</th>
+						<th>支付状态</th>
 						<th>删除操作</th>
 					</tr>
 					<tr th:each ="i:${listOfOrderLists}">
@@ -112,6 +113,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td th:text = "${#dates.format(i.order_indate, 'yyyy-MM-dd')}"></td>
 						<td th:text = "${#dates.format(i.order_outdate, 'yyyy-MM-dd')}"></td>
 						<td th:text = "'￥'+${i.order_price}"></td>
+						<td th:if ="${i.order_paid}==false">
+							<form method="post" action="/alipay" id="order_id">
+								<button type="submit" name="order_id" th:value="${i.order_id}">前往支付</button>
+							</form>
+						</td>
 						<td>
 							<form method="post" action="/books_display/delete_a_book">
 								<button type="submit" name="order_id" th:value="${i.order_id}">删除订单</button>

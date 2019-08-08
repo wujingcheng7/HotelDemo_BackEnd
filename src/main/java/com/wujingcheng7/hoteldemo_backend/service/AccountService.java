@@ -124,22 +124,42 @@ public class AccountService {
         return  result;
     }
 
+    //获取用户
     public Account getUserByTel(String user_tel){
         return accountMapper.getUserByTel(user_tel);
     }
+
+    //获取管理员所在酒店
     public String getHotelIdByHotelAdminId(String hotel_admin_id){
         return hotelAdminMapper.getHotelIdByHotelAdminId(hotel_admin_id);
     }
+
+    //更新密码
     public boolean updatePassword(String user_password,String user_tel){
         return accountMapper.updateUserPassword(user_password,user_tel);
     }
+
+    //更新名字
     public boolean updateName(String user_name,String user_tel){
         return accountMapper.updateUserName(user_name,user_tel);
     }
+    //更新性别
     public boolean updateSex(String user_sex,String user_tel){
         return accountMapper.updateUserSex(user_sex,user_tel);
     }
+
+    //更新银行卡号
     public boolean updateBankcard(String user_bankcard,String user_tel){
         return accountMapper.updateUserBankcard(user_bankcard,user_tel);
+    }
+
+    //更新密保问题
+    public void updateUserQuestion(String user_tel,String user_question){
+        accountMapper.setUserQuestion(user_tel,user_question);
+    }
+
+    //更新密保答案
+    public void updateUserAnswer(String user_tel,String user_answer){
+        accountMapper.setUserAnswer(user_tel,user_answer);
     }
 }

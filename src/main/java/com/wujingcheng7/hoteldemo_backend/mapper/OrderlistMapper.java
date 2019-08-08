@@ -58,5 +58,6 @@ public interface OrderlistMapper {
     @Insert("insert into order_list(hotel_id,user_tel,room_id,hotel_room_id,order_price,order_indate,order_outdate,order_howmanyday,hotel_name) values (#{hotel_id},#{user_tel},#{room_id},#{hotel_room_id},#{order_price},#{order_indate},#{order_outdate},#{order_howmanyday},#{hotel_name})")
     void insertOrderlist(OrderList orderList);
 
-
+    @Select("select order_paid from order_list where order_id = #{order_id}")
+    boolean isPaid(int order_id);
 }
