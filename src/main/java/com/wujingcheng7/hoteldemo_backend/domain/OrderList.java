@@ -14,6 +14,19 @@ public class OrderList {
     private String order_howmanyday;
     private String hotel_name;
     private boolean visible;
+    private boolean order_paid;
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public boolean isOrder_paid() {
+        return order_paid;
+    }
+
+    public void setOrder_paid(boolean order_paid) {
+        this.order_paid = order_paid;
+    }
 
     public boolean isVisible() {
         return visible;
@@ -102,7 +115,7 @@ public class OrderList {
     public OrderList() {
     }
 
-    public OrderList(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, Date order_indate, Date order_outdate, String order_howmanyday, String hotel_name) {
+    public OrderList(int order_id, String hotel_id, String user_tel, String room_id, String hotel_room_id, String order_price, Date order_indate, Date order_outdate, String order_howmanyday, String hotel_name, boolean visible, boolean order_paid) {
         this.order_id = order_id;
         this.hotel_id = hotel_id;
         this.user_tel = user_tel;
@@ -113,5 +126,7 @@ public class OrderList {
         this.order_outdate = order_outdate;
         this.order_howmanyday = order_howmanyday;
         this.hotel_name = hotel_name;
+        this.visible = visible;
+        this.order_paid = order_paid;
     }
 }
