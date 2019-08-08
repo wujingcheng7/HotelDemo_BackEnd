@@ -1,6 +1,7 @@
 package com.wujingcheng7.hoteldemo_backend.controller.front;
 
 import com.wujingcheng7.hoteldemo_backend.config.Result;
+import com.wujingcheng7.hoteldemo_backend.domain.Account;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,5 +42,17 @@ public class LoginController {
             model.addAttribute("msg","用户名或密码错误");
             return "/login";
         }
+    }
+
+    @GetMapping("/findPassword/verifyAccount")
+    public String findPassword(HttpServletRequest request, Model model){
+        String user_tel = request.getParameter("user_tel");
+        Account account = accountService.getUserByTel(user_tel);
+        if (account==null) {
+            model.addAttribute("verify", "该手机号不存在");
+            return "/login";
+        }
+        else
+            return "redirect:/findPassword/verify";
     }
 }
