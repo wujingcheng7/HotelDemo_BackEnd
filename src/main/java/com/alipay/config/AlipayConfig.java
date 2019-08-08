@@ -42,7 +42,7 @@ public class AlipayConfig {
     public static String gatewayUrl = "https://openapi.alipaydev.com/gateway.do";
 
     // 支付宝网关
-    public static String log_path = "/Users/wujingcheng/VisualStudio Projects/mylog";
+    public static String log_path = "/data";
 
     //格式
     public static String fromat = "json";

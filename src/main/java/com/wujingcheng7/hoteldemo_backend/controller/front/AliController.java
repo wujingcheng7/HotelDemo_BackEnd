@@ -7,6 +7,7 @@ import com.alipay.api.domain.AlipayTradePayModel;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.config.AlipayConfig;
+import com.wujingcheng7.hoteldemo_backend.domain.OrderList;
 import com.wujingcheng7.hoteldemo_backend.service.HotelRoomService;
 import com.wujingcheng7.hoteldemo_backend.service.HotelService;
 import com.wujingcheng7.hoteldemo_backend.service.OrderlistService;
@@ -53,22 +54,26 @@ public class AliController {
      * @throws AlipayApiException
      */
     @RequestMapping("/alipay")
-    public void pay(HttpServletResponse response, HttpServletRequest request,@Param("order_id")String order_id)throws IOException, AlipayApiException {
+    public void pay(HttpServletResponse response, HttpServletRequest request,@Param("order_id")int order_id)throws IOException, AlipayApiException {
 
         //从后台获取订单信息（尤其是金额），用于支付。拒绝从前端获取，增加安全性
+        OrderList orderList = orderlistService.getOrderListByOrderId(order_id);
+        String hotelName=hotelService.getHotelById(orderList.getHotel_id()).getHotel_name();
+        String roomName=hotelRoomService.getRoomByHotelRoomId(orderList.getHotel_room_id()).getRoom_type();
+        String money=orderList.getOrder_price();
 
 
         //支付请求
         AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipaydev.com/gateway.do", app_id, private_key, format, charset, public_key, signtype); //获得初始化的AlipayClient
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();//创建API对应的request
-        alipayRequest.setReturnUrl("http://domain.com/CallBack/return_url.jsp");
-        alipayRequest.setNotifyUrl("http://domain.com/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
+        alipayRequest.setReturnUrl("http://jingchengwu.cn/CallBack/return_url.jsp");
+        alipayRequest.setNotifyUrl("http://jingchengwu.cn/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
         alipayRequest.setBizContent("{" +
                 "    \"out_trade_no\":\"20150320010101001\"," +
                 "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
-                "    \"total_amount\":"+"88.88"+"," +
-                "    \"subject\":"+"\""+"Iphone6 16G"+"\"," +
-                "    \"body\":"+"\""+"Iphone6 16G"+"\"," +
+                "    \"total_amount\":"+money+"," +
+                "    \"subject\":"+"\""+hotelName+" "+roomName+"\"," +
+                "    \"body\":"+"\""+hotelName+" "+roomName+"\"," +
                 "    \"passback_params\":\"merchantBizType%3d3C%26merchantBizNo%3d2016010101111\"," +
                 "    \"extend_params\":{" +
                 "    \"sys_service_provider_id\":\"2088511833207846\"" +
