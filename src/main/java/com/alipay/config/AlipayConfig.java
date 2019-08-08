@@ -18,19 +18,19 @@ public class AlipayConfig {
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
     // 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
-    public static String app_id = "2016101000650541";
+    public static String app_id = "2019080566116170";
 
     // 商户私钥，您的PKCS8格式RSA2私钥
-    public static String merchant_private_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7T3pm4ov/iFUrlEKmMvqTH6bV/lizOvQMqxZri3DlsSqHHcvZ5UP5x/0aGXmeqycU34xL24d8UeuffUT7Yctt+ez+Fyj/g6tSaFYQ1X2OhZ8YJXO3OjI1HxzDUS0mN9pYfAULCY6pFGDgCAgVi7l1W26fFPkw4lJJ4LB8TdxLpoJV+ocBieSfjPvFXiEuTwNPCWIlEJ4F3TIul/1aWoadRb3yiv9xNwPA7SQ4/WgutclwNSL4IvprTWDM9XDfXZ5EbZnC+96ajeHTgg/D7TFaWEfedYT+P7PKiYjHW+R2uSPNaKvLj099UX/uTfv3LPF7d4IYIjtu51ICjSZWXzgQIDAQAB";
+    public static String merchant_private_key = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCC7e1ADxLQTxu7NGQNCSxu0U99ydypEywAK5Q/tULrpX3Jy7wQ4Zw27rq2p1j4xjVWO0XuI7OxyeDKjBIH3bmBGXaQKuWHQBNCycdCdpel0/2/sZV91y04pMX9HLpaTyM9OpAtYqyPiw3tg7iAZv//dNVZG8SAqmCW2dbRMBYCEsUkpnbfJeDW7bZ70rC2//Y5jjh1RDTeF3d+KHYYbDwsHDGZZ78lw1+x53pVbZrW9fzMDf779dRsZ5RPdfrghNkN5TSOOrgEQrnRVoIfu11XGq5W+jyjCT54x62DGLYqlBpsB8OEZGal1ZwxVluKwyTyHvN8MGygEbWFgLLV3tLhAgMBAAECggEACELI0FzjG/+RyVsB4QyuIAPW1yHwaT6LbStSvD5MjZ+wcxYGtK33dEPVxgaDB5dB8EHnJKJeCR6qrzztOk/UD4Ayyd/bAZCaZoFisB/Za54XiYvD2d/Eu6kx0MmKPH53w7o5NJPgPWJRq6W+82MMTerqNygYWuHlHD98XVCCYvkDGwAJEHVWAFNvBRj7uQWzNxF8acSal9ZoxktTA+asbSspPqV1ahCnGkDkASJHzI2AD3EW3BmR9S76/MABJRJAcKzjJgrv/qg1bHAa5L38/m3Tuz4twS5X0NAnT4Ai5fcCOH994RZH0ztmgu+sVhsIoRZM+eTuAu3gQiiF0mdvnQKBgQC3NPpn8Par75v/a+wrO7EtLd4AIxcB68ZIpKdh07mtGA/CWcBlbxA0DXRuZFDDEnOaZVgp6r6jW9u31mt7Hy1wuF+3Kn3g0j7+wtxrnVfQwj6s0l9MbhJJF0MUZRuo+RNH03XhKoPab0emF+hE+WzxgZC4YQ1QVHZVj7oaWpPWpwKBgQC284B4JdEyshxzXGvzH/asBiKJ9xrpvbFqfOFE2qn+tnckiNmuELawYmQsEmcjvf18h/JsjPK3DeNUiLRzLsZRzZuKdQFfjCTJMavX7WCn27I01mUDr7opn62TQc6YDWpGlb1iSMeqRRbsW8ljqPawfc8MGpX1245M09zCxWJDNwKBgQCE0voAxahw+yTkR8BPj9ViZfCftNEHaYK2Q/m+aRwirGEwjJV6dM0Qj/ir2DrdUtFRTMxgh3pzQTPI0sHV38K4CFQMndfpWUSmu2vG8aorBckezt6csOi86QqPDMbC+OHLnznFZ2d0xFzzxD13VEZxyXe81VArvzCT08IfPTAV3QKBgE28o77pmr1mzw35nGjfEQpBRRXIaKgfES7FR1bhbtArKe7dM1lyAp5qAFR1sVuPlBEBFvIm5c8AWLMHr10t59jEe63WT7IQs2TF9VW3qJVKlas72go59elPzwo+MRGMybaaU7FaaXShDL97tNPi7IdLvdlPxp6EHy/n6ercwgb7AoGATYurj5AyZ6pTf6BLdHxCidrQGXWevSvyLmN1uRbVw5rPmgamC/lAbPtYOLhXeJaWyEqAOKPxnB/aC9cdD7+tAT02YXoq9OSBMBbZkJkLEwyG1RYsYCwVHmKJCwi8gw/BH8p2lmnFK5NgIzIHaRvPhHy0mS68WEWdXxpBwwHcQTM=";
 
     // 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
-    public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgWEK80l7HZ3321UgMz7dERDMRjSel3sDKB4AxncVZJJyM35dk86/d58HWYbnXunr8sdhRt28PedVWRSi4y5p5umOas/Ff2j91Ddks+UsRofmJIfHwyDIRKnQxKkTmuHuiawsd/xGz84dJehL1c68SmKbBB5ch28ajt/uyDM8p+VWXuEeVU5BIaODMyBLMaeVEbxMJRxgdbfA94GvNkuO4w/ks4uwDJZ6TIwFj5aSLL2kQ9sKvmKdjuHhJuzJEWdXQaSVrWCogoDC7RQNQwkserAkaJfAIGprK/iQY4j4+82Dy5SfqmXN8kQuWBiZWQtRiGTT8vHaM1Php7JH195M1wIDAQAB";
+    public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhjqPHSrUZePyWitR7+qlY/VEWvPmTDYZOla9RVRZDdCy4AgGycGtNw0xnc8/KhKhl4ZXVDOOlfPWyyfe6U8M+ne4gjWOZ8y6Bu2IKVRraf1CvKkegRSV09NSVVmnxQ9B71u22qpmDxXzYpTzbOTyXJKLNx1CmqAaTcTIf5f1MLtG9VQ3zUcMrqae/OJWTvEz5pPqoNHSIUIrtLs8IZHpltAGA7U1niAwIoBgthLV04aPx4jCDTO8q7uxy0IfdYu+QV8m85KjrVLYPb89NNj0NzCcxu8BYWaXzV4kf+jG/Uer3owsgQbpNcsloW1qAeXDmRauDXPQMKbmwX8QZlTJFwIDAQAB";
 
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://localhost/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+    public static String notify_url = "http://localhost:8088/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://localhost/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
+    public static String return_url = "http://localhost:8088/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
 
     // 签名方式
     public static String sign_type = "RSA2";
@@ -39,7 +39,7 @@ public class AlipayConfig {
     public static String charset = "utf-8";
 
     // 支付宝网关
-    public static String gatewayUrl = "https://openapi.alipay.com/gateway.do";
+    public static String gatewayUrl = "https://openapi.alipaydev.com/gateway.do";
 
     // 支付宝网关
     public static String log_path = "/Users/wujingcheng/VisualStudio Projects/mylog";
