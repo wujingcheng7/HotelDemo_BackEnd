@@ -153,6 +153,18 @@ public class AccountService {
         return accountMapper.updateUserBankcard(user_bankcard,user_tel);
     }
 
+    //获取密保问题
+    public String getUserQuestion(String user_tel){
+        return accountMapper.getUserQuestion(user_tel);
+    }
+
+    //验证密保答案是否正确
+    public boolean isRight(String user_tel,String user_answer_now){
+        String user_answer = accountMapper.getUserAnswer(user_tel);
+        boolean isRight = user_answer.equals(user_answer_now);
+        return isRight;
+    }
+
     //更新密保问题
     public void updateUserQuestion(String user_tel,String user_question){
         accountMapper.setUserQuestion(user_tel,user_question);

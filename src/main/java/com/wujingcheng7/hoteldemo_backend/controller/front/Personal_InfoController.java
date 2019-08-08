@@ -1,5 +1,6 @@
 package com.wujingcheng7.hoteldemo_backend.controller.front;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.wujingcheng7.hoteldemo_backend.domain.Account;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,4 +60,16 @@ public class Personal_InfoController {
         return "redirect:/personal_info";
     }
 
+    @GetMapping("/modifyPassword")
+    public String modifyPasswordHtml(){
+        return "modifyPassword";
+    }
+
+    @PostMapping("/modifyPassword")
+    public String modifyPassword(HttpServletRequest request, Model model,@RequestParam("user_password") String user_password){
+        HttpSession session = request.getSession();
+        String user_tel = (String) session.getAttribute("user_tel");
+        accountService.updatePassword(user_password,user_tel);
+        return "/login";
+    }
 }
