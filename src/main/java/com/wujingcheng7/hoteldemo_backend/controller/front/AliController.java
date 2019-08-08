@@ -14,6 +14,7 @@ import com.wujingcheng7.hoteldemo_backend.service.OrderlistService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,7 +45,8 @@ public class AliController {
     HotelRoomService hotelRoomService;
     @Autowired
     HotelService hotelService;
-
+    @Autowired
+    OrderController orderController;
 
 
     /**
@@ -100,8 +102,7 @@ public class AliController {
      * @throws Exception
      */
     @RequestMapping("/returnUrl")
-    public String returnUrl(HttpServletRequest request) throws Exception {
-//        ModelAndView mav = new ModelAndView();
+    public String returnUrl(HttpServletRequest request,Model model) throws Exception {
 
         // 获取支付宝GET过来反馈信息（官方固定代码）
         Map<String, String> params = new HashMap<String, String>();
@@ -123,15 +124,10 @@ public class AliController {
             String StringOrderId = request.getParameter("out_trade_no");
             int order_id=Integer.parseInt(StringOrderId);
             orderlistService.setPayState(true,order_id);
-            return "/index";
-//            mav.setViewName("books_display");
         } else {
             System.out.println("前往支付失败页面");
-//            mav.setViewName("books_display");
-            return "/index";
         }
-//        return mav;
-
+        return orderController.NowOrdersDisplay(model,request);
     }
 
     /**
