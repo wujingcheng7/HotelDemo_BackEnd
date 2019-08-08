@@ -46,4 +46,14 @@ public interface AccountMapper {
 
     @Update("update user_question set user_answer = #{user_answer} where user_tel=#{user_tel}")
     void setUserAnswer(String user_tel,String user_question);
+
+    //获取密保问题
+    @Select("select user_question from user_question where user_tel=#{user_tel}")
+    String getUserQuestion(String user_tel);
+
+    //获取密保答案
+    @Select("select user_answer from user_question where user_tel=#{user_tel}")
+    String getUserAnswer(String user_tel);
+
+
 }

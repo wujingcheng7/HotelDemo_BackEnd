@@ -2,6 +2,7 @@ package com.wujingcheng7.hoteldemo_backend.controller.front;
 
 import com.wujingcheng7.hoteldemo_backend.config.Result;
 import com.wujingcheng7.hoteldemo_backend.domain.Account;
+import com.wujingcheng7.hoteldemo_backend.domain.UserQuestion;
 import com.wujingcheng7.hoteldemo_backend.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,5 +55,27 @@ public class LoginController {
         }
         else
             return "redirect:/findPassword/verify";
+    }
+
+    @GetMapping("/findPassword/verified")
+    public String verifyQuestion(HttpServletRequest request, Model model){
+        String user_tel = request.getParameter("user_tel");
+        String userQuestion = accountService.getUserQuestion(user_tel);
+        model.addAttribute("question",userQuestion);
+        return "UserQuestion";//问答界面
+    }
+
+    @PostMapping("/findPassword/verified")
+    public String verifyAnswer(HttpServletRequest request, Model model){
+        String user_tel = request.getParameter("user_tel");
+        String user_answer_now = request.getParameter("user_answer_now");//用户输入的答案
+        Boolean isRight = accountService.isRight(user_tel,user_answer_now);
+        if (isRight) {
+            return "redirect:/modifyPassword";//修改密码
+        }
+        else {
+            model.addAttribute("answer", "答案错误");
+            return "/findPassword/verified";//跳回答案界面
+        }
     }
 }
