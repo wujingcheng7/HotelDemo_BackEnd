@@ -126,4 +126,13 @@ public class OrderlistService {
 
         return result;
     }
+    //修改订单状态
+    public void setPayState(boolean x,int order_id){
+        if (x){
+            orderlistMapper.setOrderPaid(order_id);
+        }
+        if (!x){
+            orderlistMapper.setOrderUnPaid(order_id);
+        }
+    }
 }

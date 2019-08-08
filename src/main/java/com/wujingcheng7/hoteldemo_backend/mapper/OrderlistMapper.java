@@ -60,4 +60,13 @@ public interface OrderlistMapper {
 
     @Select("select order_paid from order_list where order_id = #{order_id}")
     boolean isPaid(int order_id);
+
+    //修改订单状态为已经支付
+    @Update("update order_list set order_paid=true where order_id=#{order_id}")
+    void setOrderPaid(int order_id);
+
+    //修改订单状态为未支付
+    @Update("update order_list set order_paid=false where order_id=#{order_id}")
+    void setOrderUnPaid(int order_id);
+
 }

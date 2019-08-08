@@ -45,6 +45,8 @@ public class AliController {
     @Autowired
     HotelService hotelService;
 
+    public int tmpOrderId;
+
 
     /**
      * 支付请求
@@ -61,6 +63,7 @@ public class AliController {
         String hotelName=hotelService.getHotelById(orderList.getHotel_id()).getHotel_name();
         String roomName=hotelRoomService.getRoomByHotelRoomId(orderList.getHotel_room_id()).getRoom_type();
         String money=orderList.getOrder_price();
+        tmpOrderId=order_id;
 
 
         //支付请求
@@ -155,6 +158,7 @@ public class AliController {
             // 交易状态
             String trade_status = request.getParameter("trade_status");
             // 修改数据库
+            orderlistService.setPayState(true,tmpOrderId);
         } else {
             System.out.println("异步通知失败");
         }
