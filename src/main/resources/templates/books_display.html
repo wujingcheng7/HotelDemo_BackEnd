@@ -118,6 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<button type="submit" name="order_id" th:value="${i.order_id}">前往支付</button>
 							</form>
 						</td>
+						<td th:if ="${i.order_paid}==true">已支付</td>
 						<td>
 							<form method="post" action="/books_display/delete_a_book">
 								<button type="submit" name="order_id" th:value="${i.order_id}">删除订单</button>
