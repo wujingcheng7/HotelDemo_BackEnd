@@ -45,7 +45,6 @@ public class AliController {
     @Autowired
     HotelService hotelService;
 
-    public int tmpOrderId;
 
 
     /**
@@ -63,16 +62,16 @@ public class AliController {
         String hotelName=hotelService.getHotelById(orderList.getHotel_id()).getHotel_name();
         String roomName=hotelRoomService.getRoomByHotelRoomId(orderList.getHotel_room_id()).getRoom_type();
         String money=orderList.getOrder_price();
-        tmpOrderId=order_id;
+        String stringOderId=String.valueOf(order_id);
 
 
         //支付请求
         AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipaydev.com/gateway.do", app_id, private_key, format, charset, public_key, signtype); //获得初始化的AlipayClient
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();//创建API对应的request
-        alipayRequest.setReturnUrl("http://jingchengwu.cn/CallBack/return_url.jsp");
-        alipayRequest.setNotifyUrl("http://jingchengwu.cn/CallBack/notify_url.jsp");//在公共参数中设置回跳和通知地址
+        alipayRequest.setReturnUrl("http://localhost/returnUrl");
+        alipayRequest.setNotifyUrl("http://localhost/notifyUrl");//在公共参数中设置回跳和通知地址
         alipayRequest.setBizContent("{" +
-                "    \"out_trade_no\":\"20150320010101001\"," +
+                "    \"out_trade_no\":\""+stringOderId+"\"," +
                 "    \"product_code\":\"FAST_INSTANT_TRADE_PAY\"," +
                 "    \"total_amount\":"+money+"," +
                 "    \"subject\":"+"\""+hotelName+" "+roomName+"\"," +
@@ -101,8 +100,8 @@ public class AliController {
      * @throws Exception
      */
     @RequestMapping("/returnUrl")
-    public ModelAndView returnUrl(HttpServletRequest request) throws Exception {
-        ModelAndView mav = new ModelAndView();
+    public String returnUrl(HttpServletRequest request) throws Exception {
+//        ModelAndView mav = new ModelAndView();
 
         // 获取支付宝GET过来反馈信息（官方固定代码）
         Map<String, String> params = new HashMap<String, String>();
@@ -121,12 +120,18 @@ public class AliController {
         // 返回界面
         if (signVerified) {
             System.out.println("前往支付成功页面");
-            mav.setViewName("successReturn");
+            String StringOrderId = request.getParameter("out_trade_no");
+            int order_id=Integer.parseInt(StringOrderId);
+            orderlistService.setPayState(true,order_id);
+            return "/index";
+//            mav.setViewName("books_display");
         } else {
             System.out.println("前往支付失败页面");
-            mav.setViewName("failReturn");
+//            mav.setViewName("books_display");
+            return "/index";
         }
-        return mav;
+//        return mav;
+
     }
 
     /**
@@ -158,7 +163,9 @@ public class AliController {
             // 交易状态
             String trade_status = request.getParameter("trade_status");
             // 修改数据库
-            orderlistService.setPayState(true,tmpOrderId);
+            int OrderId = Integer.parseInt(out_trade_no);
+            System.out.println("异步收到订单号：   "+OrderId);
+            System.out.println("异步收到订单状态：  "+trade_status);
         } else {
             System.out.println("异步通知失败");
         }
