@@ -1,3 +1,4 @@
+/*
 package com.wujingcheng7.hoteldemo_backend.config;
 
 import com.wujingcheng7.hoteldemo_backend.config.Interceptors.LoginInterceptor;
@@ -14,7 +15,8 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor).addPathPatterns("/*","/books_display/*","/personal_info/*")
-                .excludePathPatterns("/login","/index","/register","/login_backend","/hotels_display");
+                .excludePathPatterns("/login/*","/index","/register","/login_backend","/hotels_display");
     }
 
 }
+*/
