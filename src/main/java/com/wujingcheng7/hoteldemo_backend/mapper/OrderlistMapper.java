@@ -18,7 +18,7 @@ public interface OrderlistMapper {
     List<OrderList> getNowOrderlistsByHotelId(String hotel_id);
 
     /*查看酒店所有历史订单*/
-    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE() and visible = 1")
+    @Select("Select * from order_list where hotel_id=#{hotel_id} and order_outdate<CURRENT_DATE() ")
     List<OrderList> getOldOrderlistsByHotelId(String hotel_id);
 
     /*查看用户所有当前订单*/
